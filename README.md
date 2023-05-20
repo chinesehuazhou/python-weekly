@@ -12,3 +12,7 @@
 ## 赞助支持
 
 内容创作不易，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png)、[买杯咖啡](https://www.buymeacoffee.com/pythoncat)或在[爱发电](https://afdian.net/a/pythoncat)进行支持！
+
+订阅方式：[Python猫公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly)
+
+![](https://img.pythoncat.top/pythoncat.png)
