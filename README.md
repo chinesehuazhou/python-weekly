@@ -10,6 +10,7 @@ Python 潮流周刊精心筛选国内外的 200+ 信息源，为你挑选最值�
 
 ## 往期列表
 
+- 第 4 期：[Python 2023 语言峰会](./docs/2023-05-31-weekly4.md)
 - 第 3 期：[PyPI 的安全问题](./docs/2023-05-27-weekly3.md)
 - 第 2 期：[Rust 让 Python 再次伟大](./docs/2023-05-20-weekly2.md)
 - 第 1 期：[如何系统地自学Python？](./docs/2023-05-13-weekly1.md)
