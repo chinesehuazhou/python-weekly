@@ -1,6 +1,8 @@
 # Python 潮流周刊 | Python Trending Weekly
 
-在这个信息过载的时代，人们获取信息的条件非常便利，但是，筛选优质信息的成本却大大增加。读你想读、读你所需、读能使人成长的内容，这些并不是每个人都能做到。
+在这个信息过载的时代，人们获取信息的条件非常便利，但是，筛选优质信息的成本却大大增加。
+
+读你想读、读你所需、读能使人成长的内容，这些并不是每个人都能做到。
 
 Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值得分享的文章、教程、开源项目、软件工具、播客和视频、热门话题等内容。
 
@@ -10,6 +12,8 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 往期列表
 
+- 第 10 期：[Twitter 的强敌 Threads 是用 Python 开发的！](./docs/2023-07-08-weekly.md)
+  - 分享了 13 篇文章，12 个开源项目，2 个热门问题
 - 第 9 期：[如何在本地部署开源大语言模型？](./docs/2023-07-01-weekly.md)
   - 分享了 15 篇文章，10 个开源项目
 - 第 8 期：[Python 3.13 计划将解释器提速 50%！](./docs/2023-06-24-weekly.md)
@@ -33,7 +37,7 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 赞助支持
 
-内容创作不易，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png)、[买杯咖啡](https://www.buymeacoffee.com/pythoncat)或在[爱发电](https://afdian.net/a/pythoncat)进行支持！
+内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！如果你喜欢本周刊，请转发分享给其他需要的同学，让更多人可以从中受益～
 
 订阅方式：[Python猫公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
 
