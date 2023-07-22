@@ -12,6 +12,8 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 往期列表
 
+- 第 12 期：[Python 中如何调试死锁问题？](./docs/2023-07-22-weekly.md)
+  - 分享了 15 篇文章，10 个开源项目，5 则音视频
 - 第 11 期：[如何使用 Golang 运行 Python 代码？](./docs/2023-07-15-weekly.md)
   - 分享了 16 篇文章，12 个开源项目，2 则播客，2 个热门话题
 - 第 10 期：[Twitter 的强敌 Threads 是用 Python 开发的！](./docs/2023-07-08-weekly.md)
@@ -39,8 +41,12 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 赞助支持
 
-内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！如果你喜欢本周刊，请转发分享给其他需要的同学，让更多人可以从中受益～
+内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！
 
-订阅方式：[Python猫公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
+如果你喜欢本周刊，请给一个 star 吧！欢迎分享给其他需要的同学，让更多人可以从中受益～
+
+## 订阅方式
+
+[Python猫公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
 
 ![](https://img.pythoncat.top/pythoncat.png)
