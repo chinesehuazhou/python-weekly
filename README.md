@@ -12,6 +12,8 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 往期列表
 
+- 第 13 期：[Jupyter Notebook 7 发布了，无 GIL 提案传来大好消息！](./docs/2023-07-29-weekly.md)
+  - 分享了 15 篇文章，12 个开源项目，1 则热门话题
 - 第 12 期：[Python 中如何调试死锁问题？](./docs/2023-07-22-weekly.md)
   - 分享了 15 篇文章，10 个开源项目，5 则音视频
 - 第 11 期：[如何使用 Golang 运行 Python 代码？](./docs/2023-07-15-weekly.md)
@@ -47,6 +49,6 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
 
 ## 订阅方式
 
-[Python猫公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
+[微信公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
 
 ![](https://img.pythoncat.top/pythoncat.png)
