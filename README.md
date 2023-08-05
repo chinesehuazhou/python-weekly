@@ -4,14 +4,27 @@
 
 读你想读、读你所需、读能使人成长的内容，这些并不是每个人都能做到。
 
-Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值得分享的文章、教程、开源项目、软件工具、播客和视频、热门话题等内容。
+Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信息源，为你挑选最值得分享的文章、教程、开源项目、软件工具、播客和视频、热门话题等内容。
 
 **周刊愿景：帮助所有读者精进 Python 技术，并增长职业和副业的收入。**
 
 欢迎投稿，推荐或自荐文章/项目/资源/信息源，请 [提交 issue](https://github.com/chinesehuazhou/python-weekly/issues/new)。
 
+## 订阅方式
+
+为了方便读者及时获取最新内容，我会在多个平台上发布本周刊，欢迎订阅关注！
+
+- [Github](https://github.com/chinesehuazhou/python-weekly)：你可以获取本周刊的 Markdown 源文件，做任何想做的事！
+- [微信公众号](https://img.pythoncat.top/python_cat.jpg)：除更新周刊外，还发布其它原创作品，并转载一些优质文章。（可加好友，可加读者交流群）
+- [博客](https://pythoncat.top) 及 [RSS](https://pythoncat.top/rss.xml)：我的独立博客，上面有历年原创/翻译的技术文章，以及从 2009 年以来的一些随笔。
+- [邮件](https://pythoncat.substack.com)：在 Substack 上开通的频道，满足你通过邮件阅读时事通讯的诉求。
+- [Telegram](https://t.me/pythontrendingweekly)：除了发布周刊的通知外，我将它视为一个“副刊”，补充发布更加丰富的资讯。
+- [Twitter](https://twitter.com/chinesehuazhou)：发布一些即时内容，欢迎与我建立社交联系。我的关注列表里有大量 Python 相关的开发者与组织的账号。
+
 ## 往期列表
 
+- 第 14 期：[Lpython 高性能编译器、Python 与 JavaScript 实现互通](./docs/2023-08-05-weekly.md)
+  - 分享了 15 篇文章，12 个开源项目，1 则播客
 - 第 13 期：[Jupyter Notebook 7 发布了，无 GIL 提案传来大好消息！](./docs/2023-07-29-weekly.md)
   - 分享了 15 篇文章，12 个开源项目，1 则热门话题
 - 第 12 期：[Python 中如何调试死锁问题？](./docs/2023-07-22-weekly.md)
@@ -40,15 +53,10 @@ Python 潮流周刊精心筛选国内外的 250+ 信息源，为你挑选最值�
   - 提及了 8 篇文章/教程，4 个开源项目，4 则音视频，3 则热门讨论
 
 
-
 ## 赞助支持
-
-内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！
 
 如果你喜欢本周刊，请给一个 star 吧！欢迎分享给其他需要的同学，让更多人可以从中受益～
 
-## 订阅方式
+内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！
 
-[微信公众号](https://img.pythoncat.top/python_cat.jpg) | [RSS](https://pythoncat.top/rss.xml) | [邮件](https://pythoncat.substack.com) | [Github](https://github.com/chinesehuazhou/python-weekly) | [Telegram](https://t.me/pythontrendingweekly) | [Twitter](https://twitter.com/chinesehuazhou) 
-
-![](https://img.pythoncat.top/pythoncat.png)
+![](https://img.pythoncat.top/support_pythoncat.png)
