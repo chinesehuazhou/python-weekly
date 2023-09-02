@@ -10,7 +10,7 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 
 欢迎投稿，推荐或自荐文章/项目/资源/信息源，请 [提交 issue](https://github.com/chinesehuazhou/python-weekly/issues/new)。
 
-## 订阅方式
+## 🐼订阅方式
 
 为了方便读者及时获取最新内容，我会在多个平台上发布本周刊，欢迎订阅关注！
 
@@ -21,8 +21,10 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 - [Telegram](https://t.me/pythontrendingweekly)：除了发布周刊的通知外，我将它视为一个“副刊”，补充发布更加丰富的资讯。
 - [Twitter](https://twitter.com/chinesehuazhou)：发布一些即时内容，欢迎与我建立社交联系。我的关注列表里有大量 Python 相关的开发者与组织的账号。
 
-## 往期列表
+## 🦄往期列表
 
+- 第 18 期：[Flask、Streamlit、Polars 的学习教程](./docs/2023-09-02-weekly.md)
+  - 分享了 12 篇文章，10 个开源项目
 - 第 17 期：[Excel 终于支持 Python 了、Meta 重磅开源新项目、Mojo 新得 1 亿美元融资](./docs/2023-08-26-weekly.md)
   - 分享了 16 篇文章，13 个开源项目，3 则视频，2 则热门话题
 - 第 16 期：[优雅重要么？如何写出 Pythonic 的代码？](./docs/2023-08-19-weekly.md)
@@ -59,10 +61,16 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
   - 提及了 8 篇文章/教程，4 个开源项目，4 则音视频，3 则热门讨论
 
 
-## 赞助支持
+## 🐱赞助支持
 
-如果你喜欢本周刊，请给一个 star 吧！欢迎分享给其他需要的同学，让更多人可以从中受益～
+如果你喜欢本周刊，请给一个 star 吧！
+
+欢迎分享给其他需要的同学，让更多人可以从中受益～
 
 内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！
 
 ![](https://img.pythoncat.top/support_pythoncat.png)
+
+
+
+[版权：共享-非商用-保留署名（CC BY-NC-SA 4.0）](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
