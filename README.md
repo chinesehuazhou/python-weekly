@@ -23,6 +23,8 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 
 ## 🦄往期列表
 
+- 第 19 期：[Mojo 终于提供下载了！](./docs/2023-09-09-weekly.md)
+  - 分享了 12 篇文章，8 个开源项目
 - 第 18 期：[Flask、Streamlit、Polars 的学习教程](./docs/2023-09-02-weekly.md)
   - 分享了 12 篇文章，10 个开源项目
 - 第 17 期：[Excel 终于支持 Python 了、Meta 重磅开源新项目、Mojo 新得 1 亿美元融资](./docs/2023-08-26-weekly.md)
