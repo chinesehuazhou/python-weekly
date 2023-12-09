@@ -17,12 +17,14 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 - [Github](https://github.com/chinesehuazhou/python-weekly)：你可以获取本周刊的 Markdown 源文件，做任何想做的事！
 - [微信公众号](https://img.pythoncat.top/python_cat.jpg)：除更新周刊外，还发布其它原创作品，并转载一些优质文章。（可加好友，可加读者交流群）
 - [博客](https://pythoncat.top) 及 [RSS](https://pythoncat.top/rss.xml)：我的独立博客，上面有历年原创/翻译的技术文章，以及从 2009 年以来的一些随笔。
-- [邮件](https://pythoncat.substack.com)：在 Substack 上开通的频道，满足你通过邮件阅读时事通讯的诉求。
+- [邮件](https://pythoncat.substack.com) 及 [RSS](https://pythoncat.substack.com/feed)：在 Substack 上开通的频道，满足你通过邮件阅读时事通讯的诉求。
 - [Telegram](https://t.me/pythontrendingweekly)：除了发布周刊的通知外，我将它视为一个“副刊”，补充发布更加丰富的资讯。
 - [Twitter](https://twitter.com/chinesehuazhou)：发布一些即时内容，欢迎与我建立社交联系。我的关注列表里有大量 Python 相关的开发者与组织的账号。
 
 ## 🦄往期列表
 
+- 第 30 期：[非洲 Python 社区给 PSF 的一封公开信](./docs/2023-12-09-weekly.md)
+  - 分享了 12 篇文章，12 个开源项目
 - 第 29 期：[Rust 会比 Python 慢？！](./docs/2023-12-02-weekly.md)
   - 分享了 12 篇文章，12 个开源项目，2 则播客，2 个热门讨论
 - 第 28 期：[两种线程池、四种优化程序的方法](./docs/2023-11-25-weekly.md)
