@@ -100,5 +100,8 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 ![](https://img.pythoncat.top/support_pythoncat.png)
 
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=chinesehuazhou/python-weekly&type=Date)](https://star-history.com/#chinesehuazhou/python-weekly&Date)
 
 [版权：共享-非商用-保留署名（CC BY-NC-SA 4.0）](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
