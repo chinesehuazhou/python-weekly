@@ -5,8 +5,7 @@ on:
   push:
     paths:
       - 'docs/**/*-weekly.md'   # when adding weekly file
-    paths-ignore:
-      - 'docs/en/**/*-weekly.md'
+      - '!docs/en/**/*-weekly.md'
 
 jobs:
   build:
