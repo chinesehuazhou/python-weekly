@@ -1,0 +1,4 @@
+feedparser
+httpx
+python-dotenv
+python-telegram-bot
