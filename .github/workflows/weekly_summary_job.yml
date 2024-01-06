@@ -4,7 +4,9 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - '*-weekly.md'   # when adding weekly file
+      - 'docs/**/*-weekly.md'   # when adding weekly file
+    paths-ignore:
+      - 'docs/en/**/*-weekly.md'
 
 jobs:
   build:
