@@ -72,7 +72,12 @@ def write_to_md_file(weekly_no, md_body, url):
                 "愿景：帮助所有读者精进 Python 技术，并增长职业和副业的收入。\n\n")
         f.write(f"周刊全文：{url} \n\n")
         f.write("以下是本期摘要： \n\n")
+
+        # 添加换行符，解决某些平台无法正确换行的问题
+        for i in range(1, 20):
+            md_body = md_body.replace(chr(9311 + i), "\n" + chr(9311 + i))
         f.write(md_body + "\n\n")
+
         f.write(f"**查看全文**：{url} \n\n")
         f.write("**微信订阅**：https://img.pythoncat.top/python_cat.jpg \n\n")
         f.write("**邮箱订阅**：https://pythoncat.substack.com")
