@@ -95,8 +95,7 @@ def extract_weekly_no(file_path):
         if match:
             return match.group(1)
         else:
-            print("Can not get weeklt no!!!!!!!")
-            return 0
+            raise ValueError("Invalid weekly no format in the second line.")
 
 
 def get_translated_dict(input_file):
@@ -146,7 +145,7 @@ def translate_and_write_to_file(input_file, output_file, pub_date):
 def translate_old_post():
     docs_dir = Path('docs')
     en_dir = docs_dir / 'en'
-    for filepath in docs_dir.glob('2023-*.md'):
+    for filepath in docs_dir.glob('2023-*-weekly.md'):
         en_filepath = en_dir / filepath.name
         if not en_filepath.exists():
             pub_date = filepath.name[:10]
@@ -172,4 +171,4 @@ main()
 
 
 
-# 子标题的第一条还有问题：缺文字链接
+# TODO：子标题和图片还有问题，偶现：缺文字链接
