@@ -126,15 +126,14 @@ async def send_to_telegram(bot_token, chat_id, text, image_path=None):
 
 def extract_weekly_no(file_path):
     """默认文件第二行为标题，解析期数"""
-    print(f"Extracting weekly no from {file_path}")
+    print(f"Extracting weekly number from {file_path}")
     with open(file_path, 'r', encoding="utf-8") as f:
         lines = f.readlines()
-        title_line = lines[1]
-        match = re.search(r'#(\d+)', title_line)
+        match = re.search(r'#(\d+)', lines[1])
         if match:
             return match.group(1)
         else:
-            return 0
+            raise ValueError("Invalid weekly no format in the second line.")
 
 
 def get_message(file_path, weekly_no, url):
