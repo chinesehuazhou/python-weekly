@@ -25,6 +25,7 @@ async def get_last_issue_async(client, name, url):
     """异步获取周刊本周发布的标题和链接"""
     try:
         response = await client.get(url, timeout=30.0)
+        response.encoding = 'utf-8'
         feed = feedparser.parse(response.text)
     except Exception as e:
         print(f"Error occurred while processing feed {url}: {type(e).__name__}, {e}")
