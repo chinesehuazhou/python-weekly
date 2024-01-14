@@ -37,6 +37,7 @@ async def get_last_issue_async(client, name, url):
             return name, title, link
 
     print(f"{url} 取不到本周发布的周刊！")
+    print(feed)
     return name, None, None
 
 
