@@ -119,6 +119,11 @@ def render_html(bar_tab_html, pie_tab_html, wc_tab_html):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Python潮流周刊 - Python爱好者必备的学习帮手</title>
         <script async src="https://pythoncat.zeabur.app/script.js" data-website-id="79b984fa-d00f-4e52-a8f2-ad8747cfd077"></script>
+        <script>
+            function resizeIframe(obj) {{
+                obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+            }}
+        </script>
     </head>
     <body>
         <center><h1><a href="https://xiaobot.net/p/python_weekly">Python潮流周刊</a></h1></center>
@@ -127,7 +132,7 @@ def render_html(bar_tab_html, pie_tab_html, wc_tab_html):
         <center><h2>每季周刊内容统计</h2></center>
         <iframe src="{pie_tab_html}" width="100%" height="588px" frameborder="0"></iframe>
         <center><h2>每季周刊的词云图</h2></center>
-        <iframe src="{wc_tab_html}" width="100%" height="600px" frameborder="0"></iframe>
+        <iframe src="{wc_tab_html}" width="100%" frameborder="0" onload="resizeIframe(this)"></iframe>
         <center><h3>&copy; <a href="https://twitter.com/chinesehuazhou">豌豆花下猫</a> | <a href="https://xiaobot.net/p/python_weekly">订阅周刊</a></h3></center>
     </body>
     </html>
