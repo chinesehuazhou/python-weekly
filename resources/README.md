@@ -16,7 +16,11 @@
 
 - [周刊中译英脚本](./weekly_translation.py) ：获取待译的文件，解析正文后调用 LLM 实现翻译，再写入到模板文件中，归档在“docs/en”目录下
 
-- todo：周刊自动发推文
+- [记录每期周刊中条目的数量](./weekly_save_count.py) ：获取每一期的文章、项目等条目的数量，记录到数据库中
+
+- [生成周刊词云脚本](./weekly_wordcloud.py) ：获取每一季周刊的主要内容，生成词云，并保存为图片文件
+
+- [生成周刊统计看板页面](./weekly_kanban.py) ：统计每一季周刊的柱状图、饼图和词云等数据，使用pyecharts库生成页面
 
 - todo：Telegram 机器人接收投稿，自动创建 Github issue
 
