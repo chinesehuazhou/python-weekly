@@ -3,7 +3,6 @@ httpx
 python-dotenv
 python-telegram-bot
 readability-lxml
-sqlite3
 pyecharts
 jieba
 wordcloud

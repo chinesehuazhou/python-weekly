@@ -2,12 +2,9 @@ import os
 import sqlite3
 from pyecharts.charts import Bar, Pie, Tab
 from pyecharts import options as opts
-from pyecharts.globals import ThemeType, JsCode, SymbolType
-import jieba
-from collections import Counter
+from pyecharts.globals import ThemeType, JsCode
 import re
 from pyecharts.components import Image
-from wordcloud import WordCloud
 
 db_path = os.path.join(os.path.dirname(__file__), 'python_weekly.db')
 
