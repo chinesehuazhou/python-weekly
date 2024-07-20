@@ -50,7 +50,7 @@ def parse_markdown():
                 else:
                     audio_video_count = 0
                 
-                hot_topic_count = int(re.search(r'(\d+) 个热门', next_line).group(1)) if re.search(r'(\d+) 个热门', next_line) else 0
+                hot_topic_count = int(re.search(r'(\d+) [个|则]热门', next_line).group(1)) if re.search(r'(\d+) [个|则]热门', next_line) else 0
                 book_count = int(re.search(r'赠书 (\d+) 本', next_line).group(1)) if re.search(r'赠书 (\d+) 本', next_line) else 0
                 
                 entries.append({
