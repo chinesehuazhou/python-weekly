@@ -17,7 +17,7 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 付费订阅入口，目前只支持三种方式：
 
 - [小报童](https://xiaobot.net/p/python_weekly) （需要使用微信登录，可微信和邮箱接收更新）
-- [爱发电](https://afdian.net/a/python_weekly) （支持邮箱登录）
+- [爱发电](https://afdian.com/a/python_weekly) （支持邮箱登录）
 - [FlowUs](https://flowus.cn/pythoncat/share/1e0b2dc6-fc44-4be9-895b-d87795299b77?code=MX4369) （支持手机号、邮箱和微信登录）
 
 以后周刊更新期数越来越多，我们会逐步免费开放早期的内容（第 n+50 期免费），欢迎保持关注。
