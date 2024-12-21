@@ -6,3 +6,4 @@ readability-lxml
 pyecharts
 jieba
 wordcloud
+PyYAML

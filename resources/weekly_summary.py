@@ -167,7 +167,7 @@ def get_message(file_path, weekly_no):
 
 def main():
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
-    current_date = '2024-12-15'
+    current_date = '2024-12-21'
     file_name = f"{current_date}-weekly"
     file_path = os.path.join("docs", f"{file_name}.md")
     if not os.path.exists(file_path):

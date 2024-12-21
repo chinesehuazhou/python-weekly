@@ -27,7 +27,7 @@ def split_and_generate_files(input_file, output_file):
         f2.write(new_content2)
 
 
-pub_date = '2024-01-13'
+pub_date = '2024-12-21'
 weekly_file = f'docs/{pub_date}-weekly.md'
 output_file = f'resources/{pub_date}-weekly.md'
 split_and_generate_files(weekly_file, output_file)

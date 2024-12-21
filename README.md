@@ -14,11 +14,10 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 
 本周刊从第 47 期开始转为付费模式，如果你想了解付费专栏，想知道为什么我们会转为付费专栏，欢迎阅读[这篇博文](https://pythoncat.top/posts/2024-05-06-information-gap) 。
 
-付费订阅入口，目前只支持三种方式：
+付费订阅入口，目前只支持两种方式：
 
 - [小报童](https://xiaobot.net/p/python_weekly) （需要使用微信登录，可微信和邮箱接收更新）
-- [爱发电](https://afdian.com/a/python_weekly) （支持邮箱登录）
-- [FlowUs](https://flowus.cn/pythoncat/share/1e0b2dc6-fc44-4be9-895b-d87795299b77?code=MX4369) （支持手机号、邮箱和微信登录）
+- [爱发电](https://afdian.com/a/python_weekly) （支持邮箱登录，可用支付宝、微信、信用卡、PayPal 等支付）
 
 以后周刊更新期数越来越多，我们会逐步免费开放早期的内容（第 n+50 期免费），欢迎保持关注。
 
@@ -35,6 +34,8 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 250+ 信�
 
 ## 🦄往期列表
 
+- 第 82 期：[美国 CIA 如何使用 Python？](./docs/2024-12-21-weekly.md)
+  - 分享了 12 篇文章，12 个开源项目
 - 第 81 期：[在个人电脑上运行 GPT-4 级别的大模型](./docs/2024-12-15-weekly.md)
   - 分享了 12 篇文章，12 个开源项目，2 则音视频
 - 第 80 期：[Django 项目性能调优](./docs/2024-12-07-weekly.md)
