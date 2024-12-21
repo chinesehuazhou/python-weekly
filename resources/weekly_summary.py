@@ -89,7 +89,11 @@ def write_to_md_file(weekly_no, content_meta, md_body):
         for i in range(1, 20):
             md_body = md_body.replace(chr(9311 + i), "\n" + chr(9311 + i))
         f.write(md_body + "\n\n")
-        f.write(f"[本期正文 xxx 字，点击阅读（付费链接）]()\n\n")
+        f.write("周刊实行付费订阅制，年费 128 元，平均每天不到 4 毛钱，但绝对是一笔有眼光的投资。花钱学习知识，花钱提升自己，欢迎订阅这个你绝对不会后悔的专栏：https://xiaobot.net/p/python_weekly \n\n")
+        f.write("订阅后，可免费查看 第 67 期周刊的全文： \n\n")
+        f.write("Python 潮流周刊第 2 季完结了，分享几项总结：https://pythoncat.top/posts/2024-07-14-iweekly \n\n")
+        f.write("周刊前30期的免费合集，含精美电子书（EPUB/PDF）：https://pythoncat.top/posts/2023-12-11-weekly \n\n")
+        f.write("万字浓缩版，Python 潮流周刊第 1 季的 800 个链接！：https://xiaobot.net/post/78c3d645-86fa-4bd8-8eac-46fb192a339e \n\n")
         f.write("**微信关注 Python猫**：[https://img.pythoncat.top/python_cat.jpg](https://img.pythoncat.top/python_cat.jpg) \n\n")
 
 
@@ -111,7 +115,7 @@ def set_content_body(file_path, weekly_no):
 def set_footer():
     read_all = "周刊实行付费订阅制，年费128元，预计50期，超过10万字。现在订阅，每周让自己进步一点点。\n\n"
     read_all += f"👀 [订阅方式一（小报童）](https://xiaobot.net/p/python_weekly) \n\n"
-    read_all += f"👀 [订阅方式二（爱发电）](https://afdian.net/a/python_weekly) \n\n"
+    read_all += f"👀 [订阅方式二（爱发电）](https://afdian.com/a/python_weekly) \n\n"
     read_all += f"👀 [想详细了解周刊](https://pythoncat.top/posts/2024-05-06-information-gap) \n\n"
     return read_all
 
@@ -163,7 +167,7 @@ def get_message(file_path, weekly_no):
 
 def main():
     current_date = datetime.datetime.now().strftime('%Y-%m-%d')
-    current_date = '2024-07-13'
+    current_date = '2024-12-15'
     file_name = f"{current_date}-weekly"
     file_path = os.path.join("docs", f"{file_name}.md")
     if not os.path.exists(file_path):

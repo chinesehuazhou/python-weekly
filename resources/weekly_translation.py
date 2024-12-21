@@ -95,7 +95,7 @@ def extract_weekly_no(file_path):
         if match:
             return match.group(1)
         else:
-            raise ValueError("Invalid weekly no format in the second line.")
+            return 0
 
 
 def get_translated_dict(input_file):
@@ -162,7 +162,7 @@ def translate_cur_post(pub_date):
 
 
 def main():
-    translate_cur_post("2024-01-13")
+    translate_cur_post("2024-03-30")
     # translate_old_post()
 
 
