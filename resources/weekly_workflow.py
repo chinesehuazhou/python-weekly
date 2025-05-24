@@ -15,23 +15,24 @@ if not os.getenv('TG_BOT_TOKEN') or not os.getenv('TG_CHAT_ID'):
 # 固定文本常量
 WEEKLY_INTRO = ("本周刊由 Python猫 出品，精心筛选国内外的 250+ 信息源，"
                 "为你挑选最值得分享的文章、教程、开源项目、软件工具、播客和视频、热门话题等内容。"
-                "愿景：帮助所有读者精进 Python 技术，并增长职业和副业的收入。")
+                "愿景：帮助所有读者精进 Python 技术，并增长职业和副业的收入。\n\n"
+                "**温馨提示：** 在微信关注 **Python猫**，发送“**优惠券**”，即可领取 9 折优惠码，订阅专栏可享 15 元优惠。")
 
-SUBSCRIPTION_INFO = ("周刊实行付费订阅制，年费 128 元，平均每天不到 4 毛钱，但绝对是一笔有眼光的投资。"
-                    "花钱学习知识，花钱提升自己，欢迎订阅这个你绝对不会后悔的专栏：https://xiaobot.net/p/python_weekly")
+SUBSCRIPTION_INFO = ("周刊实行付费订阅制，年费 148 元，平均每天 4 毛钱，绝对是一笔有眼光的投资。"
+                    "花钱学习知识，花钱提升自己，欢迎订阅这个你绝对不会后悔的专栏：[https://xiaobot.net/p/python_weekly](https://xiaobot.net/p/python_weekly)")
 
-SEASON2_SUMMARY = "Python 潮流周刊第 2 季完结了，分享几项总结：https://pythoncat.top/posts/2024-07-14-iweekly"
+SEASON2_SUMMARY = "[Python 潮流周刊第3季总结，附电子书下载](https://pythoncat.top/posts/2025-04-20-sweekly)"
 
-FREE_COLLECTION = "周刊前30期的免费合集，含精美电子书（EPUB/PDF）：https://pythoncat.top/posts/2023-12-11-weekly"
+FREE_COLLECTION = "[Python 潮流周刊第二季完结（31~60）](https://pythoncat.top/posts/2025-04-20-iweekly)"
 
-SEASON1_SUMMARY = "万字浓缩版，Python 潮流周刊第 1 季的 800 个链接！：https://xiaobot.net/post/78c3d645-86fa-4bd8-8eac-46fb192a339e"
+SEASON1_SUMMARY = "[Python 潮流周刊第一季精华合集（1~30）](https://pythoncat.top/posts/2023-12-11-weekly)"
 
 WECHAT_QR = "**微信关注 Python猫**：[https://img.pythoncat.top/python_cat.jpg](https://img.pythoncat.top/python_cat.jpg)"
 
-FOOTER_SUBSCRIPTION = ("周刊实行付费订阅制，年费128元，预计50期，超过10万字。现在订阅，每周让自己进步一点点。\n\n"
+FOOTER_SUBSCRIPTION = ("周刊实行付费订阅制，年费148元，预计50期，超过10万字。现在订阅，每周让自己进步一点点。\n\n"
                       "👀 [订阅方式一（小报童）](https://xiaobot.net/p/python_weekly) \n\n"
                       "👀 [订阅方式二（爱发电）](https://afdian.com/a/python_weekly) \n\n"
-                      "👀 [想详细了解周刊](https://pythoncat.top/posts/2024-05-06-information-gap) \n\n")
+                      "👀 [免费合集下载](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
 def split_and_generate_files(input_file, tmp_en_file):
     """
@@ -333,7 +334,7 @@ def copy_to_archive(source_file, pub_date, weekly_no):
     :param pub_date: 发布日期
     :param weekly_no: 期号
     """
-    ebook_dir = os.path.expanduser('~/Documents/周刊/ebook/season3')
+    ebook_dir = os.path.expanduser('~/Documents/周刊/ebook/season4')
     if not os.path.exists(ebook_dir):
         os.makedirs(ebook_dir)
     ebook_target = os.path.join(ebook_dir, f'{pub_date}-weekly.md')

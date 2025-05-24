@@ -81,4 +81,4 @@ def extract_entries(filename, output_file):
             out.write('\n')
 
 if __name__ == '__main__':
-    extract_entries('docs/2025-04-20-iweekly.md', 'output2.md')
+    extract_entries('docs/season3_full.md', 'output_link_3.md')
