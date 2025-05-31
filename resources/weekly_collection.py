@@ -11,7 +11,7 @@ if not os.getenv('TG_BOT_TOKEN') or not os.getenv('TG_CHAT_ID'):
 
 feeds = {
     "Python 潮流周刊": "https://pythoncat.top/rss.xml",
-    "Python Weekly": "https://kill-the-newsletter.com/feeds/zz9537806dqxcn73mjfk.xml",
+    "Python Weekly": "https://kill-the-newsletter.com/feeds/h9fwp3i8gj6djygelscq.xml",
     "Awesome Python Weekly": "https://python.libhunt.com/newsletter/feed",
     "Python Hub Weekly Digest": "https://pythonhub.dev/digest/feed/",
     "Python recap for week": "https://kill-the-newsletter.com/feeds/i6vmi2anfvwbi05d.xml",
