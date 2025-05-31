@@ -91,6 +91,85 @@ def print_all_data():
         for row in rows:
             print(f"Issue Number: {row[0]}, Date: {row[1]}, Articles: {row[2]}, Projects: {row[3]}, Audio/Video: {row[4]}, Hot Topics: {row[5]}, Books: {row[6]}")
 
+def get_total_stats():
+    """从数据库获取各类别的总数统计"""
+    with sqlite3.connect(db_path) as conn:
+        cursor = conn.cursor()
+        
+        # 获取各类别总数
+        cursor.execute('SELECT SUM(article_count) FROM weekly_summary')
+        total_articles = cursor.fetchone()[0] or 0
+        
+        cursor.execute('SELECT SUM(project_count) FROM weekly_summary')
+        total_projects = cursor.fetchone()[0] or 0
+        
+        cursor.execute('SELECT SUM(audio_video_count) FROM weekly_summary')
+        total_audio_video = cursor.fetchone()[0] or 0
+        
+        cursor.execute('SELECT SUM(hot_topic_count) FROM weekly_summary')
+        total_hot_topics = cursor.fetchone()[0] or 0
+        
+        cursor.execute('SELECT SUM(book_count) FROM weekly_summary')
+        total_books = cursor.fetchone()[0] or 0
+        
+        cursor.execute('SELECT COUNT(*) FROM weekly_summary')
+        total_issues = cursor.fetchone()[0] or 0
+        
+    return {
+        'total_articles': total_articles,
+        'total_projects': total_projects,
+        'total_audio_video': total_audio_video,
+        'total_hot_topics': total_hot_topics,
+        'total_books': total_books,
+        'total_issues': total_issues
+    }
+
+def update_readme_stats(stats):
+    """更新README文件中的统计数据，移动到往期列表前面并使用美观样式"""
+    readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README.md')
+    
+    with open(readme_path, 'r', encoding='utf-8') as file:
+        content = file.read()
+    
+    # 移除现有的统计数据部分
+    stats_pattern = r'## 统计数据.*?(?=\n## |\Z)'
+    content = re.sub(stats_pattern, '', content, flags=re.DOTALL)
+    
+    # 创建美观的统计数据部分
+    stats_section = f"""## 📊 数据统计
+
+<div align="center">
+
+| 📈 统计项目 | 📊 数量 |
+|:---:|:---:|
+| 📅 **总期数** | **{stats['total_issues']}** 期 |
+| 📝 **总文章数** | **{stats['total_articles']}** 篇 |
+| 🚀 **总项目数** | **{stats['total_projects']}** 个 |
+| 🎵 **总音视频** | **{stats['total_audio_video']}** 则 |
+| 🔥 **总热门话题** | **{stats['total_hot_topics']}** 个 |
+| 📚 **总赠书** | **{stats['total_books']}** 本 |
+
+</div>
+
+"""
+    
+    # 在往期列表之前插入统计数据
+    if '## 🦄往期列表' in content:
+        content = content.replace('## 🦄往期列表', stats_section + '## 🦄往期列表')
+    else:
+        content += '\n' + stats_section
+    
+    with open(readme_path, 'w', encoding='utf-8') as file:
+        file.write(content)
+    
+    print(f"README.md 已更新统计数据：")
+    print(f"- 总期数：{stats['total_issues']} 期")
+    print(f"- 总文章数：{stats['total_articles']} 篇")
+    print(f"- 总项目数：{stats['total_projects']} 个")
+    print(f"- 总音视频：{stats['total_audio_video']} 则")
+    print(f"- 总热门话题：{stats['total_hot_topics']} 个")
+    print(f"- 总赠书：{stats['total_books']} 本")
+
 
 def main():
     create_table()
@@ -98,6 +177,11 @@ def main():
     if entries:
         insert_into_database(entries)
     print_all_data()
+    
+    # 更新README统计数据
+    stats = get_total_stats()
+    update_readme_stats(stats)
 
-main()
+if __name__ == '__main__':
+    main()
 
