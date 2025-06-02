@@ -1,15 +1,18 @@
-import {notFound} from 'next/navigation';
 import {getRequestConfig} from 'next-intl/server';
 
-// Can be imported from a shared config
-const locales = ['zh', 'en', 'zh-TW'];
+// Static export compatible i18n configuration
+export const locales = ['zh', 'en', 'zh-TW'];
+export const defaultLocale = 'en';
+
+// Helper function to get messages for static export
+export async function getMessages(locale: string) {
+  const validLocale = locales.includes(locale) ? locale : defaultLocale;
+  return (await import(`./messages/${validLocale}.json`)).default;
+}
 
 export default getRequestConfig(async ({locale}) => {
-  // Validate that the incoming `locale` parameter is valid
-  // If locale is not supported, use default locale 'zh'
-  const validLocale = locales.includes(locale as any) ? locale : 'zh';
-
   return {
-    messages: (await import(`./messages/${validLocale}.json`)).default
+    messages: (await import(`./messages/${locale}.json`)).default,
+    timeZone: 'Asia/Shanghai'
   };
 });

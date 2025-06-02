@@ -1,54 +1,23 @@
-/** @type {import('next').NextConfig} */
-const withNextIntl = require('next-intl/plugin')('./i18n/request.ts');
+const createNextIntlPlugin = require('next-intl/plugin');
 
+const withNextIntl = createNextIntlPlugin('./i18n/request.ts');
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-        pathname: '/**',
-      },
-    ],
-    unoptimized: true, // 临时禁用图片优化来测试
-    formats: ['image/webp', 'image/avif'], // 现代图片格式
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-  },
+  output: 'export', // 启用静态导出
   trailingSlash: true,
-  // 启用压缩
-  compress: true,
-  // 启用 SWC 编译器
-  swcMinify: true,
-  // 启用实验性功能
+  images: {
+    unoptimized: true
+  },
+  // 确保静态资源路径正确
+  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   experimental: {
     optimizeCss: true,
     optimizePackageImports: ['react-icons', 'framer-motion'],
   },
-  // 静态资源缓存
-  async headers() {
-    return [
-      {
-        source: '/docs/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-    ];
-  },
+  // 移除turbopack配置，因为我们已经在package.json中移除了--turbo参数
+  // 如果需要启用turbopack，可以使用以下配置
+  // turbopack: {}
 };
 
 module.exports = withNextIntl(nextConfig);

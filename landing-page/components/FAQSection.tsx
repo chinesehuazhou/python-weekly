@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../hooks/useTranslations';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 interface FAQ {
@@ -15,7 +15,7 @@ export default function FAQSection() {
   const [openItems, setOpenItems] = useState<number[]>([]);
 
   // 从国际化文件中获取FAQ数据
-  const faqItems = t.raw('items') as Array<{question: string; answer: string}>;
+  const faqItems = t.raw('items') as Array<{question: string; answer: string}> || [];
   const faqs: FAQ[] = faqItems.map((item, index) => ({
     id: index + 1,
     question: item.question,

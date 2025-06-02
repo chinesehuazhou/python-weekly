@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations, useLocale } from '../hooks/useTranslations';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import remarkGfm from 'remark-gfm';
@@ -44,7 +44,7 @@ export default function LatestIssueSection() {
     };
 
     fetchContent();
-  }, []);
+  }, [locale]);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);

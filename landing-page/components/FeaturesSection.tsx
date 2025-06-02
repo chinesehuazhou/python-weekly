@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../hooks/useTranslations';
 import { motion } from 'framer-motion';
 import { memo } from 'react';
 import { FaGlobe, FaLayerGroup, FaTh, FaFilter, FaBookOpen, FaStar } from 'react-icons/fa';

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from '../hooks/useTranslations';
 import Image from 'next/image';
 import { FaGithub, FaTwitter, FaRss, FaTimes } from 'react-icons/fa';
 import { FaTelegram, FaWeixin } from 'react-icons/fa';
@@ -14,12 +14,12 @@ const PythonLink = ({ className }: { className?: string }) => (
     width={24}
     height={24}
     className={`w-6 h-6 ${className || ''}`}
+    unoptimized
   />
 );
 
 export default function Footer() {
   const t = useTranslations();
-  const locale = useLocale();
   const currentYear = new Date().getFullYear();
   const [showWechatModal, setShowWechatModal] = useState(false);
 
@@ -73,11 +73,12 @@ export default function Footer() {
             <div className="flex items-center justify-center space-x-2 mb-4">
               <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center">
                 <Image
-                  src="/python_cat.jpg"
+                  src="/logo_python_weekly.svg"
                   alt="Python Weekly Logo"
                   width={40}
                   height={40}
                   className="object-cover rounded-lg"
+                  priority
                 />
               </div>
               <span className="font-bold text-xl">{t('siteName')}</span>
@@ -153,9 +154,11 @@ export default function Footer() {
               </button>
             </div>
             <div className="text-center">
-              <img
+              <Image
                 src="/wechat_pythoncat.jpg"
                 alt="微信公众号二维码"
+                width={192}
+                height={192}
                 className="w-48 h-48 mx-auto mb-4"
               />
               <p className="text-sm text-gray-600">扫描二维码关注微信公众号</p>

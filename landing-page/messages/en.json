@@ -1,6 +1,6 @@
 {
   "siteName": "Python Trending Weekly",
-  "pastIssueExample": "Past Issue Example",
+  "pastIssueExample": "Issue Example",
   "copyright": "© {year} Python Trending Weekly. All rights reserved.",
   "footerDescription": "A high-quality tech newsletter by Python Cat, carefully curating from 400+ sources to provide Python developers with the most valuable content.",
   "hero": {
@@ -9,14 +9,14 @@
     "description": "Cut through the noise. Get hand-picked, cutting-edge Python content delivered weekly. Join 350+ professionals who trust us to filter the best from 400+ sources.",
     "cta": {
       "subscribe": "Subscribe Now",
-      "examples": "View Past Examples"
+      "examples": "View Example"
     },
     "stats": {
       "issues": "Total Issues",
       "articles": "Total Articles",
       "projects": "Total Projects",
       "audioVideo": "Total Audio/Video",
-      "hotTopics": "Total Hot Topics",
+      "hotTopics": "Total Topics",
       "books": "Total Books"
     }
   },
@@ -112,5 +112,17 @@
         "answer": "Currently, platforms like Substack only support Stripe or Paypal for payment processing, which presents challenges for Chinese individual creators due to unfriendly identity verification requirements and various payment restrictions. I'm actively researching solutions to these payment processing issues and will promptly update and expand to new platforms once viable alternatives become available. Thank you for your patience and continued support."
       }
     ]
+  },
+  "SubscriptionSection": {
+    "title": "Subscribe to Python Weekly",
+    "description": "Get the latest Python news, tutorials, and open source project recommendations every week",
+    "emailPlaceholder": "Enter your email address",
+    "subscribeButton": "Subscribe Now",
+    "privacyText": "We respect your privacy and will not share your email address with third parties"
+  },
+  "NotFoundPage": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to Home"
   }
 }

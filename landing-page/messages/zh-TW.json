@@ -128,5 +128,17 @@
         "answer": "我們週刊可提供四大核心價值：\n① 技術視野拓展 - 緊跟Python生態最新趨勢，保持技術敏銳度\n② 專案靈感激發 - 發現前沿開源專案和實用工具，為你的工作和專案提供創新思路\n③ 學習路徑優化 - 精選優質教程和最佳實踐，助你高效提升技術水平\n④ 行業洞察深化 - 掌握 Python 在AI、資料科學、Web開發等熱門領域的發展脈絡"
       }
     ]
+  },
+  "SubscriptionSection": {
+    "title": "訂閱 Python 週刊",
+    "description": "每週獲取最新的 Python 資訊、教程和開源項目推薦",
+    "emailPlaceholder": "輸入您的郵箱地址",
+    "subscribeButton": "立即訂閱",
+    "privacyText": "我們尊重您的隱私，不會向第三方分享您的郵箱地址"
+  },
+  "NotFoundPage": {
+    "title": "頁面未找到",
+    "description": "抱歉，您訪問的頁面不存在。",
+    "backHome": "返回首頁"
   }
 }

@@ -1,15 +1,13 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
-import Link from 'next/link';
-import { HiArrowRight, HiDocumentText, HiBookOpen, HiCode, HiCalendar, HiChevronRight } from 'react-icons/hi';
+import { useTranslations } from '../hooks/useTranslations';
+import { HiArrowRight, HiDocumentText, HiBookOpen, HiCode } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { useState, useEffect, useCallback, memo } from 'react';
 
 // 数字动画Hook - 优化性能
 function useAnimatedCounter(end: number, duration: number = 2000, delay: number = 0) {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
 
   const animate = useCallback((currentTime: number, startTime: number) => {
     const progress = Math.min((currentTime - startTime) / duration, 1);
@@ -27,7 +25,6 @@ function useAnimatedCounter(end: number, duration: number = 2000, delay: number 
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setHasStarted(true);
       requestAnimationFrame((startTime) => animate(startTime, startTime));
     }, delay);
 
@@ -39,7 +36,6 @@ function useAnimatedCounter(end: number, duration: number = 2000, delay: number 
 
 function HeroSection() {
   const t = useTranslations();
-  const locale = useLocale();
 
   const stats = [
     {
@@ -74,8 +70,28 @@ function HeroSection() {
     },
   ];
 
+  // 为主要统计数据创建动画计数器
+  const animatedValue1 = useAnimatedCounter(stats[0]?.value || 0, 2000, 1200);
+  const animatedValue2 = useAnimatedCounter(stats[1]?.value || 0, 2000, 1300);
+  const animatedValue3 = useAnimatedCounter(stats[2]?.value || 0, 2000, 1400);
+
+  // 为附加统计数据创建动画计数器
+  const animatedAdditionalValue1 = useAnimatedCounter(additionalStats[0]?.value || 0, 1800, 1600);
+  const animatedAdditionalValue2 = useAnimatedCounter(additionalStats[1]?.value || 0, 1800, 1750);
+  const animatedAdditionalValue3 = useAnimatedCounter(additionalStats[2]?.value || 0, 1800, 1900);
+
+  const animatedStats = stats.map((stat, index) => ({
+    ...stat,
+    animatedValue: [animatedValue1, animatedValue2, animatedValue3][index] || 0
+  }));
+
+  const animatedAdditionalStats = additionalStats.map((stat, index) => ({
+    ...stat,
+    animatedValue: [animatedAdditionalValue1, animatedAdditionalValue2, animatedAdditionalValue3][index] || 0
+  }));
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100/80 via-blue-100/60 to-indigo-100/70 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100/80 via-blue-100/60 to-indigo-100/70 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 sm:pt-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-20 h-20 bg-python-blue rounded-full animate-bounce-gentle"></div>
@@ -139,7 +155,7 @@ function HeroSection() {
               className="group bg-gradient-to-r from-python-blue to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center space-x-2 btn-hover"
             >
               <span>{t('hero.cta.subscribe')}</span>
-              <HiChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+              <HiArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
             
             <a
@@ -153,16 +169,16 @@ function HeroSection() {
 
           {/* Stats - Subtle decorative elements */}
           <motion.div 
-            className="pt-16 space-y-8"
+            className="pt-16 space-y-8 -mt-4 sm:mt-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
           >
-            {/* Main Stats - Minimalist design as supporting elements */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              {stats.map((stat, index) => {
+            {/* Main Stats - Desktop: Large cards, Mobile: Small pills */}
+            <div className="hidden sm:grid grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {animatedStats.map((stat, index) => {
                 const Icon = stat.icon;
-                const animatedValue = useAnimatedCounter(stat.value, 2000, 1200 + index * 100);
+                const animatedValue = stat.animatedValue;
                 
                 return (
                   <motion.div
@@ -207,36 +223,75 @@ function HeroSection() {
               })}
             </div>
             
-            {/* Additional Stats - Minimalist pills */}
-            <motion.div 
-              className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.6 }}
-            >
-              {additionalStats.map((stat, index) => {
-                const animatedValue = useAnimatedCounter(stat.value, 1800, 1600 + index * 150);
+            {/* Mobile Stats - Compact 3-column grid */}
+            <div className="grid grid-cols-3 gap-2 max-w-xs mx-auto sm:hidden">
+              {animatedStats.map((stat, index) => {
+                const Icon = stat.icon;
+                const animatedValue = stat.animatedValue;
                 
                 return (
                   <motion.div
                     key={index}
-                    className="group px-6 py-3 backdrop-blur-md rounded-full border transition-all duration-500 shadow-md bg-white/30 dark:bg-gray-800/30 border-white/20 dark:border-gray-700/20 hover:bg-white/50 dark:hover:bg-gray-800/50 hover:border-white/40 dark:hover:border-gray-600/40 shadow-black/5 dark:shadow-black/10 hover:shadow-lg hover:shadow-python-blue/10 dark:hover:shadow-python-blue/20"
-                    whileHover={{ scale: 1.08, y: -4 }}
+                    className="group p-2 backdrop-blur-md rounded-lg border transition-all duration-500 shadow-md bg-white/30 dark:bg-gray-800/30 border-white/20 dark:border-gray-700/20 hover:bg-white/50 dark:hover:bg-gray-800/50 hover:border-white/40 dark:hover:border-gray-600/40 shadow-black/5 dark:shadow-black/10 hover:shadow-lg hover:shadow-python-blue/10 dark:hover:shadow-python-blue/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                  >
+                    <div className="text-center space-y-1">
+                      <div className="inline-flex items-center justify-center w-6 h-6 rounded-lg transition-all duration-500 bg-python-blue/10 group-hover:bg-python-blue/20">
+                        <Icon className="w-3 h-3 transition-colors duration-300 text-python-blue/70 group-hover:text-python-blue" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <motion.div 
+                          className="text-sm font-semibold transition-colors duration-300 text-gray-800 dark:text-gray-200 group-hover:text-python-blue dark:group-hover:text-python-blue/90"
+                          key={animatedValue}
+                          initial={{ scale: 1.1 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {animatedValue.toLocaleString()}
+                        </motion.div>
+                        <div className="text-xs font-medium transition-colors duration-300 text-gray-600 dark:text-gray-400 group-hover:text-python-blue/80 dark:group-hover:text-python-blue/70">
+                          {stat.label}
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+            
+            {/* Additional Stats - Same style as main stats */}
+            <motion.div 
+              className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-4 max-w-xs sm:max-w-2xl mx-auto mb-4 sm:mb-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+            >
+              {animatedAdditionalStats.map((stat, index) => {
+                const animatedValue = stat.animatedValue;
+                
+                return (
+                  <motion.div
+                    key={index}
+                    className="group p-2 sm:px-6 sm:py-3 backdrop-blur-md rounded-lg sm:rounded-full border transition-all duration-500 shadow-md bg-white/30 dark:bg-gray-800/30 border-white/20 dark:border-gray-700/20 hover:bg-white/50 dark:hover:bg-gray-800/50 hover:border-white/40 dark:hover:border-gray-600/40 shadow-black/5 dark:shadow-black/10 hover:shadow-lg hover:shadow-python-blue/10 dark:hover:shadow-python-blue/20"
+                    whileHover={{ scale: 1.05, y: -2 }}
                     transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
-                    <div className="flex items-center space-x-3">
-                      <motion.span 
-                        className="text-lg font-semibold transition-colors duration-300 text-gray-800 dark:text-gray-200 group-hover:text-python-blue dark:group-hover:text-python-blue/90"
+                    <div className="text-center space-y-0.5 sm:flex sm:items-center sm:space-x-3 sm:space-y-0">
+                      <motion.div 
+                        className="text-sm font-semibold transition-colors duration-300 text-gray-800 dark:text-gray-200 group-hover:text-python-blue dark:group-hover:text-python-blue/90"
                         key={animatedValue}
                         initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.2 }}
                       >
                         {animatedValue.toLocaleString()}
-                      </motion.span>
-                      <span className="text-sm font-medium transition-colors duration-300 text-gray-600 dark:text-gray-400 group-hover:text-python-blue/80 dark:group-hover:text-python-blue/70">
+                      </motion.div>
+                      <div className="text-xs sm:text-sm font-medium transition-colors duration-300 text-gray-600 dark:text-gray-400 group-hover:text-python-blue/80 dark:group-hover:text-python-blue/70">
                         {stat.label}
-                      </span>
+                      </div>
                     </div>
                   </motion.div>
                 );

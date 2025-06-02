@@ -1,26 +1,42 @@
+import {NextIntlClientProvider} from 'next-intl';
+import {setRequestLocale} from 'next-intl/server';
 import {notFound} from 'next/navigation';
-import {ReactNode} from 'react';
+import {locales} from '../../i18n';
 
-type Props = {
-  children: ReactNode;
-  params: {locale: string};
-};
-
+// 为静态导出生成所有语言参数
 export function generateStaticParams() {
-  return [{locale: 'zh'}, {locale: 'en'}, {locale: 'zh-TW'}];
+  return locales.map((locale) => ({ locale }));
 }
 
-export default function LocaleLayout({
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{locale: string}>;
+};
+
+export default async function LocaleLayout({
   children,
-  params: {locale}
+  params
 }: Props) {
+  const { locale } = await params;
+  
   // Validate that the incoming `locale` parameter is valid
-  const locales = ['zh', 'en', 'zh-TW'];
-  // If locale is not supported, redirect to default locale instead of calling notFound()
   if (!locales.includes(locale)) {
-    // Use default locale 'zh' for unsupported locales
-    // This prevents the notFound() error in root layout
+    notFound();
   }
 
-  return children;
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  let messages;
+  try {
+    messages = (await import(`../../messages/${locale}.json`)).default;
+  } catch {
+    notFound();
+  }
+
+  return (
+    <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Shanghai">
+      {children}
+    </NextIntlClientProvider>
+  );
 }

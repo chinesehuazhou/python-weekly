@@ -1,8 +1,9 @@
 'use client';
 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations, useLocale } from '../hooks/useTranslations';
 import { motion } from 'framer-motion';
 import { FaCrown, FaHeart, FaStar, FaCheck } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function SubscriptionSection() {
   const t = useTranslations();
@@ -34,7 +35,7 @@ export default function SubscriptionSection() {
         if (feature && feature !== featureKey && !feature.startsWith('subscription.platforms.')) {
           features.push(feature);
         }
-      } catch (error) {
+      } catch {
         // Continue to next feature even if one fails
       }
     }
@@ -45,7 +46,7 @@ export default function SubscriptionSection() {
   interface PremiumOption {
     name: string;
     description: string;
-    icon: any;
+    icon: React.ComponentType<{ className?: string; }>;
     color: string;
     url: string;
     featured: boolean;
@@ -123,7 +124,7 @@ export default function SubscriptionSection() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className={`grid gap-8 ${premiumOptions.length === 1 ? 'justify-center' : 'md:grid-cols-2'}`}>
+            <div className={`grid gap-6 sm:gap-8 ${premiumOptions.length === 1 ? 'justify-center' : 'lg:grid-cols-2'} px-4 sm:px-0`}>
                   {premiumOptions.map((option, index) => {
                     const Icon = option.icon;
                     return (
@@ -132,8 +133,8 @@ export default function SubscriptionSection() {
                         href={option.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col ${
-                          premiumOptions.length === 1 ? 'max-w-md mx-auto' : ''
+                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col ${
+                          premiumOptions.length === 1 ? 'max-w-md mx-auto w-full' : ''
                         } ${
                           option.featured 
                             ? 'bg-white text-gray-900 shadow-xl ring-2 ring-yellow-400' 
@@ -153,9 +154,11 @@ export default function SubscriptionSection() {
                         <div className="flex items-center mb-6">
                           <div className={`w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm`}>
                             {option.logoUrl ? (
-                              <img 
+                              <Image 
                                 src={option.logoUrl} 
                                 alt={`${option.name} logo`}
+                                width={32}
+                                height={32}
                                 className="w-8 h-8 object-contain"
                                 onError={(e) => {
                                   // Fallback to icon if logo fails to load
@@ -170,8 +173,8 @@ export default function SubscriptionSection() {
                             <Icon className={`w-8 h-8 text-gray-600 ${option.logoUrl ? 'hidden' : 'block'}`} />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-xl">{option.name}</h4>
-                            <p className={`text-sm ${
+                            <h4 className="font-semibold text-lg sm:text-xl">{option.name}</h4>
+                            <p className={`text-xs sm:text-sm ${
                               option.featured ? 'text-gray-600' : 'text-gray-600'
                             }`}>
                               {option.description}
@@ -212,11 +215,11 @@ export default function SubscriptionSection() {
 
                         <ul className="space-y-3 flex-1">
                           {option.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-center text-base">
-                              <FaCheck className={`w-5 h-5 mr-3 ${
+                            <li key={featureIndex} className="flex items-start text-sm sm:text-base">
+                              <FaCheck className={`w-4 h-4 sm:w-5 sm:h-5 mr-3 mt-0.5 flex-shrink-0 ${
                                 option.featured ? 'text-green-600' : 'text-green-400'
                               }`} />
-                              <span className={option.featured ? 'text-gray-700' : 'text-gray-700'}>
+                              <span className={`${option.featured ? 'text-gray-700' : 'text-gray-700'} leading-relaxed`}>
                                 {feature}
                               </span>
                             </li>

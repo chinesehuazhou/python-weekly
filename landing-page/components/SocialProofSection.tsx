@@ -1,8 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useTranslations } from '../hooks/useTranslations';
 import { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function SocialProofSection() {
   const t = useTranslations('SocialProof');
@@ -49,9 +50,11 @@ export default function SocialProofSection() {
               className="group relative bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-700 rounded-xl p-1 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg p-3 h-full">
-                <img
+                <Image
                   src={image.src}
                   alt={image.alt}
+                  width={400}
+                  height={300}
                   className="w-full h-auto rounded-lg border-2 border-gray-100 dark:border-gray-600 shadow-md group-hover:border-blue-200 dark:group-hover:border-blue-400 transition-colors duration-300 cursor-pointer"
                   onClick={() => setSelectedImage(image.src)}
                 />
@@ -78,9 +81,11 @@ export default function SocialProofSection() {
             >
               <FaTimes size={32} />
             </button>
-            <img
+            <Image
               src={selectedImage}
               alt="放大查看"
+              width={1200}
+              height={900}
               className="max-w-full max-h-full object-contain rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />

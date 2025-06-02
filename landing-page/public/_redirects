@@ -1,0 +1,14 @@
+# Cloudflare Pages Redirects Configuration
+
+# Redirect root to default locale (zh)
+/  /zh  302
+
+# Handle locale redirects for unsupported locales
+/zh-cn/*  /zh/:splat  301
+/zh-Hans/*  /zh/:splat  301
+/zh-Hant/*  /zh-TW/:splat  301
+/en-US/*  /en/:splat  301
+/en-GB/*  /en/:splat  301
+
+# Fallback for any unmatched routes to 404
+/*  /zh/404  404
