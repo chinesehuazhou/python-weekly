@@ -1,0 +1,116 @@
+{
+  "siteName": "Python Trending Weekly",
+  "pastIssueExample": "Past Issue Example",
+  "copyright": "© {year} Python Trending Weekly. All rights reserved.",
+  "footerDescription": "A high-quality tech newsletter by Python Cat, carefully curating from 400+ sources to provide Python developers with the most valuable content.",
+  "hero": {
+    "title": "Python Trending Weekly",
+    "subtitle": "Your Gateway to Quality Tech Intelligence",
+    "description": "Cut through the noise. Get hand-picked, cutting-edge Python content delivered weekly. Join 350+ professionals who trust us to filter the best from 400+ sources.",
+    "cta": {
+      "subscribe": "Subscribe Now",
+      "examples": "View Past Examples"
+    },
+    "stats": {
+      "issues": "Total Issues",
+      "articles": "Total Articles",
+      "projects": "Total Projects",
+      "audioVideo": "Total Audio/Video",
+      "hotTopics": "Total Hot Topics",
+      "books": "Total Books"
+    }
+  },
+  "features": {
+    "title": "Why Choose Python Trending Weekly?",
+    "quality": {
+      "title": "Comprehensive Global Coverage",
+      "description": "Handpicked from 400+ premium sources across Chinese and English ecosystems, spanning official documentation, technical blogs, open-source communities, and academic publications to deliver cutting-edge, authoritative insights"
+    },
+    "diversity": {
+      "title": "Multi-Format Content",
+      "description": "From in-depth technical articles and open-source projects to multimedia resources, trending topics, and technical books—everything you need for diverse learning experiences"
+    },
+    "volume": {
+      "title": "Substantial Content Volume",
+      "description": "Each issue features 12 carefully selected technical articles plus 12 open-source projects, enhanced with multimedia resources and trending discussions for a complete tech ecosystem"
+    },
+    "curation": {
+      "title": "AI-Powered + Human-Curated",
+      "description": "AI technology efficiently aggregates massive information streams, while human editors apply rigorous standards to ensure every recommendation delivers genuine learning value"
+    },
+    "depth": {
+      "title": "In-Depth Content Analysis",
+      "description": "Every piece includes thoughtfully crafted summaries and editorial insights—not just raw content reposts—plus relevant supplementary materials for deeper understanding"
+    },
+    "richness": {
+      "title": "Rich Visual Presentation",
+      "description": "Beautifully designed layouts with compelling visuals, plus special highlighting for 1000+ star open-source projects to help you quickly identify top-tier resources"
+    }
+  },
+  "subscription": {
+    "title": "Subscribe to Python Trending Weekly",
+    "platforms": {
+      "patreon": {
+      "monthly": {
+        "name": "Patreon Monthly",
+        "description": "Support Python Weekly with monthly subscription",
+        "price": "$4.99/month",
+        "originalPrice": "$5.99/month",
+        "features": {
+          "0": "Complete weekly content (approximately 50 issues, 80,000 words)",
+          "1": "Exquisite e-books every 30 issues (EPUB/PDF/Markdown)",
+          "2": "In-depth analysis",
+          "3": "Exclusive resources",
+          "4": "Community access"
+        }
+      }
+    }
+    },
+    "recommended": "Recommended"
+  },
+  "SocialProof": {
+    "title": "Trusted by Developers",
+    "subtitle": "Python Trending Weekly helps readers alleviate information anxiety and maintain technical sensitivity in their career development through manually curated high-quality content and consistent, stable delivery."
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "Can you guarantee stable publication? When is it updated?",
+        "answer": "Our newsletter is mainly published on Saturdays Beijing time, occasionally on Sundays. We will skip one issue during China's National Day and Spring Festival holidays, with an estimated 50 issues published annually."
+      },
+      {
+        "question": "I'm a Python beginner/senior developer, is this newsletter suitable for me?",
+        "answer": "Our content covers all skill levels: beginners can find basic tutorials and starter projects; intermediate developers can get practical tools and best practices; advanced developers can learn about cutting-edge technologies and in-depth analysis. Whether you're a student, working programmer, or technical manager, you'll benefit."
+      },
+      {
+        "question": "What does the paid version offer compared to the free version? Is it worth subscribing?",
+        "answer": "The paid version includes complete content links, recommendations, and screenshots, while the free version is a simplified title-only version. Newly published newsletters are paid content, but historical newsletters become freely available to all readers after more than one year."
+      },
+      {
+        "question": "What are the features of the newsletter e-book? How to get it?",
+        "answer": "Every 30 issues of the newsletter form a season and are compiled into multi-format collection e-books. Newly completed e-books are exclusive benefits for paid readers, but e-books from over a year ago are completely free. You can get download links by sending 'W30' to our WeChat official account."
+      },
+      {
+        "question": "Can I recommend quality content to the newsletter?",
+        "answer": "Absolutely welcome! You can submit issues on GitHub to recommend articles, projects, resources, or information sources. We encourage both self-recommendations and recommendations of others, and welcome you to participate in building a quality newsletter together."
+      },
+      {
+        "question": "Why can't some links in the newsletter be opened?",
+        "answer": "This might be due to source website failures or deleted source content, especially for content shared in very early newsletters."
+      },
+      {
+        "question": "Can you provide full article text instead of just brief recommendations?",
+        "answer": "Constantly jumping through links to access source content is indeed inconvenient and not conducive to article collection and knowledge management. I've actually considered including all articles in a Notion knowledge base for easier reader search, collection, and review of historical content. But this involves copyright issues, maintenance costs, and impacts on subscription pricing. Feel free to message me with your thoughts and needs."
+      },
+      {
+        "question": "How does subscribing to the newsletter help my career development?",
+        "answer": "Our newsletter provides four core values:\n① Technical Vision Expansion - Stay ahead of the latest Python ecosystem trends and maintain technical acuity\n② Project Inspiration - Discover cutting-edge open source projects and practical tools that provide innovative ideas for your work and projects\n③ Learning Path Optimization - Curated high-quality tutorials and best practices to help you efficiently improve your technical skills\n④ Industry Insight Deepening - Master Python's development trajectory in hot fields like AI, data science, and web development"
+      },
+      {
+        "question": "When will you support subscription platforms like Substack?",
+        "answer": "Currently, platforms like Substack only support Stripe or Paypal for payment processing, which presents challenges for Chinese individual creators due to unfriendly identity verification requirements and various payment restrictions. I'm actively researching solutions to these payment processing issues and will promptly update and expand to new platforms once viable alternatives become available. Thank you for your patience and continued support."
+      }
+    ]
+  }
+}

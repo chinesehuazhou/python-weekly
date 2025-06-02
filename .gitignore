@@ -2,3 +2,6 @@
 .idea
 resources/.DS_Store
 .DS_Store
+docs/en
+landing-page/node_modules
+landing-page/.next
