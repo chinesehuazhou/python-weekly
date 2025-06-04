@@ -63,6 +63,9 @@ export default function Header() {
   };
 
   const switchLanguage = (newLocale: string) => {
+    // 保存用户语言偏好到 cookie (1个月)
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${30 * 24 * 60 * 60}; SameSite=Lax`;
+    
     // Remove current locale from pathname to get the base path
     let basePath = pathname;
     

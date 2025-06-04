@@ -1,6 +1,6 @@
 # Python 潮流周刊 Landing Page
 
-这是 Python 潮流周刊的官方 Landing Page，使用 Next.js 14 和 TypeScript 构建，支持中英文双语。
+这是 Python 潮流周刊的官方 Landing Page，使用 Next.js 15 和 TypeScript 构建，支持中英文双语。
 
 ## 🚀 特性
 
@@ -8,18 +8,20 @@
 - **国际化支持**: 支持中文和英文双语切换
 - **深色模式**: 完整的深色/浅色主题支持
 - **动画效果**: 使用 Framer Motion 实现流畅的动画
-- **性能优化**: 基于 Next.js 14 的静态站点生成
-- **SEO 友好**: 完整的 meta 标签和 Open Graph 支持
+- **性能优化**: 基于 Next.js 15 的静态站点生成
+- **SEO 友好**: 完整的 meta 标签和支持多语言的 Open Graph 图片
 
 ## 🛠️ 技术栈
 
-- **框架**: Next.js 14 (App Router)
-- **语言**: TypeScript
-- **样式**: Tailwind CSS
+- **框架**: Next.js 15 (App Router)
+- **语言**: TypeScript (ES2022)
+- **样式**: Tailwind CSS, PostCSS
 - **动画**: Framer Motion
 - **国际化**: next-intl
 - **图标**: React Icons
 - **内容解析**: react-markdown, remark-gfm
+- **打包分析**: webpack-bundle-analyzer
+- **代码规范**: ESLint, Prettier
 
 ## 📦 安装
 
@@ -42,6 +44,16 @@ pnpm dev
 ```
 
 3. 在浏览器中打开 [http://localhost:3000](http://localhost:3000)
+
+4. 构建静态站点:
+```bash
+npm run build
+# 或
+yarn build
+# 或
+pnpm build
+```
+构建完成后，静态文件将输出到 `out/` 目录。
 
 ## 📁 项目结构
 
@@ -78,13 +90,14 @@ landing-page/
 │   ├── python_cat.jpg    # 作者头像
 │   └── wechat_pythoncat.jpg # 微信二维码
 ├── i18n/                 # 国际化配置
-│   └── request.ts        # 请求配置
-├── lib/                  # 工具库
+│   └── request.ts        # next-intl 请求配置
+├── lib/                  # 工具库 (例如 `metadata.ts`)
 ├── i18n.ts              # 国际化主配置
 ├── middleware.ts        # 中间件
-├── next.config.js       # Next.js 配置
-├── tailwind.config.js   # Tailwind 配置
-└── tsconfig.json        # TypeScript 配置
+├── next.config.js       # Next.js 配置 (包含静态导出 `output: 'export'`)
+├── tailwind.config.js   # Tailwind CSS 配置
+├── tsconfig.json        # TypeScript 配置 (目标 ES2022, 严格模式)
+└── .eslintrc.json       # ESLint 配置
 ```
 
 ## 🌍 国际化
@@ -107,4 +120,4 @@ landing-page/
 - `xl`: 1280px+
 - `2xl`: 1536px+
 
-**Python 潮流周刊** - 由 Python猫 出品的高质量技术周刊
+**Python 潮流周刊** - 由 Python猫 出品的高质量技术周刊，发布地址：https://weekly.pythoncat.org

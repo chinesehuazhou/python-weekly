@@ -55,11 +55,11 @@
         "name": "Patreon Monthly",
         "description": "Support Python Weekly with monthly subscription",
         "price": "$4.99/month",
-        "originalPrice": "$5.99/month",
+        "originalPrice": "$6.99/month",
         "features": {
           "0": "Complete weekly content (approximately 50 issues, 80,000 words)",
           "1": "Exquisite e-books every 30 issues (EPUB/PDF/Markdown)",
-          "2": "In-depth analysis",
+          "2": "Ad-free experience",
           "3": "Exclusive resources",
           "4": "Community access"
         }
