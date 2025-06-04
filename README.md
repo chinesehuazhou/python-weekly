@@ -1,5 +1,7 @@
 # Python 潮流周刊 | Python Trending Weekly
 
+> 好消息，我们周刊推出了全新的官方主页，欢迎访问：[https://weekly.pythoncat.top](https://weekly.pythoncat.top) 
+
 在这个信息过载的时代，人们获取信息的条件非常便利，但是，筛选优质信息的成本却大大增加。
 
 读你想读、读你所需、读能使人成长的内容，这些并不是每个人都能做到。
@@ -14,10 +16,11 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 400+ 信�
 
 本周刊从第 47 期开始转为付费模式，如果你想了解付费专栏，想知道为什么我们会转为付费专栏，欢迎阅读[这篇博文](https://pythoncat.top/posts/2024-05-06-information-gap) 。
 
-付费订阅入口，目前只支持两种方式：
+付费订阅入口，目前支持三种方式：
 
-- [小报童](https://xiaobot.net/p/python_weekly) （需要使用微信登录，可微信和邮箱接收更新）
-- [爱发电](https://afdian.com/a/python_weekly) （支持邮箱登录，可用支付宝、微信、信用卡、PayPal 等支付）
+- [小报童](https://xiaobot.net/p/python_weekly) （建议大陆读者选择。需要使用微信登录，可微信和邮箱接收更新）
+- [爱发电](https://afdian.com/a/python_weekly) （建议海外读者选择。支持邮箱登录，可用支付宝、微信、信用卡、PayPal 等支付）
+- [Patreon](https://patreon.com/PythonCat666) (建议英语读者选择)
 
 以后周刊更新期数越来越多，我们会逐步免费开放早期的内容（第 n+50 期免费），欢迎保持关注。
 
@@ -262,18 +265,6 @@ Python 潮流周刊由 **Python猫** 出品，精心筛选中英文的 400+ 信�
   - 提及了 10 篇文章/教程，5 个开源项目/资源，4 则音视频，3 则热门讨论
 - 第 1 期：[如何系统地自学Python？](./docs/2023-05-13-weekly.md)
   - 提及了 8 篇文章/教程，4 个开源项目，4 则音视频，3 则热门讨论
-
-
-## 🐱赞助支持
-
-如果你喜欢本周刊，请给一个 star 吧！
-
-欢迎分享给其他需要的同学，让更多人可以从中受益～
-
-内容创作要花费大量的时间和精力，如果你觉得有帮助，请随意[赞赏](https://img.pythoncat.top/wechat_code.png) 或 [买杯咖啡](https://www.buymeacoffee.com/pythoncat) 进行支持！
-
-![](https://img.pythoncat.top/support_pythoncat.png)
-
 
 ## Star History
 
