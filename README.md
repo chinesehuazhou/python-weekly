@@ -1,6 +1,6 @@
-# Python Trending Weekly
-
 <div align="center">
+
+# Python Trending Weekly
 
 [![GitHub stars](https://img.shields.io/github/stars/chinesehuazhou/python-weekly?style=social)](https://github.com/chinesehuazhou/python-weekly/stargazers)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fweekly.pythoncat.top)](https://weekly.pythoncat.top)
@@ -8,7 +8,7 @@
 [![WeChat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](https://img.pythoncat.top/python_cat.jpg)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/chinesehuazhou)
 
-**Language Versions / 语言版本:**
+**Language / 语言:**
 [🇺🇸 English](README.md) | [🇨🇳 中文](README_ZH.md)
 
 </div>
@@ -61,18 +61,20 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Metrics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **104** |
-| 📝 **Total Articles** | **1261** |
-| 🚀 **Total Projects** | **1182** |
+| 📅 **Total Issues** | **105** |
+| 📝 **Total Articles** | **1273** |
+| 🚀 **Total Projects** | **1194** |
 | 🎵 **Total Audio/Video** | **117** |
 | 🔥 **Total Hot Topics** | **51** |
 | 📚 **Total Books Given** | **98** |
 
 </div>
 
-## 🦄 Previous Issues
+## 🦄 Past Issues
 
-- Issue 104: [Is Python Considering Adding Virtual Threads?](./docs/2025-05-31-weekly.md)
+- Issue 105: [Best Practices for Developing React+Flask Projects in 2025](./docs/2025-06-07-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 104: [Python Considering Adding Virtual Threads?](./docs/2025-05-31-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot discussions
 - Issue 103: [LlamaIndex's Monorepo Transformation](./docs/2025-05-24-weekly.md)
   - Shared 12 articles, 13 open-source projects, 2 audio/videos

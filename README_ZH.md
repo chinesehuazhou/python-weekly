@@ -1,6 +1,6 @@
-# Python 潮流周刊 | Python Trending Weekly
-
 <div align="center">
+
+# Python 潮流周刊 | Python Trending Weekly
 
 [![GitHub stars](https://img.shields.io/github/stars/chinesehuazhou/python-weekly?style=social)](https://github.com/chinesehuazhou/python-weekly/stargazers)
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fweekly.pythoncat.top)](https://weekly.pythoncat.top)
@@ -8,7 +8,7 @@
 [![WeChat](https://img.shields.io/badge/WeChat-07C160?style=for-the-badge&logo=wechat&logoColor=white)](https://img.pythoncat.top/python_cat.jpg)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/chinesehuazhou)
 
-**语言版本 / Language Versions:**
+**语言:**
 [🇨🇳 中文](README_ZH.md) | [🇺🇸 English](README.md)
 
 </div>
@@ -74,9 +74,9 @@ AI 技术高效抓取海量信息，人工高标准精选优质内容，确保�
 
 | 📈 统计项目 | 📊 数量 |
 |:---:|:---:|
-| 📅 **总期数** | **104** 期 |
-| 📝 **总文章数** | **1261** 篇 |
-| 🚀 **总项目数** | **1182** 个 |
+| 📅 **总期数** | **105** 期 |
+| 📝 **总文章数** | **1273** 篇 |
+| 🚀 **总项目数** | **1194** 个 |
 | 🎵 **总音视频** | **117** 则 |
 | 🔥 **总热门话题** | **51** 个 |
 | 📚 **总赠书** | **98** 本 |
@@ -85,6 +85,8 @@ AI 技术高效抓取海量信息，人工高标准精选优质内容，确保�
 
 ## 🦄往期列表
 
+- 第 105 期：[Dify突破10万星、2025全栈开发的最佳实践](./docs/2025-06-07-weekly.md)
+  - 分享了 12 篇文章，12 个开源项目
 - 第 104 期：[Python 考虑添加虚拟线程啦？](./docs/2025-05-31-weekly.md)
   - 分享了 12 篇文章，12 个开源项目，2 则音视频，2 则热门讨论
 - 第 103 期：[LlamaIndex 的单体代码库改造](./docs/2025-05-24-weekly.md)
