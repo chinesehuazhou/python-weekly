@@ -37,35 +37,56 @@ function useAnimatedCounter(end: number, duration: number = 2000, delay: number 
 function HeroSection() {
   const t = useTranslations();
 
+  // 从stats.json文件读取统计数据
+  const [statsData, setStatsData] = useState({
+    total_issues: 104,
+    total_articles: 1261,
+    total_projects: 1182,
+    total_audio_video: 117,
+    total_hot_topics: 51,
+    total_books: 98
+  });
+
+  useEffect(() => {
+    // 尝试从stats.json文件加载统计数据
+    fetch('/stats.json')
+      .then(response => response.json())
+      .then(data => setStatsData(data))
+      .catch(error => {
+        console.log('Using default stats data:', error);
+        // 如果加载失败，使用默认值
+      });
+  }, []);
+
   const stats = [
     {
       icon: HiDocumentText,
-      value: 104,
+      value: statsData.total_issues,
       label: t('hero.stats.issues'),
     },
     {
       icon: HiBookOpen,
-      value: 1261,
+      value: statsData.total_articles,
       label: t('hero.stats.articles'),
     },
     {
       icon: HiCode,
-      value: 1182,
+      value: statsData.total_projects,
       label: t('hero.stats.projects'),
     },
   ];
 
   const additionalStats = [
     {
-      value: 117,
+      value: statsData.total_audio_video,
       label: t('hero.stats.audioVideo'),
     },
     {
-      value: 51,
+      value: statsData.total_hot_topics,
       label: t('hero.stats.hotTopics'),
     },
     {
-      value: 98,
+      value: statsData.total_books,
       label: t('hero.stats.books'),
     },
   ];

@@ -11,11 +11,12 @@
 - 以下是常见的 AI 相关术语词汇对应表（English -> 中文）：
 * Transformer -> Transformer
 * Token -> Token
-* LLM/Large Language Model -> 大语言模型
+* LLM/Large Language Model -> 大模型
 * Zero-shot -> 零样本
 * Few-shot -> 少样本
 * AI Agent -> AI 智能体
 * AGI -> 通用人工智能
+
 
 策略：
 分三步进行翻译工作，并打印每步的结果：
