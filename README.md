@@ -175,31 +175,31 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 5 books given away
 - Issue 56: [Faster String Functions in NumPy 2.0](./docs/2024-06-15-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
-- Issue 55: [Sharing 9 High-Quality Technical Information Sources!](./docs/2024-06-10-weekly.md)
+- Issue 55: [Sharing 9 High-Quality Technical Information Sources!](./docs/en/2024-06-10-weekly.md)
   - Special extra issue, sharing several high-quality newsletter-type information sources
-- Issue 54: [ChatTTS: Powerful Text-to-Speech Model](./docs/2024-06-08-weekly.md)
+- Issue 54: [ChatTTS: Powerful Text-to-Speech Model](./docs/en/2024-06-08-weekly.md)
   - Shared 12 articles, 12 open-source projects, 3 audio/videos
-- Issue 53: [Role Models: One Meeting a Nobel Laureate, One Becoming a Core Developer](./docs/2024-06-01-weekly.md)
+- Issue 53: [Role Models: One Meeting a Nobel Laureate, One Becoming a Core Developer](./docs/en/2024-06-01-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away: "How Programs Run (3rd Edition)"
-- Issue 52: [Python Resources for Handling Excel](./docs/2024-05-25-weekly.md)
+- Issue 52: [Python Resources for Handling Excel](./docs/en/2024-05-25-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away: "How the Network is Connected"
-- Issue 51: [Creating Beautiful Charts with Python](./docs/2024-05-18-weekly.md)
+- Issue 51: [Creating Beautiful Charts with Python](./docs/en/2024-05-18-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away: "Illustrated IT Infrastructure"
-- Issue 50: [My Favorite Python 3.13 New Features!](./docs/example_zh.md)
+- Issue 50: [My Favorite Python 3.13 New Features!](./docs/en/example_zh.md)
   - Shared 12 articles, 11 open-source projects, 2 audio/videos, 5 books given away: "Hackers and Painters (100,000 Copy Anniversary Edition)"
-- Issue 49: [Google Lays Off Python Team, Microsoft Open-Sources MS-DOS 4.0](./docs/2024-05-04-weekly.md)
+- Issue 49: [Google Lays Off Python Team, Microsoft Open-Sources MS-DOS 4.0](./docs/en/2024-05-04-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 videos, 5 books given away: "Hello Algorithm"
-- Issue 48: [Python 3.14 Release Plan](./docs/2024-04-27-weekly.md)
+- Issue 48: [Python 3.14 Release Plan](./docs/en/2024-04-27-weekly.md)
   - Shared 12 articles, 11 open-source projects, 5 books given away: "Illustrated TCP/IP (6th Edition)"
-- Issue 47: [When Your Teacher Wants You to Do Open Source](./docs/2024-04-20-weekly.md)
+- Issue 47: [When Your Teacher Wants You to Do Open Source](./docs/en/2024-04-20-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 5 books given away: "Python Crash Course (3rd Edition)"
-- Issue 46: [How to Use Python to Predict Solar Eclipse Times and Paths?](./docs/2024-04-13-weekly.md)
+- Issue 46: [How to Use Python to Predict Solar Eclipse Times and Paths?](./docs/en/2024-04-13-weekly.md)
   - Shared 13 articles, 12 open-source projects, 2 audio/videos, 7 books given away: "Python Tutorial (3rd Edition, Revised)"
-- Issue 45: [More and More AI Automatic Development Frameworks](./docs/2024-04-06-weekly.md)
+- Issue 45: [More and More AI Automatic Development Frameworks](./docs/en/2024-04-06-weekly.md)
   - Shared 13 articles, 11 open-source projects, 2 audio/videos, 5 books given away: "Python and Its Applications (2nd Edition)"
-- Issue 44: [Mojo Open-Sourced This Week; AI Learns to Generate Music](./docs/2024-03-30-weekly.md)
+- Issue 44: [Mojo Open-Sourced This Week; AI Learns to Generate Music](./docs/en/2024-03-30-weekly.md)
   - Shared 12 articles, 13 open-source projects, 5 books given away: "Clear Python Algorithms and Data Structures"
-- Issue 43: [Between Open Source and Family, He Chose Family](./docs/2024-03-23-weekly.md)
+- Issue 43: [Between Open Source and Family, He Chose Family](./docs/en/2024-03-23-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 5 books given away: "Python Data Structures and Algorithm Analysis (3rd Edition)"
 - Issue 42: [What Can Small Companies Achieve with Python Development?](./docs/en/2024-03-16-weekly.md)
   - Shared 12 articles, 12 open-source projects, 6 books given away: "Fluent Python"

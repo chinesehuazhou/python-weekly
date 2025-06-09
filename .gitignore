@@ -2,6 +2,7 @@
 .idea
 resources/.DS_Store
 .DS_Store
-docs/en
+docs/en/tmp
+docs/en/summary
 landing-page/node_modules
 landing-page/.next
