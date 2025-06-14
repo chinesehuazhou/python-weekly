@@ -59,19 +59,21 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 <div align="center">
 
-| 📈 Metrics | 📊 Count |
+| 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **105** |
-| 📝 **Total Articles** | **1273** |
-| 🚀 **Total Projects** | **1194** |
+| 📅 **Total Issues** | **106** |
+| 📝 **Total Articles** | **1285** |
+| 🚀 **Total Projects** | **1209** |
 | 🎵 **Total Audio/Video** | **117** |
 | 🔥 **Total Hot Topics** | **51** |
-| 📚 **Total Books Given** | **98** |
+| 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 106: [PEP 734 officially accepted, the era of multiple interpreters is coming](./docs/2025-06-14-weekly.md)
+  - Shared 12 articles, 15 open-source projects
 - Issue 105: [Best Practices for Developing React+Flask Projects in 2025](./docs/2025-06-07-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 104: [Python Considering Adding Virtual Threads?](./docs/2025-05-31-weekly.md)
