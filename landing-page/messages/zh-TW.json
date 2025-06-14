@@ -82,7 +82,10 @@
         }
       }
     },
-    "recommended": "推薦"
+    "recommended": "推薦",
+    "cta": {
+      "button": "立即訂閱"
+    }
   },
   "SocialProof": {
     "title": "讀者好評",

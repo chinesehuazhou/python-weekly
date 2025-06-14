@@ -213,7 +213,7 @@ export default function SubscriptionSection() {
                           )}
                         </div>
 
-                        <ul className="space-y-3 flex-1">
+                        <ul className="space-y-3 flex-1 mb-6">
                           {option.features.map((feature, featureIndex) => (
                             <li key={featureIndex} className="flex items-start text-sm sm:text-base">
                               <FaCheck className={`w-4 h-4 sm:w-5 sm:h-5 mr-3 mt-0.5 flex-shrink-0 ${
@@ -225,6 +225,23 @@ export default function SubscriptionSection() {
                             </li>
                           ))}
                         </ul>
+                        
+                        {/* Call-to-Action Button */}
+                        <div className="mt-auto">
+                          <div className={`w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 ${
+                            option.featured 
+                              ? 'bg-gradient-to-r from-python-blue to-deep-green text-white shadow-lg hover:shadow-xl' 
+                              : 'bg-gradient-to-r from-gray-800 to-gray-900 text-white hover:from-gray-700 hover:to-gray-800 shadow-md hover:shadow-lg'
+                          }`}>
+                            <span className="flex items-center justify-center">
+                              {option.featured && <FaCrown className="w-4 h-4 mr-2" />}
+                              {t('subscription.cta.button')}
+                              <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
                       </motion.a>
                     );
                   })}

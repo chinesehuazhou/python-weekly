@@ -82,7 +82,10 @@
         }
       }
     },
-    "recommended": "推荐"
+    "recommended": "推荐",
+    "cta": {
+      "button": "立即订阅"
+    }
   },
   "SocialProof": {
     "title": "深受开发者信赖",
