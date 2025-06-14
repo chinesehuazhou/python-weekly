@@ -175,7 +175,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 5 books given away
 - Issue 57: [Should Python Adopt Calendar Versioning?](./docs/2024-06-22-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
-- Issue 56: [Faster String Functions in NumPy 2.0](./docs/2024-06-15-weekly.md)
+- Issue 56: [Faster String Functions in NumPy 2.0](./docs/en/2024-06-15-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
 - Issue 55: [Sharing 9 High-Quality Technical Information Sources!](./docs/en/2024-06-10-weekly.md)
   - Special extra issue, sharing several high-quality newsletter-type information sources
