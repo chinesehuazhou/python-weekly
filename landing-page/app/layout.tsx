@@ -8,8 +8,8 @@ export const metadata = {
   creator: 'PythonCat',
   publisher: 'Python Trending Weekly',
   icons: {
-    icon: '/logo_python_weekly.svg',
-    shortcut: '/logo_python_weekly.svg',
+    icon: ['/favicon.ico', '/logo_python_weekly.svg'],
+    shortcut: '/favicon.ico',
     apple: '/logo_python_weekly.svg',
   },
   openGraph: {

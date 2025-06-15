@@ -38,6 +38,11 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
     authors: [{ name: 'Python Cat', url: 'https://pythoncat.top' }],
     creator: 'Python Cat',
     publisher: messages.siteName,
+    icons: {
+      icon: ['/favicon.ico', '/logo_python_weekly.svg'],
+      shortcut: '/favicon.ico',
+      apple: '/logo_python_weekly.svg',
+    },
     alternates: {
       canonical: currentUrl,
       languages: {
