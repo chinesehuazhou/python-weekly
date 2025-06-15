@@ -33,10 +33,10 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
     title: messages.siteName,
     description: messages.footerDescription,
     keywords: locale === 'en' 
-      ? 'Python, newsletter, programming, developer, tutorial, open source, weekly, tech'
-      : 'Python, 周刊, 技术, 开发者, 编程, 教程, 开源项目, 技术周刊',
-    authors: [{ name: 'Python猫', url: 'https://pythoncat.top' }],
-    creator: 'Python猫',
+      ? 'Python newsletter, Python weekly, Python trending, open source projects, Python development, programming tutorial, tech newsletter, Python community, developer resources, Python articles, coding weekly, software development, Python ecosystem, tech trends, programming insights, machine learning, artificial intelligence, data science, AI programming, ML algorithms, deep learning, data analysis, Django, Flask, FastAPI, pandas, numpy, tensorflow, pytorch, scikit-learn, web development, API development, automation, data mining, neural networks'
+      : 'Python周刊, Python潮流周刊, Python技术周刊, 开源项目, Python开发, 编程教程, 技术周刊, Python社区, 开发者资源, Python文章, 编程周刊, 软件开发, Python生态, 技术趋势, 编程洞察, 机器学习, 人工智能, 数据科学, AI编程, 深度学习, 数据分析, Django框架, Flask框架, FastAPI, pandas库, numpy库, tensorflow, pytorch, scikit-learn, 网站开发, API开发, 自动化, 数据挖掘, 神经网络, 算法, 数据结构',
+    authors: [{ name: 'Python Cat', url: 'https://pythoncat.top' }],
+    creator: 'Python Cat',
     publisher: messages.siteName,
     alternates: {
       canonical: currentUrl,
