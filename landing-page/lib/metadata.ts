@@ -56,11 +56,10 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
       url: currentUrl,
       images: [
         {
-          url: `${baseUrl}/og-image${locale === 'en' ? '-en' : ''}.svg`,
+          url: `${baseUrl}/og-image${locale === 'en' ? '-en' : ''}.png`,
           width: 1200,
           height: 630,
           alt: `${messages.siteName} - ${messages.hero.subtitle}`,
-          type: 'image/svg+xml',
         },
       ],
     },
@@ -70,7 +69,7 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
       creator: '@pythoncat',
       title: messages.hero.title,
       description: messages.hero.description,
-      images: [`${baseUrl}/og-image${locale === 'en' ? '-en' : ''}.svg`],
+      images: [`${baseUrl}/og-image${locale === 'en' ? '-en' : ''}.png`],
     },
     robots: {
       index: true,
