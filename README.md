@@ -55,26 +55,28 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
-## 📊 Statistics
+## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **106** |
-| 📝 **Total Articles** | **1285** |
-| 🚀 **Total Projects** | **1209** |
-| 🎵 **Total Audio/Video** | **117** |
-| 🔥 **Total Hot Topics** | **51** |
+| 📅 **Total Issues** | **107** |
+| 📝 **Total Articles** | **1297** |
+| 🚀 **Total Projects** | **1221** |
+| 🎵 **Total Audio/Video** | **119** |
+| 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
-- Issue 106: [PEP 734 officially accepted, the era of multiple interpreters is coming](./docs/2025-06-14-weekly.md)
+- Issue 107: [GIL-Free Python Gets Official Approval](./docs/en/2025-06-21-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot discussions
+- Issue 106: [PEP 734 officially accepted, the era of multiple interpreters is coming](./docs/en/2025-06-14-weekly.md)
   - Shared 12 articles, 15 open-source projects
-- Issue 105: [Best Practices for Developing React+Flask Projects in 2025](./docs/2025-06-07-weekly.md)
+- Issue 105: [Best Practices for Developing React+Flask Projects in 2025](./docs/en/2025-06-07-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 104: [Python Considering Adding Virtual Threads?](./docs/2025-05-31-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot discussions

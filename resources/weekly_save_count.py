@@ -1,6 +1,7 @@
 import sqlite3
 import os
 import re
+import json
 
 db_path = os.path.join(os.path.dirname(__file__), 'python_weekly.db')
 
@@ -21,7 +22,11 @@ def create_table():
 
 
 def parse_markdown():
-    readme_path = 'README.md'
+    # 优先解析中文README文件
+    readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README_ZH.md')
+    if not os.path.exists(readme_path):
+        readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README.md')
+    
     with open(readme_path, 'r', encoding='utf-8') as file:
         content = file.read()
     
@@ -124,19 +129,21 @@ def get_total_stats():
         'total_issues': total_issues
     }
 
-def update_readme_stats(stats):
-    """更新README文件中的统计数据，移动到往期列表前面并使用美观样式"""
-    readme_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'README.md')
-    
+def update_single_readme_stats(readme_path, stats, is_chinese=True):
+    """更新单个README文件中的统计数据"""
+    if not os.path.exists(readme_path):
+        return False
+        
     with open(readme_path, 'r', encoding='utf-8') as file:
         content = file.read()
     
-    # 移除现有的统计数据部分
-    stats_pattern = r'## 统计数据.*?(?=\n## |\Z)'
+    # 移除现有的统计数据部分（中英文兼容）
+    stats_pattern = r'## 📊 数据统计.*?(?=\n## |\Z)|## 📊 Data Statistics.*?(?=\n## |\Z)'
     content = re.sub(stats_pattern, '', content, flags=re.DOTALL)
     
-    # 创建美观的统计数据部分
-    stats_section = f"""## 📊 数据统计
+    # 创建统计数据部分
+    if is_chinese:
+        stats_section = f"""## 📊 数据统计
 
 <div align="center">
 
@@ -152,23 +159,91 @@ def update_readme_stats(stats):
 </div>
 
 """
+        section_marker = '## 🦄往期列表'
+    else:
+        stats_section = f"""## 📊 Data Statistics
+
+<div align="center">
+
+| 📈 Statistics | 📊 Count |
+|:---:|:---:|
+| 📅 **Total Issues** | **{stats['total_issues']}** |
+| 📝 **Total Articles** | **{stats['total_articles']}** |
+| 🚀 **Total Projects** | **{stats['total_projects']}** |
+| 🎵 **Total Audio/Video** | **{stats['total_audio_video']}** |
+| 🔥 **Total Hot Topics** | **{stats['total_hot_topics']}** |
+| 📚 **Total Books** | **{stats['total_books']}** |
+
+</div>
+
+"""
+        section_marker = '## 🦄 Past Issues'
     
     # 在往期列表之前插入统计数据
-    if '## 🦄往期列表' in content:
-        content = content.replace('## 🦄往期列表', stats_section + '## 🦄往期列表')
+    if section_marker in content:
+        content = content.replace(section_marker, stats_section + section_marker)
     else:
         content += '\n' + stats_section
     
     with open(readme_path, 'w', encoding='utf-8') as file:
         file.write(content)
     
-    print(f"README.md 已更新统计数据：")
-    print(f"- 总期数：{stats['total_issues']} 期")
-    print(f"- 总文章数：{stats['total_articles']} 篇")
-    print(f"- 总项目数：{stats['total_projects']} 个")
-    print(f"- 总音视频：{stats['total_audio_video']} 则")
-    print(f"- 总热门话题：{stats['total_hot_topics']} 个")
-    print(f"- 总赠书：{stats['total_books']} 本")
+    return True
+
+def update_landing_page_stats(stats):
+    """更新landing page的统计数据JSON文件"""
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    landing_page_dir = os.path.join(base_dir, 'landing-page')
+    
+    # 检查landing-page目录是否存在
+    if not os.path.exists(landing_page_dir):
+        print(f"Landing page目录不存在: {landing_page_dir}")
+        return False
+    
+    # 生成stats.json文件路径
+    stats_json_path = os.path.join(landing_page_dir, 'public', 'stats.json')
+    
+    # 确保public目录存在
+    public_dir = os.path.dirname(stats_json_path)
+    if not os.path.exists(public_dir):
+        os.makedirs(public_dir)
+    
+    # 写入统计数据到JSON文件
+    try:
+        with open(stats_json_path, 'w', encoding='utf-8') as f:
+            json.dump(stats, f, ensure_ascii=False, indent=2)
+        print(f"Landing page统计数据已更新: {stats_json_path}")
+        return True
+    except Exception as e:
+        print(f"更新landing page统计数据失败: {e}")
+        return False
+
+def update_readme_stats(stats):
+    """更新README文件中的统计数据，支持中英文两个文件"""
+    base_dir = os.path.dirname(os.path.dirname(__file__))
+    
+    # 更新中文README
+    readme_zh_path = os.path.join(base_dir, 'README_ZH.md')
+    zh_updated = update_single_readme_stats(readme_zh_path, stats, is_chinese=True)
+    
+    # 更新英文README
+    readme_en_path = os.path.join(base_dir, 'README.md')
+    en_updated = update_single_readme_stats(readme_en_path, stats, is_chinese=False)
+    
+    # 输出更新结果
+    if zh_updated:
+        print(f"README_ZH.md 已更新统计数据")
+    if en_updated:
+        print(f"README.md 已更新统计数据")
+    
+    if zh_updated or en_updated:
+        print(f"统计数据：")
+        print(f"- 总期数：{stats['total_issues']} 期")
+        print(f"- 总文章数：{stats['total_articles']} 篇")
+        print(f"- 总项目数：{stats['total_projects']} 个")
+        print(f"- 总音视频：{stats['total_audio_video']} 则")
+        print(f"- 总热门话题：{stats['total_hot_topics']} 个")
+        print(f"- 总赠书：{stats['total_books']} 本")
 
 
 def main():
@@ -178,9 +253,14 @@ def main():
         insert_into_database(entries)
     print_all_data()
     
-    # 更新README统计数据
+    # 获取统计数据
     stats = get_total_stats()
+    
+    # 更新README统计数据
     update_readme_stats(stats)
+    
+    # 更新Landing Page统计数据
+    update_landing_page_stats(stats)
 
 if __name__ == '__main__':
     main()
