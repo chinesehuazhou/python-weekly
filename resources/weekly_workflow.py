@@ -16,7 +16,7 @@ if not os.getenv('TG_BOT_TOKEN') or not os.getenv('TG_CHAT_ID'):
 WEEKLY_INTRO = ("本周刊由 Python猫 出品，精心筛选国内外的 400+ 信息源，"
                 "为你挑选最值得分享的文章、教程、开源项目、软件工具、播客和视频、热门话题等内容。"
                 "愿景：帮助所有读者精进 Python 技术，并增长职业和副业的收入。\n\n"
-                "**温馨提示：** 在微信关注 **Python猫**，发送“**优惠券**”，即可领取 9 折优惠码，订阅专栏可享 15 元优惠。")
+                "**温馨提示：** 在微信关注 **Python猫**，发送数字“**9**”，即可领取 9 折优惠码，订阅专栏可享 15 元优惠。")
 
 SUBSCRIPTION_INFO = ("周刊实行付费订阅制，年费 148 元，平均每天 4 毛钱，为你精准筛选高质量技术内容。"
                     "在信息洪流中为你淘金，助力技术视野拓展和职业发展，欢迎订阅：[https://xiaobot.net/p/python_weekly](https://xiaobot.net/p/python_weekly)")
@@ -283,11 +283,11 @@ def write_to_md_file_en(weekly_no, content_meta, md_body, pub_date, en_weekly_fi
         return None
     
     # 生成英文版摘要文件
-    en_summary_dir = 'docs/en/summary'
+    en_summary_dir = 'docs/en'
     if not os.path.exists(en_summary_dir):
         os.makedirs(en_summary_dir)
     
-    en_summary_file = os.path.join(en_summary_dir, f"{pub_date}-weekly-summary.md")
+    en_summary_file = os.path.join(en_summary_dir, f"{pub_date}-weekly.md")
     print("Writing English version summary...")
     with open(en_summary_file, 'w', encoding='utf-8') as f:
         write_summary_content(f, en_content_meta, en_content_body, weekly_no, is_english=True)

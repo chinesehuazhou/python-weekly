@@ -55,16 +55,17 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **107** |
-| 📝 **Total Articles** | **1297** |
-| 🚀 **Total Projects** | **1221** |
-| 🎵 **Total Audio/Video** | **119** |
+| 📅 **Total Issues** | **108** |
+| 📝 **Total Articles** | **1309** |
+| 🚀 **Total Projects** | **1233** |
+| 🎵 **Total Audio/Video** | **121** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
 
@@ -72,6 +73,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 108: [Will AI Replace Junior Developers?](./docs/en/2025-06-28-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 audio/videos
 - Issue 107: [GIL-Free Python Gets Official Approval](./docs/en/2025-06-21-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot discussions
 - Issue 106: [PEP 734 officially accepted, the era of multiple interpreters is coming](./docs/en/2025-06-14-weekly.md)
