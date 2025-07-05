@@ -183,7 +183,7 @@ def update_single_readme_stats(readme_path, stats, is_chinese=True):
     if section_marker in content:
         content = content.replace(section_marker, stats_section + section_marker)
     else:
-        content += '\n' + stats_section
+        content += stats_section
     
     with open(readme_path, 'w', encoding='utf-8') as file:
         file.write(content)

@@ -62,9 +62,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **108** |
-| 📝 **Total Articles** | **1309** |
-| 🚀 **Total Projects** | **1233** |
+| 📅 **Total Issues** | **109** |
+| 📝 **Total Articles** | **1322** |
+| 🚀 **Total Projects** | **1246** |
 | 🎵 **Total Audio/Video** | **121** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
@@ -73,6 +73,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 109: [Python Performance Optimization Tips](./docs/en/2025-07-05-weekly.md)
+  - Shared 13 articles, 13 open-source projects
 - Issue 108: [Will AI Replace Junior Developers?](./docs/en/2025-06-28-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
 - Issue 107: [GIL-Free Python Gets Official Approval](./docs/en/2025-06-21-weekly.md)

@@ -30,8 +30,7 @@ SEASON1_SUMMARY = "[Python 潮流周刊第一季精华合集（1~30）](https://
 WECHAT_QR = "**微信关注 Python猫**：[https://img.pythoncat.top/python_cat.jpg](https://img.pythoncat.top/python_cat.jpg)"
 
 FOOTER_SUBSCRIPTION = ("周刊实行付费订阅制，年费148元，预计50期，超过10万字。现在订阅，每周让自己进步一点点。\n\n"
-                      "👀 [订阅方式一（小报童）](https://xiaobot.net/p/python_weekly) \n\n"
-                      "👀 [订阅方式二（爱发电）](https://afdian.com/a/python_weekly) \n\n"
+                      "👀 [前往订阅](https://weekly.pythoncat.top) \n\n"
                       "👀 [免费合集下载](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
 # 英文版固定文本常量
@@ -52,8 +51,7 @@ SEASON1_SUMMARY_EN = "[Python Trending Weekly Season 1 Highlights Collection (Is
 
 FOOTER_SUBSCRIPTION_EN = ("This newsletter operates on a paid subscription model at $20 per year, with an estimated 50 issues and over 100,000 words. "
                          "Subscribe now and make progress every week.\n\n"
-                         "👀 [Subscribe (Xiaobot)](https://xiaobot.net/p/python_weekly) \n\n"
-                         "👀 [Subscribe (Afdian)](https://afdian.com/a/python_weekly) \n\n"
+                         "👀 [Patreon](https://www.patreon.com/pythonweekly) \n\n"
                          "👀 [Free Collection Download](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
 def split_and_generate_files(input_file, tmp_en_file):
@@ -424,16 +422,19 @@ def update_word_count(file_path, word_count):
 
 def copy_to_archive(source_file, pub_date, weekly_no):
     """
-    复制中文完整版到ebook归档目录
+    复制中文完整版到项目归档目录
     :param source_file: 源文件路径
     :param pub_date: 发布日期
     :param weekly_no: 期号
     """
-    ebook_dir = os.path.expanduser('~/Documents/周刊/ebook/season4')
+    # 获取项目根目录
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(current_dir)
+    ebook_dir = os.path.join(project_root, 'docs', 'tmp')
     if not os.path.exists(ebook_dir):
         os.makedirs(ebook_dir)
     ebook_target = os.path.join(ebook_dir, f'{pub_date}-weekly.md')
-    print(f"Copying Chinese version to ebook directory: {ebook_target}")
+    print(f"Copying Chinese version to project archive directory: {ebook_target}")
     shutil.copy2(source_file, ebook_target)
 
 def update_readme(weekly_file, weekly_no):
