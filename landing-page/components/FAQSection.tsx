@@ -12,8 +12,7 @@ interface FAQ {
 
 export default function FAQSection() {
   const t = useTranslations('FAQ');
-  const [openItems, setOpenItems] = useState<number[]>([]);
-
+  
   // 从国际化文件中获取FAQ数据
   const faqItems = t.raw('items') as Array<{question: string; answer: string}> || [];
   const faqs: FAQ[] = faqItems.map((item, index) => ({
@@ -21,6 +20,11 @@ export default function FAQSection() {
     question: item.question,
     answer: item.answer
   }));
+  
+  // 默认展开所有FAQ项目
+  const [openItems, setOpenItems] = useState<number[]>(() => 
+    faqs.map(faq => faq.id)
+  );
 
   const toggleItem = (id: number) => {
     setOpenItems(prev => 
