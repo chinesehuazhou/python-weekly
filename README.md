@@ -56,15 +56,16 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **109** |
-| 📝 **Total Articles** | **1322** |
-| 🚀 **Total Projects** | **1246** |
+| 📅 **Total Issues** | **110** |
+| 📝 **Total Articles** | **1334** |
+| 🚀 **Total Projects** | **1258** |
 | 🎵 **Total Audio/Video** | **121** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
@@ -73,6 +74,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 110: [JIT Compiler Two-Year Retrospective, AI Agent Tools Explosion](./docs/en/2025-07-12-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 109: [Python Performance Optimization Tips](./docs/en/2025-07-05-weekly.md)
   - Shared 13 articles, 13 open-source projects
 - Issue 108: [Will AI Replace Junior Developers?](./docs/en/2025-06-28-weekly.md)
@@ -174,7 +177,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot topics
 - [Season 2 Collection](./docs/2025-04-20-iweekly.md)
   - Highlights from issues 31-60
-- Issue 60: [Python Has So Many Package Management Tools](./docs/2024-07-13-weekly.md)
+- Issue 60: [Python Has So Many Package Management Tools](./docs/en/2024-07-13-weekly.md)
   - Shared 13 articles, 13 open-source projects
 - Issue 59: [Polars 1.0 Released, PyCon US 2024 Talk Videos Also Released](./docs/2024-07-06-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 videos, 5 books given away
