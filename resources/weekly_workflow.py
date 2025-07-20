@@ -70,8 +70,8 @@ def split_and_generate_files(input_file, tmp_en_file):
         '🦄文章&教程': '🦄Articles & Tutorials',
         '🐿️项目&资源': '🐿️Projects & Resources',
         '🐢播客&视频': '🐢Podcasts & Videos',
-        '🐼关于周刊': '🐼About the Weekly',
-        '🦄往期列表': '🦄Past Issues'
+        '🥂讨论&问题': '🥂Discussions & Questions',
+        '🐧往年回顾': '🐧Past Issues'
     }
 
     # 查找所有markdown链接
