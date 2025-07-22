@@ -28,7 +28,8 @@ export default function LatestIssueSection() {
         setError(null);
         
         // 根据语言环境获取对应的示例文件
-        const filename = locale === 'en' ? 'example_en.md' : 'example_zh.md';
+        // 中文（简体和繁体）显示中文示例，其他语言统一显示英文示例
+        const filename = (locale === 'zh' || locale === 'zh-TW') ? 'example_zh.md' : 'example_en.md';
         const response = await fetch(`/docs/${filename}`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

@@ -13,7 +13,9 @@ export default function RootPage() {
       .find(row => row.startsWith('NEXT_LOCALE='))
       ?.split('=')[1];
 
-    if (savedLocale && ['zh', 'en', 'zh-TW'].includes(savedLocale)) {
+    const supportedLocales = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'it', 'pt'];
+    
+    if (savedLocale && supportedLocales.includes(savedLocale)) {
       router.replace(`/${savedLocale}`);
       return;
     }
@@ -30,6 +32,22 @@ export default function RootPage() {
       }
     } else if (browserLang.startsWith('en')) {
       detectedLocale = 'en';
+    } else if (browserLang.startsWith('ja')) {
+      detectedLocale = 'ja';
+    } else if (browserLang.startsWith('ko')) {
+      detectedLocale = 'ko';
+    } else if (browserLang.startsWith('fr')) {
+      detectedLocale = 'fr';
+    } else if (browserLang.startsWith('de')) {
+      detectedLocale = 'de';
+    } else if (browserLang.startsWith('es')) {
+      detectedLocale = 'es';
+    } else if (browserLang.startsWith('ru')) {
+      detectedLocale = 'ru';
+    } else if (browserLang.startsWith('it')) {
+      detectedLocale = 'it';
+    } else if (browserLang.startsWith('pt')) {
+      detectedLocale = 'pt';
     }
 
     // 保存检测到的语言偏好

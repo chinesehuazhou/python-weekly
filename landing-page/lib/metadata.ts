@@ -16,6 +16,14 @@ const localeMap: Record<string, string> = {
   'zh': 'zh_CN',
   'en': 'en_US',
   'zh-TW': 'zh_TW',
+  'ja': 'ja_JP',
+  'ko': 'ko_KR',
+  'fr': 'fr_FR',
+  'de': 'de_DE',
+  'es': 'es_ES',
+  'ru': 'ru_RU',
+  'it': 'it_IT',
+  'pt': 'pt_PT',
 };
 
 // 生成多语言 metadata
@@ -49,6 +57,14 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
         'zh': baseUrl,
         'en': `${baseUrl}/en`,
         'zh-TW': `${baseUrl}/zh-TW`,
+        'ja': `${baseUrl}/ja`,
+        'ko': `${baseUrl}/ko`,
+        'fr': `${baseUrl}/fr`,
+        'de': `${baseUrl}/de`,
+        'es': `${baseUrl}/es`,
+        'ru': `${baseUrl}/ru`,
+        'it': `${baseUrl}/it`,
+        'pt': `${baseUrl}/pt`,
       },
     },
     openGraph: {

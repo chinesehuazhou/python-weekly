@@ -13,6 +13,14 @@ const languageOptions = [
   { code: 'zh', name: '简体中文', flag: '🇨🇳' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'zh-TW', name: '繁體中文', flag: '🇨🇳' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
 ];
 
 export default function Header() {
@@ -67,19 +75,21 @@ export default function Header() {
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${30 * 24 * 60 * 60}; SameSite=Lax`;
     
     // Remove current locale from pathname to get the base path
-    let basePath = pathname;
+    const currentPath = pathname || '/';
+    let basePath = currentPath;
     
     // Handle different pathname patterns
-    if (pathname === '/') {
+    if (currentPath === '/') {
       basePath = '';
-    } else if (pathname === `/${locale}`) {
+    } else if (currentPath === `/${locale}`) {
       basePath = '';
-    } else if (pathname.startsWith(`/${locale}/`)) {
-      basePath = pathname.substring(`/${locale}`.length);
-    } else if (pathname.startsWith('/zh/') || pathname.startsWith('/en/') || pathname.startsWith('/zh-TW/')) {
+    } else if (currentPath.startsWith(`/${locale}/`)) {
+      basePath = currentPath.substring(`/${locale}`.length);
+    } else {
       // Handle cases where pathname already has a locale but it's different from current
-      const segments = pathname.split('/');
-      if (segments[1] === 'zh' || segments[1] === 'en' || segments[1] === 'zh-TW') {
+      const segments = currentPath.split('/');
+      const supportedLocales = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'it', 'pt'];
+      if (supportedLocales.includes(segments[1])) {
         basePath = '/' + segments.slice(2).join('/');
         if (basePath === '/') basePath = '';
       }

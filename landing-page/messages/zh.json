@@ -135,17 +135,5 @@
         "answer": "是的！即使不订阅专栏也可以参与分销赚取收益。操作步骤：\n① 进入<a href=\"https://xiaobot.net/p/python_weekly\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline\">Python潮流周刊</a>专栏页面\n② 点击右下角的\"分享\"按钮\n③ 选择\"生成海报\"或\"复制链接\"\n④ 将海报/链接分享给朋友或在社交媒体推广\n⑤ 每成功推荐一位订阅者，你可获得30%的分销收益（最高约44元）"
       }
     ]
-  },
-  "SubscriptionSection": {
-    "title": "订阅 Python 周刊",
-    "description": "每周获取最新的 Python 资讯、教程和开源项目推荐",
-    "emailPlaceholder": "输入您的邮箱地址",
-    "subscribeButton": "立即订阅",
-    "privacyText": "我们尊重您的隐私，不会向第三方分享您的邮箱地址"
-  },
-  "NotFoundPage": {
-    "title": "页面未找到",
-    "description": "抱歉，您访问的页面不存在。",
-    "backHome": "返回首页"
   }
 }

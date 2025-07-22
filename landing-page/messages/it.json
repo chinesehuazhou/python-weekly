@@ -1,0 +1,120 @@
+{
+  "siteName": "Python Tendenze Settimanali",
+  "pastIssueExample": "Esempio di numero",
+  "copyright": "© {year} Python Tendenze Settimanali. Tutti i diritti riservati.",
+  "footerDescription": "Una newsletter tecnica di alta qualità di Python Cat, accuratamente selezionata da oltre 400 fonti per fornire agli sviluppatori Python il contenuto più prezioso.",
+  "hero": {
+    "title": "Python Tendenze Settimanali",
+    "subtitle": "La tua porta d'accesso all'intelligence tecnologica di qualità",
+    "description": "Taglia attraverso il rumore. Ottieni contenuti Python all'avanguardia, selezionati a mano, consegnati settimanalmente. Unisciti a oltre 350 professionisti che si fidano di noi per filtrare il meglio da oltre 400 fonti.",
+    "cta": {
+      "subscribe": "Iscriviti ora",
+      "examples": "Vedi esempio"
+    },
+    "stats": {
+      "issues": "Numeri totali",
+      "articles": "Articoli totali",
+      "projects": "Progetti totali",
+      "audioVideo": "Audio/Video totali",
+      "hotTopics": "Argomenti totali",
+      "books": "Libri totali"
+    }
+  },
+  "features": {
+    "title": "Perché scegliere Python Tendenze Settimanali?",
+    "quality": {
+      "title": "Copertura globale completa",
+      "description": "Selezionato a mano da oltre 400 fonti premium attraverso ecosistemi cinesi e inglesi, coprendo documentazione ufficiale, blog tecnici, comunità open source e pubblicazioni accademiche per fornire insights all'avanguardia e autorevoli"
+    },
+    "diversity": {
+      "title": "Contenuto multi-formato",
+      "description": "Da articoli tecnici approfonditi e progetti open source a risorse multimediali, argomenti di tendenza e libri tecnici—tutto ciò di cui hai bisogno per esperienze di apprendimento diverse"
+    },
+    "volume": {
+      "title": "Volume di contenuto sostanziale",
+      "description": "Ogni numero presenta 12 articoli tecnici accuratamente selezionati più 12 progetti open source, arricchiti con risorse multimediali e discussioni di tendenza per un ecosistema tecnologico completo"
+    },
+    "curation": {
+      "title": "Guidato da AI + Curato da umani",
+      "description": "La tecnologia AI aggrega efficientemente flussi di informazioni massivi, mentre gli editor umani applicano standard rigorosi per garantire che ogni raccomandazione fornisca valore di apprendimento genuino"
+    },
+    "depth": {
+      "title": "Analisi del contenuto approfondita",
+      "description": "Ogni pezzo include riassunti accuratamente elaborati e insights editoriali—non solo ripubblicazione di contenuto grezzo—più materiali supplementari pertinenti per una comprensione più profonda"
+    },
+    "richness": {
+      "title": "Presentazione visiva ricca",
+      "description": "Layout splendidamente progettati con visual convincenti, più evidenziazione speciale per progetti open source con oltre 1000 stelle per aiutarti a identificare rapidamente risorse di primo livello"
+    }
+  },
+  "subscription": {
+    "title": "Iscriviti a Python Tendenze Settimanali",
+    "platforms": {
+      "patreon": {
+        "monthly": {
+          "name": "Patreon Mensile",
+          "description": "Supporta Python Weekly con abbonamento mensile",
+          "price": "$4.99/mese",
+          "originalPrice": "$6.99/mese",
+          "features": {
+            "0": "Contenuto settimanale completo (circa 50 numeri, 80.000 parole)",
+            "1": "Ebook squisiti ogni 30 numeri (EPUB/PDF/Markdown)",
+            "2": "Esperienza senza pubblicità",
+            "3": "Risorse esclusive",
+            "4": "Accesso alla comunità"
+          }
+        }
+      }
+    },
+    "recommended": "Raccomandato",
+    "cta": {
+      "button": "Iscriviti ora"
+    }
+  },
+  "SocialProof": {
+    "title": "Fidato dagli sviluppatori",
+    "subtitle": "Python Tendenze Settimanali aiuta i lettori ad alleviare l'ansia informativa e mantenere la sensibilità tecnica nel loro sviluppo professionale attraverso contenuti di alta qualità curati manualmente e consegna coerente e stabile."
+  },
+  "FAQ": {
+    "title": "Domande frequenti",
+    "items": [
+      {
+        "question": "Potete garantire una pubblicazione stabile? Quando si aggiorna?",
+        "answer": "La nostra newsletter viene pubblicata principalmente il sabato ora di Pechino, occasionalmente la domenica. Saltiamo un numero durante le vacanze della Festa Nazionale Cinese e del Festival di Primavera, con circa 50 numeri pubblicati annualmente."
+      },
+      {
+        "question": "Sono un principiante/sviluppatore senior Python, questa newsletter è adatta a me?",
+        "answer": "Il nostro contenuto copre tutti i livelli di competenza: i principianti possono trovare tutorial di base e progetti di avvio; gli sviluppatori intermedi possono ottenere strumenti pratici e migliori pratiche; gli sviluppatori avanzati possono imparare tecnologie all'avanguardia e analisi approfondite. Che tu sia uno studente, un programmatore che lavora o un manager tecnico, ne trarrai beneficio."
+      },
+      {
+        "question": "Cosa offre la versione a pagamento rispetto alla versione gratuita? Vale la pena iscriversi?",
+        "answer": "La versione a pagamento include link di contenuto completi, raccomandazioni e screenshot, mentre la versione gratuita è una versione semplificata solo con titoli. Le newsletter appena pubblicate sono contenuto a pagamento, ma le newsletter storiche diventano liberamente disponibili per tutti i lettori dopo più di un anno."
+      },
+      {
+        "question": "Quali sono le caratteristiche dell'ebook della newsletter? Come ottenerlo?",
+        "answer": "Ogni 30 numeri della newsletter formano una stagione e vengono compilati in ebook da collezione multi-formato. Gli ebook appena completati sono benefici esclusivi per i lettori a pagamento, ma gli ebook di oltre un anno fa sono completamente gratuiti. Puoi ottenere link di download inviando 'W30' al nostro account ufficiale WeChat."
+      },
+      {
+        "question": "Posso raccomandare contenuti di qualità alla newsletter?",
+        "answer": "Assolutamente benvenuto! Puoi inviare issues su GitHub per raccomandare articoli, progetti, risorse o fonti di informazione. Incoraggiamo sia auto-raccomandazioni che raccomandazioni di altri, e ti diamo il benvenuto a partecipare alla costruzione di una newsletter di qualità insieme."
+      },
+      {
+        "question": "Perché alcuni link nella newsletter non si aprono?",
+        "answer": "Questo potrebbe essere dovuto a guasti del sito web di origine o contenuto di origine eliminato, specialmente per contenuti condivisi in newsletter molto precoci."
+      },
+      {
+        "question": "Potete fornire il testo completo dell'articolo invece di solo brevi raccomandazioni?",
+        "answer": "Saltare costantemente attraverso link per accedere al contenuto di origine è effettivamente scomodo e non favorisce la raccolta di articoli e la gestione della conoscenza. In realtà ho considerato di includere tutti gli articoli in una knowledge base Notion per facilitare la ricerca, raccolta e revisione di contenuti storici da parte dei lettori. Ma questo coinvolge questioni di copyright, costi di manutenzione e impatti sui prezzi di abbonamento. Sentiti libero di inviarmi un messaggio con i tuoi pensieri e bisogni."
+      },
+      {
+        "question": "Come aiuta l'iscrizione alla newsletter il mio sviluppo professionale?",
+        "answer": "La nostra newsletter fornisce quattro valori fondamentali:\n① Espansione della visione tecnica - Rimani avanti alle ultime tendenze dell'ecosistema Python e mantieni l'acutezza tecnica\n② Ispirazione per progetti - Scopri progetti open source all'avanguardia e strumenti pratici che forniscono idee innovative per il tuo lavoro e progetti\n③ Ottimizzazione del percorso di apprendimento - Tutorial di alta qualità curati e migliori pratiche per aiutarti a migliorare efficientemente le tue competenze tecniche\n④ Approfondimento degli insights del settore - Padroneggia la traiettoria di sviluppo di Python in campi popolari come AI, data science e sviluppo web"
+      },
+      {
+        "question": "Quando supporterete piattaforme di abbonamento come Substack?",
+        "answer": "Attualmente, piattaforme come Substack supportano solo Stripe o Paypal per l'elaborazione dei pagamenti, il che presenta sfide per i creatori individuali cinesi a causa di requisiti di verifica dell'identità poco amichevoli e varie restrizioni di pagamento. Sto attivamente ricercando soluzioni a questi problemi di elaborazione dei pagamenti e aggiornerò prontamente ed espanderò a nuove piattaforme una volta che alternative praticabili saranno disponibili. Grazie per la vostra pazienza e supporto continuo."
+      }
+    ]
+  }
+ 
+}

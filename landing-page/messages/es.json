@@ -1,0 +1,119 @@
+{
+  "siteName": "Python Tendencias Semanal",
+  "pastIssueExample": "Ejemplo de número",
+  "copyright": "© {year} Python Tendencias Semanal. Todos los derechos reservados.",
+  "footerDescription": "Un boletín técnico de alta calidad por Python Cat, cuidadosamente seleccionado de más de 400 fuentes para proporcionar a los desarrolladores de Python el contenido más valioso.",
+  "hero": {
+    "title": "Python Tendencias Semanal",
+    "subtitle": "Su puerta de entrada a la inteligencia tecnológica de calidad",
+    "description": "Corte a través del ruido. Obtenga contenido Python de vanguardia, seleccionado a mano, entregado semanalmente. Únase a más de 350 profesionales que confían en nosotros para filtrar lo mejor de más de 400 fuentes.",
+    "cta": {
+      "subscribe": "Suscribirse ahora",
+      "examples": "Ver ejemplo"
+    },
+    "stats": {
+      "issues": "Números totales",
+      "articles": "Artículos totales",
+      "projects": "Proyectos totales",
+      "audioVideo": "Audio/Video totales",
+      "hotTopics": "Temas totales",
+      "books": "Libros totales"
+    }
+  },
+  "features": {
+    "title": "¿Por qué elegir Python Tendencias Semanal?",
+    "quality": {
+      "title": "Cobertura global integral",
+      "description": "Seleccionado a mano de más de 400 fuentes premium a través de ecosistemas chinos e ingleses, abarcando documentación oficial, blogs técnicos, comunidades de código abierto y publicaciones académicas para entregar insights de vanguardia y autoritativos"
+    },
+    "diversity": {
+      "title": "Contenido multi-formato",
+      "description": "Desde artículos técnicos profundos y proyectos de código abierto hasta recursos multimedia, temas de tendencia y libros técnicos—todo lo que necesita para experiencias de aprendizaje diversas"
+    },
+    "volume": {
+      "title": "Volumen de contenido sustancial",
+      "description": "Cada número presenta 12 artículos técnicos cuidadosamente seleccionados más 12 proyectos de código abierto, mejorados con recursos multimedia y discusiones de tendencia para un ecosistema tecnológico completo"
+    },
+    "curation": {
+      "title": "Impulsado por IA + Curado por humanos",
+      "description": "La tecnología IA agrega eficientemente flujos de información masivos, mientras que los editores humanos aplican estándares rigurosos para asegurar que cada recomendación entregue valor de aprendizaje genuino"
+    },
+    "depth": {
+      "title": "Análisis de contenido profundo",
+      "description": "Cada pieza incluye resúmenes cuidadosamente elaborados e insights editoriales—no solo republicaciones de contenido crudo—más materiales suplementarios relevantes para una comprensión más profunda"
+    },
+    "richness": {
+      "title": "Presentación visual rica",
+      "description": "Diseños bellamente diseñados con visuales convincentes, más destacado especial para proyectos de código abierto de más de 1000 estrellas para ayudarle a identificar rápidamente recursos de primer nivel"
+    }
+  },
+  "subscription": {
+    "title": "Suscribirse a Python Tendencias Semanal",
+    "platforms": {
+      "patreon": {
+        "monthly": {
+          "name": "Patreon Mensual",
+          "description": "Apoye Python Weekly con suscripción mensual",
+          "price": "$4.99/mes",
+          "originalPrice": "$6.99/mes",
+          "features": {
+            "0": "Contenido semanal completo (aproximadamente 50 números, 80,000 palabras)",
+            "1": "Libros electrónicos exquisitos cada 30 números (EPUB/PDF/Markdown)",
+            "2": "Experiencia sin anuncios",
+            "3": "Recursos exclusivos",
+            "4": "Acceso a la comunidad"
+          }
+        }
+      }
+    },
+    "recommended": "Recomendado",
+    "cta": {
+      "button": "Suscribirse ahora"
+    }
+  },
+  "SocialProof": {
+    "title": "Confiado por desarrolladores",
+    "subtitle": "Python Tendencias Semanal ayuda a los lectores a aliviar la ansiedad informacional y mantener la sensibilidad técnica en su desarrollo profesional a través de contenido de alta calidad curado manualmente y entrega consistente y estable."
+  },
+  "FAQ": {
+    "title": "Preguntas frecuentes",
+    "items": [
+      {
+        "question": "¿Pueden garantizar publicación estable? ¿Cuándo se actualiza?",
+        "answer": "Nuestro boletín se publica principalmente los sábados hora de Beijing, ocasionalmente los domingos. Saltaremos un número durante las vacaciones del Día Nacional de China y el Festival de Primavera, con aproximadamente 50 números publicados anualmente."
+      },
+      {
+        "question": "Soy un principiante/desarrollador senior de Python, ¿es este boletín adecuado para mí?",
+        "answer": "Nuestro contenido cubre todos los niveles de habilidad: los principiantes pueden encontrar tutoriales básicos y proyectos de inicio; los desarrolladores intermedios pueden obtener herramientas prácticas y mejores prácticas; los desarrolladores avanzados pueden aprender sobre tecnologías de vanguardia y análisis profundo. Ya sea que seas estudiante, programador trabajando o gerente técnico, te beneficiarás."
+      },
+      {
+        "question": "¿Qué ofrece la versión de pago comparada con la versión gratuita? ¿Vale la pena suscribirse?",
+        "answer": "La versión de pago incluye enlaces de contenido completos, recomendaciones y capturas de pantalla, mientras que la versión gratuita es una versión simplificada solo con títulos. Los boletines recién publicados son contenido de pago, pero los boletines históricos se vuelven libremente disponibles para todos los lectores después de más de un año."
+      },
+      {
+        "question": "¿Cuáles son las características del libro electrónico del boletín? ¿Cómo obtenerlo?",
+        "answer": "Cada 30 números del boletín forman una temporada y se compilan en libros electrónicos de colección multi-formato. Los libros electrónicos recién completados son beneficios exclusivos para lectores de pago, pero los libros electrónicos de hace más de un año son completamente gratuitos. Puede obtener enlaces de descarga enviando 'W30' a nuestra cuenta oficial de WeChat."
+      },
+      {
+        "question": "¿Puedo recomendar contenido de calidad al boletín?",
+        "answer": "¡Absolutamente bienvenido! Puede enviar issues en GitHub para recomendar artículos, proyectos, recursos o fuentes de información. Alentamos tanto auto-recomendaciones como recomendaciones de otros, y le damos la bienvenida a participar en la construcción de un boletín de calidad juntos."
+      },
+      {
+        "question": "¿Por qué algunos enlaces en el boletín no se pueden abrir?",
+        "answer": "Esto podría deberse a fallas del sitio web fuente o contenido fuente eliminado, especialmente para contenido compartido en boletines muy tempranos."
+      },
+      {
+        "question": "¿Pueden proporcionar texto completo del artículo en lugar de solo recomendaciones breves?",
+        "answer": "Saltar constantemente a través de enlaces para acceder al contenido fuente es efectivamente inconveniente y no conduce a la colección de artículos y gestión del conocimiento. En realidad he considerado incluir todos los artículos en una base de conocimientos de Notion para facilitar la búsqueda, colección y revisión de contenido histórico por parte de los lectores. Pero esto involucra problemas de derechos de autor, costos de mantenimiento e impactos en los precios de suscripción. Siéntase libre de enviarme un mensaje con sus pensamientos y necesidades."
+      },
+      {
+        "question": "¿Cómo ayuda suscribirse al boletín a mi desarrollo profesional?",
+        "answer": "Nuestro boletín proporciona cuatro valores centrales:\n① Expansión de visión técnica - Manténgase adelante de las últimas tendencias del ecosistema Python y mantenga la agudeza técnica\n② Inspiración de proyecto - Descubra proyectos de código abierto de vanguardia y herramientas prácticas que proporcionan ideas innovadoras para su trabajo y proyectos\n③ Optimización de ruta de aprendizaje - Tutoriales de alta calidad curados y mejores prácticas para ayudarle a mejorar eficientemente sus habilidades técnicas\n④ Profundización de insights de la industria - Domine la trayectoria de desarrollo de Python en campos populares como IA, ciencia de datos y desarrollo web"
+      },
+      {
+        "question": "¿Cuándo apoyarán plataformas de suscripción como Substack?",
+        "answer": "Actualmente, plataformas como Substack solo soportan Stripe o Paypal para procesamiento de pagos, lo que presenta desafíos para creadores individuales chinos debido a requisitos de verificación de identidad poco amigables y varias restricciones de pago. Estoy investigando activamente soluciones a estos problemas de procesamiento de pagos y actualizaré prontamente y expandiré a nuevas plataformas una vez que alternativas viables estén disponibles. Gracias por su paciencia y apoyo continuo."
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 // Static export compatible i18n configuration
-// 支持的语言：简体中文、英文、繁体中文
-export const locales = ['zh', 'en', 'zh-TW'] as const;
+// 支持的语言：简体中文、英文、繁体中文、日语、韩语、法语、德语、西班牙语、俄语、意大利语、葡萄牙语
+export const locales = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'it', 'pt'] as const;
 // 默认语言为英文，除非检测到中文浏览器语言
 export const defaultLocale = 'en';
 
