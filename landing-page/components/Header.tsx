@@ -89,7 +89,7 @@ export default function Header() {
       // Handle cases where pathname already has a locale but it's different from current
       const segments = currentPath.split('/');
       const supportedLocales = ['zh', 'en', 'zh-TW', 'ja', 'ko', 'fr', 'de', 'es', 'ru', 'it', 'pt'];
-      if (supportedLocales.includes(segments[1])) {
+      if (segments[1] && supportedLocales.includes(segments[1])) {
         basePath = '/' + segments.slice(2).join('/');
         if (basePath === '/') basePath = '';
       }
