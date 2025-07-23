@@ -173,17 +173,17 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 10 articles, 13 open-source projects, 2 hot topics
 - Issue 62: [Trying Free-Threaded Python](./docs/2024-07-27-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 61: [PyPI Administrator Key Leak Incident](./docs/2024-07-20-weekly.md)
+- Issue 61: [PyPI Administrator Key Leak Incident](./docs/en/2024-07-20-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot topics
 - [Season 2 Collection](./docs/2025-04-20-iweekly.md)
   - Highlights from issues 31-60
 - Issue 60: [Python Has So Many Package Management Tools](./docs/en/2024-07-13-weekly.md)
   - Shared 13 articles, 13 open-source projects
-- Issue 59: [Polars 1.0 Released, PyCon US 2024 Talk Videos Also Released](./docs/2024-07-06-weekly.md)
+- Issue 59: [Polars 1.0 Released, PyCon US 2024 Talk Videos Also Released](./docs/en/2024-07-06-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 videos, 5 books given away
-- Issue 58: [The Fastest Language for Running Prototypes](./docs/2024-06-29-weekly.md)
+- Issue 58: [The Fastest Language for Running Prototypes](./docs/en/2024-06-29-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
-- Issue 57: [Should Python Adopt Calendar Versioning?](./docs/2024-06-22-weekly.md)
+- Issue 57: [Should Python Adopt Calendar Versioning?](./docs/en/2024-06-22-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
 - Issue 56: [Faster String Functions in NumPy 2.0](./docs/en/2024-06-15-weekly.md)
   - Shared 12 articles, 12 open-source projects, 5 books given away
