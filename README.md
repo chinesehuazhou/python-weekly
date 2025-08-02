@@ -55,16 +55,17 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **112** |
-| 📝 **Total Articles** | **1360** |
-| 🚀 **Total Projects** | **1283** |
-| 🎵 **Total Audio/Video** | **122** |
+| 📅 **Total Issues** | **113** |
+| 📝 **Total Articles** | **1372** |
+| 🚀 **Total Projects** | **1295** |
+| 🎵 **Total Audio/Video** | **123** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
 
@@ -72,6 +73,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 113: [Replacing Async/Await with Virtual Threads](./docs/en/2025-08-02-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 1 audio/videos
 - Issue 112: [Welcoming the New Generation of AI-Era Programmers](./docs/en/2025-07-26-weekly.md)
   - Shared 13 articles, 12 open-source projects
 - Issue 111: [Django Celebrates 20th Anniversary, Former OpenAI Employee Shares Work Experience](./docs/en/2025-07-19-weekly.md)
@@ -171,7 +174,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects
 - Issue 64: [Are Python Function Calls Still Slow?](./docs/2024-08-10-weekly.md)
   - Shared 11 articles, 13 open-source projects, 1 audio/video
-- Issue 63: [Developing Python Web Projects](./docs/2024-08-03-weekly.md)
+- Issue 63: [Developing Python Web Projects](./docs/en/2024-08-03-weekly.md)
   - Shared 10 articles, 13 open-source projects, 2 hot topics
 - Issue 62: [Trying Free-Threaded Python](./docs/en/2024-07-27-weekly.md)
   - Shared 12 articles, 12 open-source projects
