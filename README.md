@@ -56,15 +56,16 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **113** |
-| 📝 **Total Articles** | **1372** |
-| 🚀 **Total Projects** | **1295** |
+| 📅 **Total Issues** | **114** |
+| 📝 **Total Articles** | **1384** |
+| 🚀 **Total Projects** | **1307** |
 | 🎵 **Total Audio/Video** | **123** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
@@ -73,6 +74,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 114: [Python performance myths and fairy tales](./docs/en/2025-08-09-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 113: [Replacing Async/Await with Virtual Threads](./docs/en/2025-08-02-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/videos
 - Issue 112: [Welcoming the New Generation of AI-Era Programmers](./docs/en/2025-07-26-weekly.md)
@@ -172,7 +175,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 1 audio/video
 - Issue 65: [CSV is a Bit Problematic](./docs/2024-08-17-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 64: [Are Python Function Calls Still Slow?](./docs/2024-08-10-weekly.md)
+- Issue 64: [Are Python Function Calls Still Slow?](./docs/en/2024-08-10-weekly.md)
   - Shared 11 articles, 13 open-source projects, 1 audio/video
 - Issue 63: [Developing Python Web Projects](./docs/en/2024-08-03-weekly.md)
   - Shared 10 articles, 13 open-source projects, 2 hot topics
