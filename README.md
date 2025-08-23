@@ -55,15 +55,16 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **115** |
-| 📝 **Total Articles** | **1396** |
-| 🚀 **Total Projects** | **1319** |
+| 📅 **Total Issues** | **116** |
+| 📝 **Total Articles** | **1408** |
+| 🚀 **Total Projects** | **1331** |
 | 🎵 **Total Audio/Video** | **123** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +73,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 116: [The State of Python 2025](./docs/2025-08-23-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 115: [Astral Launches pyx Package Registry, AI Optimizes 20-Year-Old Code](./docs/en/2025-08-16-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 114: [Python performance myths and fairy tales](./docs/en/2025-08-09-weekly.md)
@@ -171,7 +174,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 67: [Major Updates to uv](./docs/2024-09-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 66: [Python's Preprocessor](./docs/2024-08-24-weekly.md)
+- Issue 66: [Python's Preprocessor](./docs/en/2024-08-24-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
 - Issue 65: [CSV is a Bit Problematic](./docs/en/2024-08-17-weekly.md)
   - Shared 12 articles, 12 open-source projects

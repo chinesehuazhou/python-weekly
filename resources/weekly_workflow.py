@@ -30,8 +30,8 @@ SEASON1_SUMMARY = "[Python 潮流周刊第一季精华合集（1~30）](https://
 
 WECHAT_QR = "**微信关注 Python猫**：[https://img.pythoncat.top/python_cat.jpg](https://img.pythoncat.top/python_cat.jpg)"
 
-FOOTER_SUBSCRIPTION = ("周刊实行付费订阅制，年费148元，预计50期，超过10万字。现在订阅，每周让自己进步一点点。\n\n"
-                      "👀 [前往订阅](https://weekly.pythoncat.top) \n\n"
+FOOTER_SUBSCRIPTION = ("在信息洪流中为你淘金，助力 Python 技术视野拓展和职业发展。现在订阅，每周让自己进步一点点。\n\n"
+                      "👀 [领频道优惠券](https://www.xiaobot.net/coupon/61a4db04-d19b-47e9-a8f4-8fdaa9ba3d5d) \n\n"
                       "👀 [免费合集下载](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
 # 英文版固定文本常量
