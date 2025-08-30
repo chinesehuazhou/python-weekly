@@ -55,17 +55,16 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
-
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **116** |
-| 📝 **Total Articles** | **1408** |
-| 🚀 **Total Projects** | **1331** |
-| 🎵 **Total Audio/Video** | **123** |
+| 📅 **Total Issues** | **117** |
+| 📝 **Total Articles** | **1420** |
+| 🚀 **Total Projects** | **1343** |
+| 🎵 **Total Audio/Video** | **125** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
 
@@ -73,7 +72,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 116: [The State of Python 2025](./docs/2025-08-23-weekly.md)
+- Issue 117: [A Documentary on Python's Origin Story](./docs/2025-08-30-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 1 audio/videos
+- Issue 116: [The State of Python 2025](./docs/en/2025-08-23-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 115: [Astral Launches pyx Package Registry, AI Optimizes 20-Year-Old Code](./docs/en/2025-08-16-weekly.md)
   - Shared 12 articles, 12 open-source projects
