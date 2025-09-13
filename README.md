@@ -55,16 +55,15 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
-
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **118** |
-| 📝 **Total Articles** | **1432** |
-| 🚀 **Total Projects** | **1355** |
+| 📅 **Total Issues** | **119** |
+| 📝 **Total Articles** | **1444** |
+| 🚀 **Total Projects** | **1367** |
 | 🎵 **Total Audio/Video** | **125** |
 | 🔥 **Total Hot Topics** | **53** |
 | 📚 **Total Books** | **98** |
@@ -73,9 +72,11 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 118: [Python 异步为何不够流行？](./docs/2025-09-06-weekly.md)
-  - 分享了 12 篇文章，12 个开源项目
-- Issue 117: [A Documentary on Python's Origin Story](./docs/2025-08-30-weekly.md)
+- Issue 119: [Google Discontinues Pytype Development!](./docs/en/2025-09-13-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 118: [Why Isn't Python Async More Popular?](./docs/en/2025-09-06-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 117: [A Documentary on Python's Origin Story](./docs/en/2025-08-30-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/videos
 - Issue 116: [The State of Python 2025](./docs/en/2025-08-23-weekly.md)
   - Shared 12 articles, 12 open-source projects
