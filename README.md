@@ -173,11 +173,11 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 1 audio/video
 - Issue 70: [Python in Microsoft Excel Officially Released!](./docs/2024-09-21-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
-- Issue 69: [It's Time to Stop Using Python 3.8](./docs/2024-09-15-weekly.md)
+- Issue 69: [It's Time to Stop Using Python 3.8](./docs/en/2024-09-15-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 68: [2023 Python Developer Survey Results](./docs/2024-09-07-weekly.md)
+- Issue 68: [2023 Python Developer Survey Results](./docs/en/2024-09-07-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 67: [Major Updates to uv](./docs/2024-09-01-weekly.md)
+- Issue 67: [Major Updates to uv](./docs/en/2024-09-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 66: [Python's Preprocessor](./docs/en/2024-08-24-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
