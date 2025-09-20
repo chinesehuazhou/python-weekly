@@ -55,23 +55,26 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **119** |
-| 📝 **Total Articles** | **1444** |
-| 🚀 **Total Projects** | **1367** |
-| 🎵 **Total Audio/Video** | **125** |
-| 🔥 **Total Hot Topics** | **53** |
+| 📅 **Total Issues** | **120** |
+| 📝 **Total Articles** | **1457** |
+| 🚀 **Total Projects** | **1380** |
+| 🎵 **Total Audio/Video** | **126** |
+| 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 120: [Comparison of New Python Type Checkers](./docs/en/2025-09-20-weekly.md)
+  - Shared 13 articles, 13 open-source projects, 1 audio/videos, 2 hot discussions
 - Issue 119: [Google Discontinues Pytype Development!](./docs/en/2025-09-13-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 118: [Why Isn't Python Async More Popular?](./docs/en/2025-09-06-weekly.md)
