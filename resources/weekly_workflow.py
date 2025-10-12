@@ -38,11 +38,11 @@ FOOTER_SUBSCRIPTION = ("在信息洪流中为你淘金，助力 Python 技术视
 WEEKLY_INTRO_EN = ("Welcome to Python Trending Weekly - your gateway to cutting-edge Python intelligence! Curated by Python Cat from 400+ premium sources worldwide, "
                    "we deliver the most valuable articles, tutorials, open-source projects, tools, podcasts, videos, and trending discussions directly to your inbox. "
                    "Our mission: Accelerate your Python mastery and unlock new career opportunities in the ever-evolving tech landscape.\n\n"
-                   "**Stay ahead of the curve:** [Subscribe now](https://www.patreon.com/pythonweekly) for weekly insights that keep you at the forefront of Python innovation!")
+                   "**Stay ahead of the curve:** [Subscribe now](https://patreon.com/PythonCat666) for weekly insights that keep you at the forefront of Python innovation!")
 
 SUBSCRIPTION_INFO_EN = ("Cut through the noise with our premium subscription at $4.99/month. Get hand-picked, cutting-edge Python content delivered weekly. "
                         "Join 350+ professionals who trust us to filter the best from 400+ sources for technical vision expansion and career development. "
-                        "Subscribe at: [Patreon](https://www.patreon.com/pythonweekly)")
+                        "Subscribe at: [Patreon](https://patreon.com/PythonCat666)")
 
 SEASON2_SUMMARY_EN = "[Python Trending Weekly Season 3 Summary with E-book Download](https://pythoncat.top/posts/2025-04-20-sweekly)"
 
@@ -52,7 +52,7 @@ SEASON1_SUMMARY_EN = "[Python Trending Weekly Season 1 Highlights Collection (Is
 
 FOOTER_SUBSCRIPTION_EN = ("This newsletter operates on a paid subscription model at $20 per year, with an estimated 50 issues and over 100,000 words. "
                          "Subscribe now and make progress every week.\n\n"
-                         "👀 [Patreon](https://www.patreon.com/pythonweekly) \n\n"
+                         "👀 [Patreon](https://patreon.com/PythonCat666) \n\n"
                          "👀 [Free Collection Download](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
 def split_and_generate_files(input_file, tmp_en_file):
