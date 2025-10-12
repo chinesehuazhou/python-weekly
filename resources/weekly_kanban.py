@@ -209,7 +209,7 @@ def render_html(bar_tab_html, pie_tab_html, wc_tab_html):
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Python潮流周刊 - Python爱好者必备的学习帮手</title>
-        <script async src="https://pythoncat.zeabur.app/script.js" data-website-id="79b984fa-d00f-4e52-a8f2-ad8747cfd077"></script>
+        <script async src="https://cloud.umami.is/script.js" data-website-id="2cbc7625-5017-43f4-aed7-6e333acc65de"></script>
         <script>
             function resizeIframe(obj) {{
                 obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
@@ -249,6 +249,8 @@ def main():
     create_echarts_tab(data, 30, 60, bar_tab, pie_tab, wc_tab, '第2季')
     # 生成第三季度的图表（61-90期）
     create_echarts_tab(data, 60, 90, bar_tab, pie_tab, wc_tab, '第3季')
+        # 生成第三季度的图表（91-120期）
+    create_echarts_tab(data, 90, 120, bar_tab, pie_tab, wc_tab, '第4季')
 
     # 定义输出文件名
     bar_tab_html = 'bar_tab.html'

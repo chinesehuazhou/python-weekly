@@ -56,16 +56,15 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
-
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **121** |
-| 📝 **Total Articles** | **1469** |
-| 🚀 **Total Projects** | **1392** |
+| 📅 **Total Issues** | **122** |
+| 📝 **Total Articles** | **1481** |
+| 🚀 **Total Projects** | **1404** |
 | 🎵 **Total Audio/Video** | **126** |
 | 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
@@ -74,7 +73,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 121: [How Engineers Make High-Impact Decisions？](./docs/2025-09-27-weekly.md)
+- Issue 122: [Python 3.14 is Here – But How Fast Is It Really?](./docs/en/2025-10-11-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 121: [How Engineers Make High-Impact Decisions？](./docs/en/2025-09-27-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 120: [Comparison of New Python Type Checkers](./docs/en/2025-09-20-weekly.md)
   - Shared 13 articles, 13 open-source projects, 1 audio/videos, 2 hot discussions

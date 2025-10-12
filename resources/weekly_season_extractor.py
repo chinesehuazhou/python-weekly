@@ -110,12 +110,11 @@ def extract_content(file_path):
     Returns:
         list: 提取并格式化后的内容列表，包含标题、原文链接和分类内容
     """
-    full_path = os.path.join(current_dir, file_path)
     filename = os.path.basename(file_path)
     date_match = re.search(r'(\d{4}-\d{2}-\d{2})-weekly\.md', filename)
     date = date_match.group(1)
 
-    with open(full_path, 'r', encoding='utf-8') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         lines = file.readlines()
 
     title = extract_issue_title(lines)
@@ -135,20 +134,23 @@ def write_new_markdown(new_content, output_file_name):
         new_content (list): 要写入的内容列表
         output_file_name (str): 输出文件名
     """
-    full_output_path = os.path.join(current_dir, output_file_name)
+    full_output_path = os.path.join(raw_weekly_dir, output_file_name)
     with open(full_output_path, 'a', encoding='utf-8') as file:
         file.writelines(new_content)
 
 # 获取当前脚本所在目录
-current_dir = os.path.dirname(os.path.realpath(__file__))
+raw_weekly_dir = 'docs/tmp'
 
 # 定义第一季度的日期范围（2023.5.13 - 2023.12.9）
-season_1 = (datetime(2023, 5, 13), datetime(2023, 12, 9))
-process_files_in_directory(current_dir, season_1, "season_1.md")
+# season_1 = (datetime(2023, 5, 13), datetime(2023, 12, 9))
+# process_files_in_directory(raw_weekly_dir, season_1, "season_1.md")
 
-# 定义第二季度的日期范围（2023.12.16 - 2024.7.13）
-season_2 = (datetime(2023, 12, 16), datetime(2024, 7, 13))
-process_files_in_directory(current_dir, season_2, "season_2.md")
+# # 定义第二季度的日期范围（2023.12.16 - 2024.7.13）
+# season_2 = (datetime(2023, 12, 16), datetime(2024, 7, 13))
+# process_files_in_directory(raw_weekly_dir, season_2, "season_2.md")
 
-season_3 = (datetime(2024, 7, 20), datetime(2025, 2, 23))
-process_files_in_directory(current_dir, season_3, "season_3.md")
+# season_3 = (datetime(2024, 7, 20), datetime(2025, 2, 23))
+# process_files_in_directory(raw_weekly_dir, season_3, "season_3.md")
+
+season_3 = (datetime(2025, 3, 1), datetime(2025, 9, 20))
+process_files_in_directory(raw_weekly_dir, season_3, "season_4.md")

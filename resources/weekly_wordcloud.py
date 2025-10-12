@@ -135,8 +135,8 @@ def create_wordcloud_img(file_path, season_no):
 
 
 def main():
-    """主函数：生成第三季度的词云图"""
-    create_wordcloud_img('./docs/season_3.md', 3)
+    """主函数：生成每季度的词云图"""
+    create_wordcloud_img('./docs/tmp/season_4.md', 4)
 
 
 if __name__ == "__main__":
