@@ -56,16 +56,17 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **122** |
-| 📝 **Total Articles** | **1481** |
-| 🚀 **Total Projects** | **1404** |
-| 🎵 **Total Audio/Video** | **126** |
+| 📅 **Total Issues** | **123** |
+| 📝 **Total Articles** | **1493** |
+| 🚀 **Total Projects** | **1416** |
+| 🎵 **Total Audio/Video** | **129** |
 | 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
 
@@ -73,6 +74,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 123: [You Probably Don't Need the Singleton Pattern](./docs/en/2025-10-18-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 3 audio/videos
 - Issue 122: [Python 3.14 is Here – But How Fast Is It Really?](./docs/en/2025-10-11-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 121: [How Engineers Make High-Impact Decisions？](./docs/en/2025-09-27-weekly.md)
