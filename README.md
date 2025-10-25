@@ -57,16 +57,17 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **123** |
-| 📝 **Total Articles** | **1493** |
-| 🚀 **Total Projects** | **1416** |
-| 🎵 **Total Audio/Video** | **129** |
+| 📅 **Total Issues** | **124** |
+| 📝 **Total Articles** | **1505** |
+| 🚀 **Total Projects** | **1428** |
+| 🎵 **Total Audio/Video** | **131** |
 | 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
 
@@ -74,6 +75,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 124: [Taking a Rational View of GIL Removal](./docs/en/2025-10-25-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 audio/videos
 - Issue 123: [You Probably Don't Need the Singleton Pattern](./docs/en/2025-10-18-weekly.md)
   - Shared 12 articles, 12 open-source projects, 3 audio/videos
 - Issue 122: [Python 3.14 is Here – But How Fast Is It Really?](./docs/en/2025-10-11-weekly.md)
@@ -173,13 +176,13 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 11 articles, 12 open-source projects
 - Issue 75: [Developing a NoSQL Database with Python](./docs/2024-11-02-weekly.md)
   - Shared 11 articles, 12 open-source projects, 1 audio/video, 2 hot discussions
-- Issue 74: [Python Programming Class Sets Guinness World Record](./docs/2024-10-26-weekly.md)
+- Issue 74: [Python Programming Class Sets Guinness World Record](./docs/en/2024-10-26-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
-- Issue 73: [Let's Be Gentle with PyPI, Shall We?](./docs/2024-10-19-weekly.md)
+- Issue 73: [Let's Be Gentle with PyPI, Shall We?](./docs/en/2024-10-19-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 72: [Python 3.13.0 Final Version Released!](./docs/2024-10-12-weekly.md)
+- Issue 72: [Python 3.13.0 Final Version Released!](./docs/en/2024-10-12-weekly.md)
   - Shared 14 articles, 12 open-source projects, 4 audio/videos
-- Issue 71: [PyPI Should Break Free from Sponsorship Dependency](./docs/2024-09-28-weekly.md)
+- Issue 71: [PyPI Should Break Free from Sponsorship Dependency](./docs/en/2024-09-28-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
 - Issue 70: [Python in Microsoft Excel Officially Released!](./docs/en/2024-09-21-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
