@@ -56,16 +56,17 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
+
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **126** |
-| 📝 **Total Articles** | **1529** |
-| 🚀 **Total Projects** | **1452** |
-| 🎵 **Total Audio/Video** | **131** |
+| 📅 **Total Issues** | **127** |
+| 📝 **Total Articles** | **1542** |
+| 🚀 **Total Projects** | **1464** |
+| 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
 
@@ -73,6 +74,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 127: [A Plan for 5-10% Faster Free-Threaded JIT by Python 3.16](./docs/en/2025-11-15-weekly.md)
+  - Shared 13 articles, 12 open-source projects, 2 audio/videos
 - Issue 126: [A modern static site generator](./docs/en/2025-11-08-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 125: [Personal AI Notebooks](./docs/en/2025-11-01-weekly.md)
