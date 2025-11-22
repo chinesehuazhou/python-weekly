@@ -63,9 +63,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **127** |
-| 📝 **Total Articles** | **1542** |
-| 🚀 **Total Projects** | **1464** |
+| 📅 **Total Issues** | **128** |
+| 📝 **Total Articles** | **1555** |
+| 🚀 **Total Projects** | **1476** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **55** |
 | 📚 **Total Books** | **98** |
@@ -74,6 +74,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 128: [Rust for CPython](./docs/en/2025-11-22-weekly.md)
+  - Shared 13 articles, 12 open-source projects
 - Issue 127: [A Plan for 5-10% Faster Free-Threaded JIT by Python 3.16](./docs/en/2025-11-15-weekly.md)
   - Shared 13 articles, 12 open-source projects, 2 audio/videos
 - Issue 126: [A modern static site generator](./docs/en/2025-11-08-weekly.md)
@@ -173,13 +175,13 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 3 audio/videos
 - Issue 79: [Python's Metadata Dilemma](./docs/2024-12-01-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 78: [async/await is a Poor Design](./docs/2024-11-23-weekly.md)
+- Issue 78: [async/await is a Poor Design](./docs/en/2024-11-23-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
-- Issue 77: [Is Python Dependency Management Like a Landfill Fire?](./docs/2024-11-17-weekly.md)
+- Issue 77: [Is Python Dependency Management Like a Landfill Fire?](./docs/en/2024-11-17-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 76: [Implementing BASIC in 50 Lines of Python Code](./docs/2024-11-09-weekly.md)
+- Issue 76: [Implementing BASIC in 50 Lines of Python Code](./docs/en/2024-11-09-weekly.md)
   - Shared 11 articles, 12 open-source projects
-- Issue 75: [Developing a NoSQL Database with Python](./docs/2024-11-02-weekly.md)
+- Issue 75: [Developing a NoSQL Database with Python](./docs/en/2024-11-02-weekly.md)
   - Shared 11 articles, 12 open-source projects, 1 audio/video, 2 hot discussions
 - Issue 74: [Python Programming Class Sets Guinness World Record](./docs/en/2024-10-26-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
