@@ -63,17 +63,19 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **128** |
-| 📝 **Total Articles** | **1555** |
-| 🚀 **Total Projects** | **1476** |
+| 📅 **Total Issues** | **129** |
+| 📝 **Total Articles** | **1567** |
+| 🚀 **Total Projects** | **1488** |
 | 🎵 **Total Audio/Video** | **133** |
-| 🔥 **Total Hot Topics** | **55** |
+| 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 129: [Pydantic can do what?](./docs/en/2025-11-29-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 128: [Rust for CPython](./docs/en/2025-11-22-weekly.md)
   - Shared 13 articles, 12 open-source projects
 - Issue 127: [A Plan for 5-10% Faster Free-Threaded JIT by Python 3.16](./docs/en/2025-11-15-weekly.md)
@@ -173,7 +175,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
 - Issue 80: [Django Project Performance Optimization](./docs/2024-12-07-weekly.md)
   - Shared 12 articles, 12 open-source projects, 3 audio/videos
-- Issue 79: [Python's Metadata Dilemma](./docs/2024-12-01-weekly.md)
+- Issue 79: [Python's Metadata Dilemma](./docs/en/2024-12-01-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 78: [async/await is a Poor Design](./docs/en/2024-11-23-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
