@@ -56,16 +56,15 @@ We currently offer one subscription option:
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
 
-
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **129** |
-| 📝 **Total Articles** | **1567** |
-| 🚀 **Total Projects** | **1488** |
+| 📅 **Total Issues** | **130** |
+| 📝 **Total Articles** | **1579** |
+| 🚀 **Total Projects** | **1500** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -74,6 +73,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 130: [Django 6.0 is Here](./docs/en/2025-12-07-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 129: [Pydantic can do what?](./docs/en/2025-11-29-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 128: [Rust for CPython](./docs/en/2025-11-22-weekly.md)
