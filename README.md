@@ -55,16 +55,15 @@ We currently offer one subscription option:
 
 As we publish more issues, we'll gradually make earlier content freely available (issue n+50 will be free). Stay tuned!
 
-
 ## 📊 Data Statistics
 
 <div align="center">
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **132** |
-| 📝 **Total Articles** | **1603** |
-| 🚀 **Total Projects** | **1524** |
+| 📅 **Total Issues** | **133** |
+| 📝 **Total Articles** | **1615** |
+| 🚀 **Total Projects** | **1536** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -73,7 +72,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 132: [30 Years of Freelancing with Python](./en/docs/2025-12-20-weekly.md)
+- Issue 133: [Why You Should Read More Engineering Blogs](./docs/en/2025-12-27-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 132: [30 Years of Freelancing with Python](./docs/en/2025-12-20-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 131: [Build AI agents from scratch](./docs/en/2025-12-13-weekly.md)
   - Shared 12 articles, 12 open-source projects
