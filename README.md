@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **134** |
-| 📝 **Total Articles** | **1627** |
-| 🚀 **Total Projects** | **1548** |
+| 📅 **Total Issues** | **135** |
+| 📝 **Total Articles** | **1639** |
+| 🚀 **Total Projects** | **1560** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 135: [Python 3.6-3.14 Performance](./docs/en/2026-01-10-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 134: [How uv got so fast](./docs/en/2026-01-03-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 133: [Why You Should Read More Engineering Blogs](./docs/en/2025-12-27-weekly.md)
