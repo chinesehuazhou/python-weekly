@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **135** |
-| 📝 **Total Articles** | **1639** |
-| 🚀 **Total Projects** | **1560** |
+| 📅 **Total Issues** | **136** |
+| 📝 **Total Articles** | **1651** |
+| 🚀 **Total Projects** | **1572** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 136: [Anthropic invests $1.5 million to PSF](./docs/en/2026-01-17-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 135: [Python 3.6-3.14 Performance](./docs/en/2026-01-10-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 134: [How uv got so fast](./docs/en/2026-01-03-weekly.md)
@@ -171,19 +173,19 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 1 hot discussion
 - Issue 87: [Open-Source Models Comparable to OpenAI-o1](./docs/2025-01-25-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 86: [Jupyter Notebook Intelligent Coding Assistant](./docs/2025-01-18-weekly.md)
+- Issue 86: [Jupyter Notebook Intelligent Coding Assistant](./docs/en/2025-01-18-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 85: [Let AI Help You Write Better Code](./docs/2025-01-11-weekly.md)
+- Issue 85: [Let AI Help You Write Better Code](./docs/en/2025-01-11-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
-- Issue 84: [Python Best Practices for 2024](./docs/2025-01-04-weekly.md)
+- Issue 84: [Python Best Practices for 2024](./docs/en/2025-01-04-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 83: [Tips for Using uv](./docs/2024-12-28-weekly.md)
+- Issue 83: [Tips for Using uv](./docs/en/2024-12-28-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 82: [How Does the CIA Use Python?](./docs/2024-12-21-weekly.md)
+- Issue 82: [How Does the CIA Use Python?](./docs/en/2024-12-21-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 81: [Running GPT-4 Level LLMs on Personal Computers](./docs/2024-12-15-weekly.md)
+- Issue 81: [Running GPT-4 Level LLMs on Personal Computers](./docs/en/2024-12-15-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
-- Issue 80: [Django Project Performance Optimization](./docs/2024-12-07-weekly.md)
+- Issue 80: [Django Project Performance Optimization](./docs/en/2024-12-07-weekly.md)
   - Shared 12 articles, 12 open-source projects, 3 audio/videos
 - Issue 79: [Python's Metadata Dilemma](./docs/en/2024-12-01-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
