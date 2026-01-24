@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **136** |
-| 📝 **Total Articles** | **1651** |
-| 🚀 **Total Projects** | **1572** |
+| 📅 **Total Issues** | **137** |
+| 📝 **Total Articles** | **1663** |
+| 🚀 **Total Projects** | **1584** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 137: [What's New in pandas 3.0](./docs/en/2026-01-24-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 136: [Anthropic invests $1.5 million to PSF](./docs/en/2026-01-17-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 135: [Python 3.6-3.14 Performance](./docs/en/2026-01-10-weekly.md)
@@ -171,7 +173,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 88: [What Was Python's First Stable Version Like?](./docs/2025-02-08-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 hot discussion
-- Issue 87: [Open-Source Models Comparable to OpenAI-o1](./docs/2025-01-25-weekly.md)
+- Issue 87: [Open-Source Models Comparable to OpenAI-o1](./docs/en/2025-01-25-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 86: [Jupyter Notebook Intelligent Coding Assistant](./docs/en/2025-01-18-weekly.md)
   - Shared 12 articles, 12 open-source projects
