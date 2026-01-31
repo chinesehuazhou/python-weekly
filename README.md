@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **137** |
-| 📝 **Total Articles** | **1663** |
-| 🚀 **Total Projects** | **1584** |
+| 📅 **Total Issues** | **138** |
+| 📝 **Total Articles** | **1675** |
+| 🚀 **Total Projects** | **1596** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 138: [Is It Being Killed by Incremental Improvements?](./docs/en/2026-01-31-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 137: [What's New in pandas 3.0](./docs/en/2026-01-24-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 136: [Anthropic invests $1.5 million to PSF](./docs/en/2026-01-17-weekly.md)
