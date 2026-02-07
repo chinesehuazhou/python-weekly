@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **138** |
-| 📝 **Total Articles** | **1675** |
-| 🚀 **Total Projects** | **1596** |
+| 📅 **Total Issues** | **139** |
+| 📝 **Total Articles** | **1689** |
+| 🚀 **Total Projects** | **1610** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 139: [Why People Always Want to Replace Data Analysts?](./docs/en/2026-02-07-weekly.md)
+  - Shared 14 articles, 14 open-source projects
 - Issue 138: [Is It Being Killed by Incremental Improvements?](./docs/en/2026-01-31-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 137: [What's New in pandas 3.0](./docs/en/2026-01-24-weekly.md)
