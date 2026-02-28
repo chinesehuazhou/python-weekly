@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **139** |
-| 📝 **Total Articles** | **1689** |
-| 🚀 **Total Projects** | **1610** |
+| 📅 **Total Issues** | **140** |
+| 📝 **Total Articles** | **1701** |
+| 🚀 **Total Projects** | **1623** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 140: [You Could've Invented OpenClaw](./docs/en/2026-02-28-weekly.md)
+  - Shared 12 articles, 13 open-source projects
 - Issue 139: [Why People Always Want to Replace Data Analysts?](./docs/en/2026-02-07-weekly.md)
   - Shared 14 articles, 14 open-source projects
 - Issue 138: [Is It Being Killed by Incremental Improvements?](./docs/en/2026-01-31-weekly.md)
