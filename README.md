@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **140** |
-| 📝 **Total Articles** | **1701** |
-| 🚀 **Total Projects** | **1623** |
+| 📅 **Total Issues** | **141** |
+| 📝 **Total Articles** | **1713** |
+| 🚀 **Total Projects** | **1635** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 141: [ral History of Python's Early Contributors](./docs/en/2026-03-07-weekly.md)
+  - Shared 12 articles, 13 open-source projects
 - Issue 140: [You Could've Invented OpenClaw](./docs/en/2026-02-28-weekly.md)
   - Shared 12 articles, 13 open-source projects
 - Issue 139: [Why People Always Want to Replace Data Analysts?](./docs/en/2026-02-07-weekly.md)
@@ -170,14 +172,14 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects
 - Issue 92: [A Map of Python Packages](./docs/2025-03-08-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 91: [The Future of Python in the Browser](./docs/2025-03-01-weekly.md)
+- Issue 91: [The Future of Python in the Browser](./docs/en/2025-03-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Season 3 Collection: Exclusive to paid readers, stay tuned for open-source release
-- Issue 90: [uv Turns One Year Old: Pros and Cons Analysis](./docs/2025-02-23-weekly.md)
+- Issue 90: [uv Turns One Year Old: Pros and Cons Analysis](./docs/en/2025-02-23-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 89: [Python 3.14's New Interpreter!](./docs/2025-02-16-weekly.md)
+- Issue 89: [Python 3.14's New Interpreter!](./docs/en/2025-02-16-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 88: [What Was Python's First Stable Version Like?](./docs/2025-02-08-weekly.md)
+- Issue 88: [What Was Python's First Stable Version Like?](./docs/en/2025-02-08-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 hot discussion
 - Issue 87: [Open-Source Models Comparable to OpenAI-o1](./docs/en/2025-01-25-weekly.md)
   - Shared 12 articles, 12 open-source projects
