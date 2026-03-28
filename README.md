@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **143** |
-| 📝 **Total Articles** | **1738** |
-| 🚀 **Total Projects** | **1659** |
+| 📅 **Total Issues** | **144** |
+| 📝 **Total Articles** | **1750** |
+| 🚀 **Total Projects** | **1671** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 144: [Rewriting a 20-year-old Python library](./docs/2026-03-28-weekly.md)
+  - Shared 13 articles, 12 open-source projects
 - Issue 143: [Reinventing Python's AsyncIO](./docs/2026-03-21-weekly.md)
   - Shared 13 articles, 12 open-source projects
 - Issue 142: [The Python Optimization Ladder](./docs/en/2026-03-14-weekly.md)
