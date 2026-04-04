@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **144** |
-| 📝 **Total Articles** | **1750** |
-| 🚀 **Total Projects** | **1671** |
+| 📅 **Total Issues** | **145** |
+| 📝 **Total Articles** | **1762** |
+| 🚀 **Total Projects** | **1683** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,9 +72,11 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 144: [Rewriting a 20-year-old Python library](./docs/2026-03-28-weekly.md)
+- Issue 145: [Claude Code Port Reaches 160K Stars!](./docs/en/2026-04-04-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 144: [Rewriting a 20-year-old Python library](./docs/en/2026-03-28-weekly.md)
   - Shared 13 articles, 12 open-source projects
-- Issue 143: [Reinventing Python's AsyncIO](./docs/2026-03-21-weekly.md)
+- Issue 143: [Reinventing Python's AsyncIO](./docs/en/2026-03-21-weekly.md)
   - Shared 13 articles, 12 open-source projects
 - Issue 142: [The Python Optimization Ladder](./docs/en/2026-03-14-weekly.md)
   - Shared 12 articles, 12 open-source projects
