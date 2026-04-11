@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **145** |
-| 📝 **Total Articles** | **1762** |
-| 🚀 **Total Projects** | **1683** |
+| 📅 **Total Issues** | **146** |
+| 📝 **Total Articles** | **1774** |
+| 🚀 **Total Projects** | **1695** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 146: [Rust for CPython Progress Update](./docs/en/2026-04-11-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 145: [Claude Code Port Reaches 160K Stars!](./docs/en/2026-04-04-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 144: [Rewriting a 20-year-old Python library](./docs/en/2026-03-28-weekly.md)
