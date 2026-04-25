@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **147** |
-| 📝 **Total Articles** | **1786** |
-| 🚀 **Total Projects** | **1707** |
+| 📅 **Total Issues** | **148** |
+| 📝 **Total Articles** | **1798** |
+| 🚀 **Total Projects** | **1719** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,7 +72,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
-- Issue 147: [The Story of JIT in Python and Ruby](./docs/2026-04-18-weekly.md)
+- Issue 148: [Using LLMs to find Python C-extension bugs](./docs/en/2026-04-25-weekly.md)
+  - Shared 12 articles, 12 open-source projects
+- Issue 147: [The Story of JIT in Python and Ruby](./docs/en/2026-04-18-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 146: [Rust for CPython Progress Update](./docs/en/2026-04-11-weekly.md)
   - Shared 12 articles, 12 open-source projects
