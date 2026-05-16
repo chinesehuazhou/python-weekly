@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **149** |
-| 📝 **Total Articles** | **1810** |
-| 🚀 **Total Projects** | **1731** |
+| 📅 **Total Issues** | **150** |
+| 📝 **Total Articles** | **1822** |
+| 🚀 **Total Projects** | **1743** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 150: [Python Project Performance Analysis](./docs/en/2026-05-16-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 149: [What's new in pip 26.1](./docs/en/2026-05-09-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 148: [Using LLMs to find Python C-extension bugs](./docs/en/2026-04-25-weekly.md)
