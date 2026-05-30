@@ -8,3 +8,6 @@ docs/en/summary
 landing-page/node_modules
 landing-page/.next
 .vscode
+.trae
+.kiro
+*.pyc

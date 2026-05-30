@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **151** |
-| 📝 **Total Articles** | **1833** |
-| 🚀 **Total Projects** | **1755** |
+| 📅 **Total Issues** | **152** |
+| 📝 **Total Articles** | **1843** |
+| 🚀 **Total Projects** | **1767** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 152: [Have AI Coding Agents Finally Crossed the Quality Threshold?](./docs/en/2026-05-30-weekly.md)
+  - Shared 10 articles, 12 open-source projects
 - Issue 151: [My experience at PyCon US 2026](./docs/en/2026-05-24-weekly.md)
   - Shared 11 articles, 12 open-source projects
 - Issue 150: [Python Project Performance Analysis](./docs/en/2026-05-16-weekly.md)
@@ -166,31 +168,31 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 15 open-source projects
 - Issue 105: [Best Practices for Developing React+Flask Projects in 2025](./docs/en/2025-06-07-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 104: [Python Considering Adding Virtual Threads?](./docs/2025-05-31-weekly.md)
+- Issue 104: [Python Considering Adding Virtual Threads?](./docs/en/2025-05-31-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot discussions
-- Issue 103: [LlamaIndex's Monorepo Transformation](./docs/2025-05-24-weekly.md)
+- Issue 103: [LlamaIndex's Monorepo Transformation](./docs/en/2025-05-24-weekly.md)
   - Shared 12 articles, 13 open-source projects, 2 audio/videos
-- Issue 102: [Microsoft Lays Off Faster CPython Team](./docs/2025-05-17-weekly.md)
+- Issue 102: [Microsoft Lays Off Faster CPython Team](./docs/en/2025-05-17-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 3 hot topics
-- Issue 101: [Rust-Developed Python Type Checking Tool](./docs/2025-05-10-weekly.md)
+- Issue 101: [Rust-Developed Python Type Checking Tool](./docs/en/2025-05-10-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 100: [With f-strings, Why Do We Need t-strings?](./docs/2025-05-03-weekly.md)
+- Issue 100: [With f-strings, Why Do We Need t-strings?](./docs/en/2025-05-03-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video
-- Issue 99: [How to Run Python in Production?](./docs/2025-04-26-weekly.md)
+- Issue 99: [How to Run Python in Production?](./docs/en/2025-04-26-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot topics
-- Issue 98: [t-string Syntax Officially Accepted](./docs/2025-04-19-weekly.md)
+- Issue 98: [t-string Syntax Officially Accepted](./docs/en/2025-04-19-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos
-- Issue 97: [CUDA Finally Natively Supports Python!](./docs/2025-04-12-weekly.md)
+- Issue 97: [CUDA Finally Natively Supports Python!](./docs/en/2025-04-12-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot topics
-- Issue 96: [What Exactly is MCP?](./docs/2025-04-05-weekly.md)
+- Issue 96: [What Exactly is MCP?](./docs/en/2025-04-05-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
-- Issue 95: [Using Computers Like Humans](./docs/2025-03-29-weekly.md)
+- Issue 95: [Using Computers Like Humans](./docs/en/2025-03-29-weekly.md)
   - Shared 11 articles, 12 open-source projects
-- Issue 94: [How to Solve FastAPI's Large File Transfer Problem?](./docs/2025-03-23-weekly.md)
+- Issue 94: [How to Solve FastAPI's Large File Transfer Problem?](./docs/en/2025-03-23-weekly.md)
   - Shared 11 articles, 12 open-source projects, 2 audio/videos
-- Issue 93: [Why is "if not list" 2x Faster Than len()?](./docs/2025-03-15-weekly.md)
+- Issue 93: [Why is "if not list" 2x Faster Than len()?](./docs/en/2025-03-15-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Issue 92: [A Map of Python Packages](./docs/2025-03-08-weekly.md)
+- Issue 92: [A Map of Python Packages](./docs/en/2025-03-08-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 91: [The Future of Python in the Browser](./docs/en/2025-03-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
@@ -255,7 +257,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects
 - Issue 61: [PyPI Administrator Key Leak Incident](./docs/en/2024-07-20-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot topics
-- [Season 2 Collection](./docs/2025-04-20-iweekly.md)
+- [Season 2 Collection](./docs/en/2025-04-20-iweekly.md)
   - Highlights from issues 31-60
 - Issue 60: [Python Has So Many Package Management Tools](./docs/en/2024-07-13-weekly.md)
   - Shared 13 articles, 13 open-source projects

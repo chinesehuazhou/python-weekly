@@ -55,6 +55,73 @@ FOOTER_SUBSCRIPTION_EN = ("This newsletter operates on a paid subscription model
                          "👀 [Patreon](https://patreon.com/PythonCat666) \n\n"
                          "👀 [Free Collection Download](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
 
+def split_bilingual_text(text):
+    """拆分 `中文---English` 形式的文本"""
+    if not isinstance(text, str):
+        return text, None
+    if '---' not in text:
+        return text.strip(), None
+    chinese_text, english_text = text.split('---', 1)
+    return chinese_text.strip(), english_text.strip() or None
+
+def extract_issue_title(full_title):
+    """提取周刊标题冒号后的主题部分"""
+    if not full_title:
+        return ''
+    for sep in ('：', ':'):
+        if sep in full_title:
+            return full_title.split(sep, 1)[1].strip()
+    return full_title.strip()
+
+def build_english_weekly_title(full_title, weekly_no):
+    """基于 `中文---English` 主标题约定构造英文周刊标题"""
+    if not full_title:
+        return f"Python Trending Weekly #{weekly_no}"
+    title = full_title.strip()
+    if title.startswith('Python Trending Weekly #'):
+        return title
+    issue_title = extract_issue_title(title)
+    _, english_issue_title = split_bilingual_text(issue_title)
+    if not english_issue_title:
+        raise ValueError(
+            "Front matter title must use `中文---English` format for the main weekly title, "
+            f"for example: Python 潮流周刊#{weekly_no}：中文标题---English Title"
+        )
+    return f"Python Trending Weekly #{weekly_no}: {english_issue_title}"
+
+def build_english_description(description):
+    """将中文统计描述转换为英文描述"""
+    if not description:
+        return description
+    article_count = int(re.search(r'(\d+)\s*篇文章', description).group(1)) if re.search(r'(\d+)\s*篇文章', description) else 0
+    project_count = int(re.search(r'(\d+)\s*个开源项目', description).group(1)) if re.search(r'(\d+)\s*个开源项目', description) else 0
+    audio_video_match = re.search(r'(\d+)\s*则音视频', description)
+    hot_topic_match = re.search(r'(\d+)\s*[则个]\s*热门(?:讨论|话题)', description)
+    book_match = re.search(r'赠书\s*(\d+)\s*本', description)
+
+    parts = []
+    if article_count:
+        parts.append(f"{article_count} article{'s' if article_count != 1 else ''}")
+    if project_count:
+        parts.append(f"{project_count} open-source project{'s' if project_count != 1 else ''}")
+    if audio_video_match:
+        count = int(audio_video_match.group(1))
+        parts.append(f"{count} audio/video{'s' if count != 1 else ''}")
+    if hot_topic_match:
+        count = int(hot_topic_match.group(1))
+        parts.append(f"{count} hot discussion{'s' if count != 1 else ''}")
+    if book_match:
+        count = int(book_match.group(1))
+        parts.append(f"{count} book giveaway{'s' if count != 1 else ''}")
+    if parts:
+        return "Shared " + ", ".join(parts)
+    return description
+
+def replace_front_matter_field(content, field_name, new_value):
+    """替换 front matter 中的单行字段，并尽量保留原始引号风格"""
+    pattern = rf"^({field_name}:\s*['\"]?)(.*?)(['\"]?\s*)$"
+    return re.sub(pattern, rf"\g<1>{new_value}\g<3>", content, count=1, flags=re.MULTILINE)
+
 def split_and_generate_files(input_file, tmp_en_file):
     """
     分拆源文件的中英文标题，生成两份文件
@@ -89,16 +156,32 @@ def split_and_generate_files(input_file, tmp_en_file):
             new_text2 = parts[1] if len(parts) > 1 else ''  # 英文部分
             new_content1 = new_content1.replace(f'[{text}]({url})', f'[{new_text1}]({url})')
             new_content2 = new_content2.replace(f'[{text}]({url})', f'[{new_text2}]({url})')
+
+    content_meta = get_front_matter(input_file) or {}
+    weekly_no = extract_weekly_no(input_file)
+    title = content_meta.get('title')
+    if title:
+        chinese_title, _ = split_bilingual_text(title)
+        english_title = build_english_weekly_title(title, weekly_no)
+        new_content1 = replace_front_matter_field(new_content1, 'title', chinese_title)
+        new_content2 = replace_front_matter_field(new_content2, 'title', english_title)
+
+    description = content_meta.get('description')
+    if description:
+        chinese_description, english_description = split_bilingual_text(description)
+        english_description = english_description or build_english_description(chinese_description)
+        new_content1 = replace_front_matter_field(new_content1, 'description', chinese_description)
+        new_content2 = replace_front_matter_field(new_content2, 'description', english_description)
     
     # 处理二级标题的中英文转换
     for chinese_title, english_title in section_translations.items():
         # 匹配二级标题格式: ## [中文标题](url)
-        chinese_pattern = f'## \[{re.escape(chinese_title)}\]'
+        chinese_pattern = rf'## \[{re.escape(chinese_title)}\]'
         english_replacement = f'## [{english_title}]'
         new_content2 = re.sub(chinese_pattern, english_replacement, new_content2)
         
         # 匹配粗体格式: **[中文标题](url)**
-        chinese_bold_pattern = f'\*\*\[{re.escape(chinese_title)}\]'
+        chinese_bold_pattern = rf'\*\*\[{re.escape(chinese_title)}\]'
         english_bold_replacement = f'**[{english_title}]'
         new_content2 = re.sub(chinese_bold_pattern, english_bold_replacement, new_content2)
 
@@ -264,12 +347,10 @@ def write_to_md_file(weekly_no, content_meta, md_body, pub_date, weekly_file):
     with open(weekly_file, 'w', encoding='utf-8') as f:
         write_summary_content(f, content_meta, md_body, weekly_no)
 
-def write_to_md_file_en(weekly_no, content_meta, md_body, pub_date, en_weekly_file):
+def write_to_md_file_en(weekly_no, pub_date, en_weekly_file):
     """
     生成英文版摘要文件，用于发布到Medium、Dev.to等英文博客平台
     :param weekly_no: 期号
-    :param content_meta: 元数据字典（来自中文版，仅用于期号等信息）
-    :param md_body: 正文内容（来自中文版，不使用）
     :param pub_date: 发布日期
     :param en_weekly_file: 英文周刊文件路径
     """
@@ -280,6 +361,10 @@ def write_to_md_file_en(weekly_no, content_meta, md_body, pub_date, en_weekly_fi
     else:
         print(f"Warning: English weekly file not found: {en_weekly_file}")
         return None
+
+    if en_content_meta:
+        en_content_meta['title'] = build_english_weekly_title(en_content_meta.get('title', ''), weekly_no)
+        en_content_meta['description'] = build_english_description(en_content_meta.get('description', ''))
     
     # 生成英文版摘要文件
     en_summary_dir = 'docs/en'
@@ -291,7 +376,7 @@ def write_to_md_file_en(weekly_no, content_meta, md_body, pub_date, en_weekly_fi
     with open(en_summary_file, 'w', encoding='utf-8') as f:
         write_summary_content(f, en_content_meta, en_content_body, weekly_no, is_english=True)
     
-    return en_summary_file
+    return en_summary_file, en_content_meta
 
 def set_title(no):
     """
@@ -421,7 +506,7 @@ def update_word_count(file_path, word_count):
     with open(file_path, 'w', encoding='utf-8') as f:
         f.write(updated_content)
 
-def copy_to_archive(source_file, pub_date, weekly_no):
+def copy_to_archive(source_file, pub_date):
     """
     复制中文完整版到项目归档目录
     :param source_file: 源文件路径
@@ -438,38 +523,38 @@ def copy_to_archive(source_file, pub_date, weekly_no):
     print(f"Copying Chinese version to project archive directory: {ebook_target}")
     shutil.copy2(source_file, ebook_target)
 
-def update_readme(weekly_file, weekly_no):
+def update_readme(weekly_no, zh_weekly_file, zh_content_meta, en_weekly_file=None, en_content_meta=None):
     """
     更新README文件，在往期列表部分添加新的周刊链接
-    :param weekly_file: 周刊文件路径
     :param weekly_no: 期号
+    :param zh_weekly_file: 中文周刊路径
+    :param zh_content_meta: 中文元数据
+    :param en_weekly_file: 英文周刊路径
+    :param en_content_meta: 英文元数据
     """
     print("Updating README files...")
-    
-    # 读取周刊文件的元数据
-    content_meta = get_front_matter(weekly_file)
-    if not content_meta:
-        print("Warning: Could not find front matter in weekly file")
+
+    if not zh_content_meta:
+        print("Warning: Could not find Chinese metadata for weekly file")
         return
-    
-    # 从title中提取实际标题（冒号后的内容）
-    title = content_meta['title'].split('：', 1)[1] if '：' in content_meta['title'] else content_meta['title']
+
+    zh_title, _ = split_bilingual_text(extract_issue_title(zh_content_meta['title']))
+    zh_description, _ = split_bilingual_text(zh_content_meta['description'])
     
     # 更新中文README
-    update_single_readme('README_ZH.md', weekly_file, weekly_no, title, content_meta['description'], 
-                        "## 🦄往期列表\n\n", f"- 第 {weekly_no} 期：[{title}](./{weekly_file})\n")
+    update_single_readme('README_ZH.md', zh_description,
+                        "## 🦄往期列表\n\n", f"- 第 {weekly_no} 期：[{zh_title}](./{zh_weekly_file})\n")
     
-    # 更新英文README  
-    update_single_readme('README.md', weekly_file, weekly_no, title, content_meta['description'],
-                        "## 🦄 Past Issues\n\n", f"- Issue {weekly_no}: [{title}](./{weekly_file})\n")
+    # 更新英文README
+    if en_weekly_file and en_content_meta:
+        en_title = extract_issue_title(en_content_meta['title'])
+        update_single_readme('README.md', en_content_meta['description'],
+                            "## 🦄 Past Issues\n\n", f"- Issue {weekly_no}: [{en_title}](./{en_weekly_file})\n")
 
-def update_single_readme(readme_file, weekly_file, weekly_no, title, description, section_start, entry_format):
+def update_single_readme(readme_file, description, section_start, entry_format):
     """
     更新单个README文件
     :param readme_file: README文件路径
-    :param weekly_file: 周刊文件路径
-    :param weekly_no: 期号
-    :param title: 标题
     :param description: 描述
     :param section_start: 往期列表部分的开始标记
     :param entry_format: 条目格式
@@ -505,12 +590,12 @@ def process_weekly(pub_date=None):
     处理周刊的主函数
     :param pub_date: 可选的发布日期，默认为当天
     处理流程：
-    1. 更新README.md文件（使用原始的中英完整版）
-    2. 拆分中英文版本（英文版自动保存到tmp目录，中文版覆盖原文件）
-    3. 统计中文版字数并更新
-    4. 复制中文版到ebook归档目录
-    5. 生成中文版摘要文件（博客版和Github版）
-    6. 生成英文版摘要文件（用于Medium、Dev.to等平台）
+    1. 拆分中英文版本（英文版自动保存到tmp目录，中文版覆盖原文件）
+    2. 统计中文版字数并更新
+    3. 复制中文版到项目归档目录
+    4. 生成中文版摘要文件（博客版和Github版）
+    5. 生成英文版摘要文件
+    6. 用已生成的中英摘要元数据更新 README
     7. 发送消息版到Telegram
     """
     if pub_date is None:
@@ -518,45 +603,47 @@ def process_weekly(pub_date=None):
     
     weekly_file = f'docs/{pub_date}-weekly.md'
     tmp_en_file = f'docs/en/tmp/{pub_date}-weekly.md'
+    en_summary_file = f'docs/en/{pub_date}-weekly.md'
     
     if not os.path.exists(weekly_file):
         print(f"File {weekly_file} does not exist.")
         sys.exit(1)
-    
-    # 1. 更新README
-    print("1. Updating README.md...")
+
+    original_content_meta = get_front_matter(weekly_file)
     weekly_no = extract_weekly_no(weekly_file)
-    update_readme(weekly_file, weekly_no)
-    
-    # 2. 拆分中英文版本
-    print("2. Splitting Chinese and English versions...")
+
+    # 1. 拆分中英文版本
+    print("1. Splitting Chinese and English versions...")
     split_and_generate_files(weekly_file, tmp_en_file)
     
-    # 3. 统计中文版字数并更新
-    print("3. Counting words and updating...")
+    # 2. 统计中文版字数并更新
+    print("2. Counting words and updating...")
     word_count = count_words(weekly_file)
     update_word_count(weekly_file, word_count)
     
-    # 4. 复制完整版文件到归档目录
-    print("4. Copying files to archive...")
-    copy_to_archive(weekly_file, pub_date, weekly_no)
+    # 3. 复制完整版文件到归档目录
+    print("3. Copying files to archive...")
+    copy_to_archive(weekly_file, pub_date)
     
-    # 5. 生成中文版周刊摘要
-    print("5. Generating Chinese summary files...")
+    # 4. 生成中文版周刊摘要
+    print("4. Generating Chinese summary files...")
     content_meta = get_front_matter(weekly_file)
     content_body = content_to_string(read_md(weekly_file))
     write_to_md_file(weekly_no, content_meta, content_body, pub_date, weekly_file)
     
-    # 6. 生成英文版周刊摘要（仅博客版）
-    print("6. Generating English blog summary...")
+    # 5. 生成英文版周刊摘要
+    print("5. Generating English blog summary...")
+    en_content_meta = None
     if os.path.exists(tmp_en_file):
-        en_content_meta = get_front_matter(tmp_en_file)
-        en_content_body = content_to_string(read_md(tmp_en_file))
-        en_summary_file = write_to_md_file_en(weekly_no, en_content_meta, en_content_body, pub_date, tmp_en_file)
+        en_summary_file, en_content_meta = write_to_md_file_en(weekly_no, pub_date, tmp_en_file)
         print(f"English blog summary generated: {en_summary_file}")
     else:
         print("Warning: English version file not found, skipping English summary generation.")
-    
+
+    # 6. 更新 README（使用已生成的中英周刊元数据）
+    print("6. Updating README files...")
+    update_readme(weekly_no, weekly_file, original_content_meta, en_summary_file, en_content_meta)
+
     # 7. 生成中文版摘要消息并发送到Telegram
     print("7. Generating Chinese summary and sending to Telegram...")
     message = get_message(weekly_no, content_body)
