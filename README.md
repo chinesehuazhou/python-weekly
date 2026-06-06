@@ -61,9 +61,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **152** |
-| 📝 **Total Articles** | **1843** |
-| 🚀 **Total Projects** | **1767** |
+| 📅 **Total Issues** | **153** |
+| 📝 **Total Articles** | **1855** |
+| 🚀 **Total Projects** | **1781** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +72,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 153: [Control and Memory for AI Agents](./docs/en/2026-06-06-weekly.md)
+  - Shared 12 articles, 14 open-source projects
 - Issue 152: [Have AI Coding Agents Finally Crossed the Quality Threshold?](./docs/en/2026-05-30-weekly.md)
   - Shared 10 articles, 12 open-source projects
 - Issue 151: [My experience at PyCon US 2026](./docs/en/2026-05-24-weekly.md)
