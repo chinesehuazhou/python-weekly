@@ -2,6 +2,7 @@ import httpx
 import asyncio
 import feedparser
 import os
+import re
 from datetime import datetime, timedelta
 from dotenv.main import load_dotenv
 from telegram import Bot
@@ -24,21 +25,39 @@ feeds = {
 async def get_last_issue_async(client, name, url):
     """异步获取周刊本周发布的标题和链接"""
     try:
-        response = await client.get(url, timeout=30.0)
+        # 使用浏览器 UA 避免被 Cloudflare 等 CDN 拦截
+        headers = {
+            "User-Agent": (
+                "Mozilla/5.0 (compatible; PythonWeeklyBot/1.0; "
+                "+https://github.com/chinesehuazhou/python-weekly)"
+            )
+        }
+        response = await client.get(url, timeout=30.0, headers=headers)
         response.encoding = 'utf-8'
         feed = feedparser.parse(response.text)
     except Exception as e:
         print(f"Error occurred while processing feed {url}: {type(e).__name__}, {e}")
         return name, None, None
 
+    # 收集所有在 7 天窗口内的条目，优先选择带有 #数字 编号的正刊
+    candidates = []  # (title, link, is_weekly)
     for entry in feed.entries:
         print(f"Handling entry from {name}...")
         title, link = process_entry(entry)
         if title and link:
-            return name, title, link
+            # 检查标题是否像正刊（含 #数字 模式，如 "#153："）
+            is_weekly = bool(re.search(r'#\d+', title))
+            candidates.append((title, link, is_weekly))
+
+    if candidates:
+        # 优先返回正刊，否则返回第一个候选
+        candidates.sort(key=lambda x: x[2], reverse=True)
+        title, link, is_weekly = candidates[0]
+        if not is_weekly:
+            print(f"[{name}] 未找到正刊条目，使用最近条目: {title}")
+        return name, title, link
 
     print(f"{url} 取不到本周发布的周刊！")
-    print(feed)
     return name, None, None
 
 
