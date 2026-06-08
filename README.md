@@ -198,7 +198,8 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects
 - Issue 91: [The Future of Python in the Browser](./docs/en/2025-03-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
-- Season 3 Collection: Exclusive to paid readers, stay tuned for open-source release
+- [Season 3 Collection](./docs/2026-06-07-iweekly.md)
+  - Highlights from issues 61-90
 - Issue 90: [uv Turns One Year Old: Pros and Cons Analysis](./docs/en/2025-02-23-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 89: [Python 3.14's New Interpreter!](./docs/en/2025-02-16-weekly.md)
@@ -259,7 +260,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 12 articles, 12 open-source projects
 - Issue 61: [PyPI Administrator Key Leak Incident](./docs/en/2024-07-20-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 audio/videos, 2 hot topics
-- [Season 2 Collection](./docs/en/2025-04-20-iweekly.md)
+- [Season 2 Collection](./docs/2025-04-20-iweekly.md)
   - Highlights from issues 31-60
 - Issue 60: [Python Has So Many Package Management Tools](./docs/en/2024-07-13-weekly.md)
   - Shared 13 articles, 13 open-source projects
