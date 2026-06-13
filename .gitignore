@@ -11,3 +11,7 @@ landing-page/.next
 .trae
 .kiro
 *.pyc
+.qoder
+.claude
+resources/.wechat_token_cache.json
+*.wechat.html

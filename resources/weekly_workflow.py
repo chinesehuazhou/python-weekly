@@ -442,12 +442,13 @@ def extract_weekly_no(file_path):
     """
     print(f"Extracting weekly number from {file_path}")
     with open(file_path, 'r', encoding="utf-8") as f:
-        lines = f.readlines()
-        match = re.search(r'#(\d+)', lines[2])
+        content = f.read()
+        # 用正则从 title 字段提取期号，不依赖行号
+        match = re.search(r"title:\s*'[^']*?#(\d+)", content)
         if match:
             return match.group(1)
         else:
-            raise ValueError("Invalid weekly no format in the third line.")
+            raise ValueError("Invalid weekly no format: could not find issue number in title")
 
 def get_message(weekly_no, content_body):
     """
@@ -556,7 +557,7 @@ def update_single_readme(readme_file, description, section_start, entry_format):
     更新单个README文件
     :param readme_file: README文件路径
     :param description: 描述
-    :param section_start: 往期列表部分的开始标记
+    :param section_start: 往期列表部分的开始标记（如 "## 🦄往期列表"）
     :param entry_format: 条目格式
     """
     try:
@@ -564,15 +565,21 @@ def update_single_readme(readme_file, description, section_start, entry_format):
         with open(readme_file, 'r', encoding='utf-8') as f:
             readme_content = f.read()
         
-        # 生成新的周刊条目
+        # 生成新的周刊条目（确保以换行结尾）
         new_entry = entry_format
         new_entry += f"  - {description}\n"
         
-        # 在往期列表部分插入新条目
-        if section_start in readme_content:
-            parts = readme_content.split(section_start)
-            # 在往期列表的开头插入新条目
-            updated_content = parts[0] + section_start + new_entry + parts[1]
+        # 用正则匹配往期列表标题行（兼容不同换行符和前导空格）
+        # 提取纯标题文本用于匹配，去掉末尾的 \n\n
+        heading_text = section_start.rstrip('\n')
+        pattern = re.compile(r'^(' + re.escape(heading_text) + r')\s*\n+', re.MULTILINE)
+        match = pattern.search(readme_content)
+        
+        if match:
+            # 在标题行及其后续空行之后插入新条目
+            insert_pos = match.end()
+            # 确保标题后有两个换行
+            updated_content = readme_content[:insert_pos].rstrip('\n') + '\n\n' + new_entry + readme_content[insert_pos:].lstrip('\n')
             
             # 写入更新后的内容
             with open(readme_file, 'w', encoding='utf-8') as f:
