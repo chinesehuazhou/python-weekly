@@ -28,21 +28,27 @@ Contributions are welcome! To recommend articles, projects, resources, or inform
 ## ✨ Why Choose Python Trending Weekly?
 
 ### 🌍 Comprehensive Global Coverage
+
 Handpicked from 400+ premium sources across Chinese and English ecosystems, spanning official documentation, technical blogs, open-source communities, and academic publications to deliver cutting-edge, authoritative insights.
 
 ### 📚 Multi-Format Content
+
 From in-depth technical articles and open-source projects to multimedia resources, trending topics, and technical books—everything you need for diverse learning experiences.
 
 ### 📊 Substantial Content Volume
+
 Each issue features 12 carefully selected technical articles plus 12 open-source projects, enhanced with multimedia resources and trending discussions for a complete tech ecosystem.
 
 ### 🤖 AI-Powered + Human-Curated
+
 AI technology efficiently aggregates massive information streams, while human editors apply rigorous standards to ensure every recommendation delivers genuine learning value.
 
 ### 🔍 In-Depth Content Analysis
+
 Every piece includes thoughtfully crafted summaries and editorial insights—not just raw content reposts—plus relevant supplementary materials for deeper understanding.
 
 ### 🎨 Rich Visual Presentation
+
 Beautifully designed layouts with compelling visuals, plus special highlighting for 1000+ star open-source projects to help you quickly identify top-tier resources.
 
 ## 🐱 Paid Subscription
@@ -61,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **154** |
-| 📝 **Total Articles** | **1867** |
-| 🚀 **Total Projects** | **1793** |
+| 📅 **Total Issues** | **155** |
+| 📝 **Total Articles** | **1879** |
+| 🚀 **Total Projects** | **1805** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -72,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 155: [Python 3.14 GC Rigamarole and More](./docs/en/2026-06-20-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 154: [CPython JIT Temporarily Suspended](./docs/en/2026-06-13-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 153: [Control and Memory for AI Agents](./docs/en/2026-06-06-weekly.md)
