@@ -14,24 +14,31 @@ export default function SubscriptionSection() {
 
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
-    const targetMap: Record<string, string> = {
-      'subscribe-xiaobot': 'xiaobot',
-      'subscribe-afdian': 'afdian',
+    const targetId = {'subscribe-xiaobot': 'xiaobot', 'subscribe-afdian': 'afdian'}[hash];
+    if (!targetId) return;
+
+    const scrollToCard = () => {
+      const el = document.getElementById(targetId);
+      if (!el) return false;
+      const rect = el.getBoundingClientRect();
+      if (rect.top === 0 && rect.bottom === 0) return false; // not laid out yet
+      const top = rect.top + window.scrollY - 65;
+      window.scrollTo({ top, behavior: 'instant' });
+      return true;
     };
-    const targetId = targetMap[hash];
-    if (targetId) {
-      setHighlightTarget(targetId);
-      setTimeout(() => {
-        const el = document.getElementById(targetId);
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 100;
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        } else {
-          sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 150);
-      setTimeout(() => setHighlightTarget(null), 3500);
-    }
+
+    // 多次尝试直到定位稳定（页面渲染完成前后卡片位置会变化）
+    let attempts = 0;
+    const tryScroll = () => {
+      if (scrollToCard() && attempts >= 3) {
+        setHighlightTarget(targetId);
+        setTimeout(() => setHighlightTarget(null), 3500);
+        return;
+      }
+      attempts++;
+      setTimeout(tryScroll, 200);
+    };
+    tryScroll();
   }, []);
 
   const getFeatures = (platform: string, plan?: string) => {
@@ -161,7 +168,7 @@ export default function SubscriptionSection() {
                         href={option.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col scroll-mt-24 ${
+                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col scroll-mt-28 ${
                           premiumOptions.length === 1 ? 'max-w-md mx-auto w-full' : ''
                         } ${
                           option.featured

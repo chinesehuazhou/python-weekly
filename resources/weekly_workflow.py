@@ -32,7 +32,7 @@ WECHAT_QR = "**微信关注 Python猫**：[https://img.pythoncat.top/python_cat.
 
 FOOTER_SUBSCRIPTION = ("在信息洪流中为你淘金，助力 Python 技术视野拓展和职业发展。现在订阅，每周让自己进步一点点。\n\n"
                       "👀 订阅：[小报童](https://weekly.pythoncat.top/zh/#subscribe-xiaobot)  [爱发电](https://weekly.pythoncat.top/zh/#subscribe-afdian) \n\n"
-                      "👀 [免费合集下载](https://pythoncat.top/posts/2025-04-20-sweekly) \n\n")
+                      "👀 合集：[1季](https://pythoncat.top/posts/2023-12-11-weekly)  [2季](https://pythoncat.top/posts/2025-04-20-iweekly)  [3季](https://pythoncat.top/posts/2026-06-07-iweekly) \n\n")
 
 # 英文版固定文本常量
 WEEKLY_INTRO_EN = ("Welcome to Python Trending Weekly - your gateway to cutting-edge Python intelligence! Curated by Python Cat from 400+ premium sources worldwide, "
