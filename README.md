@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **155** |
-| 📝 **Total Articles** | **1879** |
-| 🚀 **Total Projects** | **1805** |
+| 📅 **Total Issues** | **156** |
+| 📝 **Total Articles** | **1891** |
+| 🚀 **Total Projects** | **1817** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 156: [Pydantic Takes Over httpx](./docs/en/2026-06-27-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 155: [Python 3.14 GC Rigamarole and More](./docs/en/2026-06-20-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 154: [CPython JIT Temporarily Suspended](./docs/en/2026-06-13-weekly.md)

@@ -87,7 +87,11 @@ def build_english_weekly_title(full_title, weekly_no):
             "Front matter title must use `中文---English` format for the main weekly title, "
             f"for example: Python 潮流周刊#{weekly_no}：中文标题---English Title"
         )
-    return f"Python Trending Weekly #{weekly_no}: {english_issue_title}"
+    # 若英文部分已自带 "Python Trending Weekly #N" 前缀，直接返回，避免双重前缀
+    prefix = f"Python Trending Weekly #{weekly_no}"
+    if english_issue_title.startswith(prefix):
+        return english_issue_title
+    return f"{prefix}: {english_issue_title}"
 
 def build_english_description(description):
     """将中文统计描述转换为英文描述"""
@@ -592,6 +596,118 @@ def update_single_readme(readme_file, description, section_start, entry_format):
     except Exception as e:
         print(f"Error updating {readme_file}: {e}")
 
+def _scan_weekly_issues():
+    """扫描 docs/ 下所有周刊文件，返回 [(date_str, issue_no), ...] 按日期升序。"""
+    docs_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'docs')
+    weekly_files = sorted(
+        f for f in os.listdir(docs_dir)
+        if re.match(r'\d{4}-\d{2}-\d{2}-weekly\.md$', f)
+    )
+    issues = []
+    for i, fname in enumerate(weekly_files, 1):
+        m = re.match(r'(\d{4}-\d{2}-\d{2})-weekly\.md$', fname)
+        if m:
+            issues.append((m.group(1), i))
+    return issues
+
+
+def _find_issue_date(issue_no, issues):
+    """根据期数查找对应日期。"""
+    for date_str, num in issues:
+        if num == issue_no:
+            return date_str
+    return None
+
+
+def _strip_frontmatter_for_github(content):
+    """去掉 Astro 专用 frontmatter 字段，只保留 title 和 pubDate。"""
+    lines = content.split('\n')
+    if not lines or lines[0].strip() != '---':
+        return content
+
+    # 找到 frontmatter 结束位置
+    end_idx = None
+    for i in range(1, len(lines)):
+        if lines[i].strip() == '---':
+            end_idx = i
+            break
+    if end_idx is None:
+        return content
+
+    fm_lines = lines[1:end_idx]
+    body_lines = lines[end_idx + 1:]
+
+    # 只保留 title 和 pubDate
+    keep_fields = {'title', 'pubDate'}
+    new_fm = []
+    for line in fm_lines:
+        key = line.split(':')[0].strip() if ':' in line else ''
+        if key in keep_fields:
+            new_fm.append(line)
+
+    result = ['---'] + new_fm + ['---', ''] + body_lines
+    return '\n'.join(result)
+
+
+def disclose_full_issue(weekly_no):
+    """公开处理 N-50 期：将归档全文替换正式目录的简化版。
+
+    检查 docs/tmp/ 中是否有第 N-50 期的全文版，若有则：
+    1. 中文：提取全文，去掉 Astro 专用 frontmatter，覆盖 docs/
+    2. 英文：若 docs/en/tmp/ 有全文，覆盖 docs/en/
+    3. astro-blog：用完整 frontmatter 的全文覆盖博客简化版
+    4. 清理 tmp 归档文件
+    """
+    target_no = int(weekly_no) - 50
+    if target_no < 1:
+        return
+
+    issues = _scan_weekly_issues()
+    target_date = _find_issue_date(target_no, issues)
+    if not target_date:
+        return
+
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+    # 1. 中文全文：docs/tmp/ → docs/
+    tmp_zh = os.path.join(project_root, 'docs', 'tmp', f'{target_date}-weekly.md')
+    docs_zh = os.path.join(project_root, 'docs', f'{target_date}-weekly.md')
+
+    if os.path.exists(tmp_zh) and os.path.exists(docs_zh):
+        full_content = open(tmp_zh, encoding='utf-8').read()
+        # GitHub 版只保留 title + pubDate
+        github_content = _strip_frontmatter_for_github(full_content)
+        with open(docs_zh, 'w', encoding='utf-8') as f:
+            f.write(github_content)
+        print(f"  ✓ 中文全文已公开: docs/{target_date}-weekly.md")
+
+        # 3. astro-blog：保留完整 frontmatter
+        blog_dir = os.path.expanduser('~/Documents/GitHub/astro-blog/src/pages/posts')
+        blog_file = os.path.join(blog_dir, f'{target_date}-weekly.md')
+        if os.path.exists(blog_dir):
+            with open(blog_file, 'w', encoding='utf-8') as f:
+                f.write(full_content)
+            print(f"  ✓ astro-blog 已同步: {target_date}-weekly.md")
+
+        # 清理 tmp 中文归档
+        os.remove(tmp_zh)
+        print(f"  ✓ 已清理: docs/tmp/{target_date}-weekly.md")
+    else:
+        if os.path.exists(docs_zh):
+            # 正式目录已是全文版（之前公开过），跳过
+            pass
+
+    # 2. 英文全文：docs/en/tmp/ → docs/en/
+    tmp_en = os.path.join(project_root, 'docs', 'en', 'tmp', f'{target_date}-weekly.md')
+    docs_en = os.path.join(project_root, 'docs', 'en', f'{target_date}-weekly.md')
+
+    if os.path.exists(tmp_en) and os.path.exists(docs_en):
+        shutil.copy2(tmp_en, docs_en)
+        print(f"  ✓ 英文全文已公开: docs/en/{target_date}-weekly.md")
+        os.remove(tmp_en)
+        print(f"  ✓ 已清理: docs/en/tmp/{target_date}-weekly.md")
+
+
 def process_weekly(pub_date=None):
     """
     处理周刊的主函数
@@ -604,6 +720,8 @@ def process_weekly(pub_date=None):
     5. 生成英文版摘要文件
     6. 用已生成的中英摘要元数据更新 README
     7. 发送消息版到Telegram
+    8. 自动公开 N-50 期全文（检测并替换 docs/ + astro-blog）
+    9. 自动调用 weekly_save_count.py 刷新统计数据库
     """
     if pub_date is None:
         pub_date = datetime.datetime.now().strftime('%Y-%m-%d')
@@ -656,9 +774,29 @@ def process_weekly(pub_date=None):
     message = get_message(weekly_no, content_body)
     tg_bot_token = os.environ['TG_BOT_TOKEN']
     tg_chat_id = os.environ['TG_CHAT_ID']
-    image_path = "resources/img/python-weekly.jpg"
+    image_path = "resources/img/python-weekly.png"
     asyncio.run(send_to_telegram(tg_bot_token, tg_chat_id, message, image_path))
-    
+
+    # 8. 自动公开 N-50 期全文（归档全文 → 替换正式目录简化版 + 同步 astro-blog）
+    print(f"\n8. Disclosing full issue #{int(weekly_no) - 50} (N-50)...")
+    disclose_full_issue(weekly_no)
+
+    # 9. 刷新统计数据库与 stats.json
+    print("\n9. Updating weekly statistics (weekly_save_count)...")
+    save_count_script = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)), 'weekly_save_count.py'
+    )
+    import subprocess
+    result = subprocess.run(
+        [sys.executable, save_count_script],
+        capture_output=True, text=True, timeout=60,
+        cwd=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    )
+    if result.returncode == 0:
+        print(result.stdout.strip() or "  ✓ 统计已更新")
+    else:
+        print(f"  ⚠️ weekly_save_count 失败: {result.stderr.strip()}")
+
     print("Weekly processing completed!")
     print("Files generated:")
     print(f"  - Chinese version: {weekly_file}")

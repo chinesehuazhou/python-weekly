@@ -182,7 +182,7 @@ def update_single_readme_stats(readme_path, stats, is_chinese=True):
     # 在往期列表之前插入统计数据
     if section_marker in content:
         prefix, suffix = content.split(section_marker, 1)
-        content = prefix.rstrip() + "\n\n" + stats_section + section_marker + suffix.lstrip('\n')
+        content = prefix.rstrip() + "\n\n" + stats_section + section_marker + "\n\n" + suffix.lstrip('\n')
     else:
         content = content.rstrip() + "\n\n" + stats_section
     

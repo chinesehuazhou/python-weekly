@@ -4,10 +4,24 @@ import { useTranslations, useLocale } from '../hooks/useTranslations';
 import { motion } from 'framer-motion';
 import { FaCrown, FaHeart, FaStar, FaCheck } from 'react-icons/fa';
 import Image from 'next/image';
+import { useEffect, useState, useRef } from 'react';
 
 export default function SubscriptionSection() {
+  const [highlightTarget, setHighlightTarget] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const t = useTranslations();
   const locale = useLocale();
+
+  useEffect(() => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'subscribe-xiaobot' || hash === 'subscribe-afdian') {
+      setHighlightTarget(hash === 'subscribe-xiaobot' ? 'xiaobot' : 'afdian');
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 100);
+      setTimeout(() => setHighlightTarget(null), 3500);
+    }
+  }, []);
 
   const getFeatures = (platform: string, plan?: string) => {
     const features: string[] = [];
@@ -101,7 +115,7 @@ export default function SubscriptionSection() {
   ];
 
   return (
-    <section id="subscription" className="py-20 bg-gradient-to-br from-gray-50/80 via-slate-100/60 to-blue-50/70 dark:from-gray-900 dark:to-gray-800">
+    <section id="subscription" ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50/80 via-slate-100/60 to-blue-50/70 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -127,21 +141,28 @@ export default function SubscriptionSection() {
             <div className={`grid gap-6 sm:gap-8 ${premiumOptions.length === 1 ? 'justify-center' : 'lg:grid-cols-2'} px-4 sm:px-0`}>
                   {premiumOptions.map((option, index) => {
                     const Icon = option.icon;
+                    const platformId = option.url.includes('xiaobot') ? 'xiaobot' : option.url.includes('afdian') ? 'afdian' : 'patreon';
+                    const isHighlighted = highlightTarget === platformId;
                     return (
                       <motion.a
                         key={index}
+                        id={platformId}
                         href={option.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col ${
                           premiumOptions.length === 1 ? 'max-w-md mx-auto w-full' : ''
                         } ${
-                          option.featured 
-                            ? 'bg-white text-gray-900 shadow-xl ring-2 ring-yellow-400' 
+                          option.featured
+                            ? 'bg-white text-gray-900 shadow-xl ring-2 ring-yellow-400'
                             : 'bg-white text-gray-900 shadow-lg hover:shadow-xl'
+                        } ${
+                          isHighlighted ? 'ring-4 ring-yellow-400 shadow-2xl animate-pulse' : ''
                         }`}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
+                        animate={isHighlighted ? { scale: [1, 1.03, 1] } : {}}
+                        transition={isHighlighted ? { repeat: Infinity, duration: 1.5 } : {}}
                       >
                         {option.featured && (
                           <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
