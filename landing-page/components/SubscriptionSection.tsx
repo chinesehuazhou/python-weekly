@@ -14,11 +14,22 @@ export default function SubscriptionSection() {
 
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
-    if (hash === 'subscribe-xiaobot' || hash === 'subscribe-afdian') {
-      setHighlightTarget(hash === 'subscribe-xiaobot' ? 'xiaobot' : 'afdian');
+    const targetMap: Record<string, string> = {
+      'subscribe-xiaobot': 'xiaobot',
+      'subscribe-afdian': 'afdian',
+    };
+    const targetId = targetMap[hash];
+    if (targetId) {
+      setHighlightTarget(targetId);
       setTimeout(() => {
-        sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 100);
+        const el = document.getElementById(targetId);
+        if (el) {
+          const y = el.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+          sectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
       setTimeout(() => setHighlightTarget(null), 3500);
     }
   }, []);
@@ -150,7 +161,7 @@ export default function SubscriptionSection() {
                         href={option.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col ${
+                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col scroll-mt-24 ${
                           premiumOptions.length === 1 ? 'max-w-md mx-auto w-full' : ''
                         } ${
                           option.featured
