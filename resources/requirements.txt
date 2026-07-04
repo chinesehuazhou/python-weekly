@@ -1,5 +1,6 @@
 feedparser
 httpx
+playwright
 python-dotenv
 python-telegram-bot
 readability-lxml
