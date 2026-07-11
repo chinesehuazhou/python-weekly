@@ -326,6 +326,17 @@ def set_editor_html(page, locator, html: str) -> None:
     if handle is None:
         raise PublishError("正文编辑器句柄不可用。")
 
+    # Wait for CKEditor 5 instance to be ready (it initializes asynchronously)
+    try:
+        page.wait_for_function(
+            """(el) => el.ckeditorInstance && typeof el.ckeditorInstance.setData === 'function'""",
+            arg=handle,
+            timeout=8000,
+        )
+        print("  ✓ CKEditor 5 实例已就绪")
+    except Exception:
+        print("  ⚠ CKEditor 实例未在超时内就绪，尝试回退方案")
+
     inserted_chars = page.evaluate(
         """async ([el, payload]) => {
             el.focus();
@@ -549,8 +560,35 @@ def set_tags(page, tags: list[str]) -> bool:
         return False
 
 
-def ensure_editor_ready(page) -> None:
-    page.goto(SSPAI_WRITE_URL, wait_until="load", timeout=30000)
+def find_or_create_sspai_page(context):
+    """在已有页签中查找少数派页面，若没有则新建页签。
+
+    不会覆盖或关闭用户已打开的其他网站页签。
+    """
+    for page in context.pages:
+        url = page.url or ""
+        if "sspai.com" in url.lower():
+            print(f"🔗 找到少数派已有页签: {page.url}")
+            return page
+
+    page = context.new_page()
+    print("🔗 新建页签用于少数派发布")
+    return page
+
+
+def ensure_editor_ready(page, force_navigate: bool = True) -> None:
+    """导航到少数派写作页。
+
+    若当前已在写作页域下且不强制跳转，则跳过导航以避免覆盖已有草稿。
+    """
+    current_url = (page.url or "").lower()
+    already_on_write = "sspai.com/write" in current_url
+
+    if already_on_write and not force_navigate:
+        print("📍 已在少数派写作页，跳过导航")
+    else:
+        page.goto(SSPAI_WRITE_URL, wait_until="load", timeout=30000)
+
     page.wait_for_timeout(2500)
     current_url = page.url.lower()
     if "login" in current_url:
@@ -622,8 +660,7 @@ def main() -> int:
                 raise PublishError("未检测到已打开的 Edge 上下文，请确认浏览器以 CDP 方式运行。")
 
             context = browser.contexts[0]
-            page = context.pages[0] if context.pages else context.new_page()
-            print(f"🔗 复用浏览器标签页: {page.url or '(empty)'}")
+            page = find_or_create_sspai_page(context)
 
             ensure_editor_ready(page)
             fill_title(page, title)

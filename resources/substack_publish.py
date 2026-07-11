@@ -83,13 +83,36 @@ def md_to_html(md_text: str) -> str:
     return html
 
 
-def find_substack_page(contexts):
-    """在所有页面中查找 Substack 编辑器页面。"""
-    for ctx in contexts:
-        for page in ctx.pages:
-            if "substack.com/publish/post" in page.url and "drafts" not in page.url and "detail" not in page.url:
+def find_or_create_substack_page(context, draft_url: str | None = None):
+    """在已有页签中查找 Substack 页面，若没有则新建页签。
+
+    若提供 draft_url，优先复用已打开该 URL 的页签。
+    不会覆盖或关闭用户已打开的其他网站页签。
+    """
+    # 优先：精确匹配 draft_url
+    if draft_url:
+        for page in context.pages:
+            if draft_url in (page.url or ""):
+                print(f"🔗 找到已有草稿页签: {page.url}")
                 return page
-    return None
+
+    # 其次：查找 Substack 编辑器页面（排除草稿列表和详情页）
+    for page in context.pages:
+        url = page.url or ""
+        if "substack.com/publish/post" in url and "drafts" not in url and "detail" not in url:
+            print(f"🔗 找到 Substack 编辑页签: {page.url}")
+            return page
+
+    # 再次：查找任意 Substack 页面
+    for page in context.pages:
+        if "substack.com" in (page.url or "").lower():
+            print(f"🔗 找到 Substack 已有页签: {page.url}")
+            return page
+
+    # 没有则新建
+    page = context.new_page()
+    print("🔗 新建页签用于 Substack 发布")
+    return page
 
 
 def main():
@@ -148,24 +171,17 @@ def main():
             sys.exit(1)
 
         context = browser.contexts[0]
-        pages = context.pages
 
         # 始终创建新草稿（不复用已有编辑器页面）
         if existing_draft_url:
             print(f"🌐 打开已有草稿: {existing_draft_url}")
-            page = pages[0]  # fallback
-            for p_ in pages:
-                if existing_draft_url in p_.url:
-                    page = p_
-                    break
-            page.goto(existing_draft_url, wait_until="load", timeout=30000)
+            page = find_or_create_substack_page(context, draft_url=existing_draft_url)
+            if existing_draft_url not in (page.url or ""):
+                page.goto(existing_draft_url, wait_until="load", timeout=30000)
             page.wait_for_timeout(3000)
         else:
             print("🌐 创建新草稿...")
-            if pages:
-                page = pages[0]
-            else:
-                page = context.new_page()
+            page = find_or_create_substack_page(context)
 
             # 先导航到草稿列表
             page.goto(SUBSTACK_DRAFTS, wait_until="load", timeout=30000)
@@ -189,7 +205,7 @@ def main():
                 print(f"⚠ 自动创建草稿失败: {e}")
                 print("请手动在浏览器中点击 Create → Article，然后按 Enter...")
                 input()
-                page = find_substack_page(browser.contexts) or page
+                page = find_or_create_substack_page(context)
 
         # 获取 post ID
         post_id_match = re.search(r"/post/(\d+)", page.url)

@@ -448,7 +448,7 @@ def extract_weekly_no(file_path):
     with open(file_path, 'r', encoding="utf-8") as f:
         content = f.read()
         # 用正则从 title 字段提取期号，不依赖行号
-        match = re.search(r"title:\s*'[^']*?#(\d+)", content)
+        match = re.search(r"title:\s*['\"][^'\"]*?#(\d+)", content)
         if match:
             return match.group(1)
         else:
