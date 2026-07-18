@@ -239,7 +239,8 @@ def main():
                 print(f"  ⚠ 保存失败: {e}")
 
             # 截图记录
-            screenshot_path = "docs/tmp/2026-07-11-ifdian-draft.png"
+            date_str = Path(md_path).stem.replace('-weekly', '')
+            screenshot_path = f"docs/tmp/{date_str}-ifdian-draft.png"
             page.screenshot(path=screenshot_path)
             print(f"\n📸 截图保存到 {screenshot_path}")
 

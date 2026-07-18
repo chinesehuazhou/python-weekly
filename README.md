@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **158** |
-| 📝 **Total Articles** | **1914** |
-| 🚀 **Total Projects** | **1841** |
+| 📅 **Total Issues** | **159** |
+| 📝 **Total Articles** | **1926** |
+| 🚀 **Total Projects** | **1853** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 159: [Python 3.15 Preview](./docs/en/2026-07-18-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 158: [Add frozendict built-in type](./docs/en/2026-07-11-weekly.md)
   - Shared 11 articles, 12 open-source projects
 - Issue 157: [CPython JIT Compiler Development Roadmap](./docs/en/2026-07-04-weekly.md)
