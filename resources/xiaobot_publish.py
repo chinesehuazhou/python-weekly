@@ -297,6 +297,10 @@ if draft_url:
     with open(f"docs/tmp/{date_str}-xiaobot-url.txt", "w") as f:
         f.write(draft_url)
     print(f"  已写入 docs/tmp/{date_str}-xiaobot-url.txt")
+
+    # 发布成功后清理临时文件（删除刚写入的 txt 本身）
+    from cleanup_temp import xiaobot as _cleanup_xiaobot
+    _cleanup_xiaobot(date_str)
 else:
     print("\n⚠️ 未能自动获取草稿链接")
     print("请从浏览器地址栏复制草稿链接粘贴后按 Enter:")
@@ -304,6 +308,9 @@ else:
     if draft_url:
         with open(f"docs/tmp/{date_str}-xiaobot-url.txt", "w") as f:
             f.write(draft_url)
+        print(f"  已写入 docs/tmp/{date_str}-xiaobot-url.txt")
+        from cleanup_temp import xiaobot as _cleanup_xiaobot
+        _cleanup_xiaobot(date_str)
     else:
         print("\n❌ 未获取到链接")
         sys.exit(1)

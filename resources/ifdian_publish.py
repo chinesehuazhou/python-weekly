@@ -244,6 +244,10 @@ def main():
             page.screenshot(path=screenshot_path)
             print(f"\n📸 截图保存到 {screenshot_path}")
 
+            # 发布成功后清理临时文件
+            from cleanup_temp import ifdian as _cleanup_ifdian
+            _cleanup_ifdian(date_str)
+
             print("\n" + "=" * 60)
             print("✅ 爱发电草稿处理完成！请到后台确认")
             print(f"   {IFDIAN_EDITOR}")

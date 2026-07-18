@@ -695,6 +695,11 @@ def main() -> int:
         json.dumps(metadata, ensure_ascii=False, indent=2),
     )
     print(f"✅ 少数派草稿流程已执行，结果已写入: {debug_path}")
+
+    # 发布成功后清理临时文件
+    from cleanup_temp import sspai as _cleanup_sspai
+    _cleanup_sspai(date_str)
+
     return 0
 
 
