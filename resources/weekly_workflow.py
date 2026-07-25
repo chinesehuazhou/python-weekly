@@ -649,6 +649,36 @@ def _strip_frontmatter_for_github(content):
     return '\n'.join(result)
 
 
+def _has_full_content(file_path):
+    """检测文件是否包含全文内容（含有 ## 二级标题的文章条目）"""
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+    return '## [' in content
+
+
+def _reconstruct_astro_content(docs_path, blog_path):
+    """从 docs/（正文）和 astro-blog（frontmatter）重建含完整 Astro frontmatter 的全文"""
+    with open(docs_path, encoding='utf-8') as f:
+        docs_content = f.read()
+    with open(blog_path, encoding='utf-8') as f:
+        blog_content = f.read()
+
+    fm_match = re.search(r'---\n(.*?)\n---', blog_content, re.DOTALL)
+    if not fm_match:
+        return None
+
+    astro_fm = fm_match.group(1)
+
+    # 从 docs/ 中去掉 frontmatter，只留正文
+    body = docs_content
+    if docs_content.startswith('---'):
+        parts = docs_content.split('---', 2)
+        if len(parts) >= 3:
+            body = parts[2]
+
+    return '---\n' + astro_fm + '\n---\n\n' + body.strip()
+
+
 def disclose_full_issue(weekly_no):
     """公开处理 N-50 期：将归档全文替换正式目录的简化版。
 
@@ -657,6 +687,8 @@ def disclose_full_issue(weekly_no):
     2. 英文：若 docs/en/tmp/ 有全文，覆盖 docs/en/
     3. astro-blog：用完整 frontmatter 的全文覆盖博客简化版
     4. 清理 tmp 归档文件
+
+    若 tmp 归档已被清理但 docs/ 已有全文（上次已公开），仍尝试同步 astro-blog。
     """
     target_no = int(weekly_no) - 50
     if target_no < 1:
@@ -668,12 +700,15 @@ def disclose_full_issue(weekly_no):
         return
 
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    blog_dir = os.path.expanduser('~/Documents/GitHub/astro-blog/src/pages/posts')
 
     # 1. 中文全文：docs/tmp/ → docs/
     tmp_zh = os.path.join(project_root, 'docs', 'tmp', f'{target_date}-weekly.md')
     docs_zh = os.path.join(project_root, 'docs', f'{target_date}-weekly.md')
+    blog_file = os.path.join(blog_dir, f'{target_date}-weekly.md')
 
     if os.path.exists(tmp_zh) and os.path.exists(docs_zh):
+        # 情况 A：tmp 归档存在 → 首次公开（全文 → docs + astro-blog）
         full_content = open(tmp_zh, encoding='utf-8').read()
         # GitHub 版只保留 title + pubDate
         github_content = _strip_frontmatter_for_github(full_content)
@@ -681,9 +716,7 @@ def disclose_full_issue(weekly_no):
             f.write(github_content)
         print(f"  ✓ 中文全文已公开: docs/{target_date}-weekly.md")
 
-        # 3. astro-blog：保留完整 frontmatter
-        blog_dir = os.path.expanduser('~/Documents/GitHub/astro-blog/src/pages/posts')
-        blog_file = os.path.join(blog_dir, f'{target_date}-weekly.md')
+        # astro-blog：保留完整 frontmatter
         if os.path.exists(blog_dir):
             with open(blog_file, 'w', encoding='utf-8') as f:
                 f.write(full_content)
@@ -692,9 +725,29 @@ def disclose_full_issue(weekly_no):
         # 清理 tmp 中文归档
         os.remove(tmp_zh)
         print(f"  ✓ 已清理: docs/tmp/{target_date}-weekly.md")
+
+    elif os.path.exists(docs_zh) and _has_full_content(docs_zh):
+        # 情况 B：tmp 已被清理但 docs/ 已有全文 → 仅同步 astro-blog
+        print(f"  ℹ️ docs/{target_date}-weekly.md 已是全文版，检查 astro-blog...")
+        if os.path.exists(blog_dir) and os.path.exists(blog_file):
+            with open(blog_file, encoding='utf-8') as f:
+                blog_content = f.read()
+            if '## [' not in blog_content:
+                # astro-blog 仍是简化版，需重建
+                full_content = _reconstruct_astro_content(docs_zh, blog_file)
+                if full_content:
+                    with open(blog_file, 'w', encoding='utf-8') as f:
+                        f.write(full_content)
+                    print(f"  ✓ astro-blog 已同步（从 docs/ 重建）: {target_date}-weekly.md")
+                else:
+                    print(f"  ⚠️ astro-blog 重建失败（frontmatter 提取错误）: {target_date}-weekly.md")
+            else:
+                print(f"  ✓ astro-blog 已有全文，无需更新")
+        elif os.path.exists(blog_dir) and not os.path.exists(blog_file):
+            print(f"  ⚠️ astro-blog 文件不存在（需人工创建）: {blog_file}")
     else:
         if os.path.exists(docs_zh):
-            # 正式目录已是全文版（之前公开过），跳过
+            # 正式目录是简化版且 tmp 不存在 → 跳过
             pass
 
     # 2. 英文全文：docs/en/tmp/ → docs/en/
