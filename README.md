@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **160** |
-| 📝 **Total Articles** | **1938** |
-| 🚀 **Total Projects** | **1865** |
+| 📅 **Total Issues** | **161** |
+| 📝 **Total Articles** | **1950** |
+| 🚀 **Total Projects** | **1877** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 161: [How Claude Code Works, From Tokens to Agents](./docs/en/2026-08-01-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 160: [PyCon US 2026 Recap](./docs/en/2026-07-25-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 159: [Python 3.15 Preview](./docs/en/2026-07-18-weekly.md)

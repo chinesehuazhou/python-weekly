@@ -13,17 +13,22 @@ DOCS_DIR = PROJECT_ROOT / "docs"
 
 
 def wechat(date_str: str):
-    """清理 wechat_publish.py 产生的临时文件"""
+    """清理 wechat_publish.py / republish_full_weekly.py 产生的临时文件"""
     # .wechat.html 由 wechat_publish.py 在 docs/ 根目录生成
     wechat_html = DOCS_DIR / f"{date_str}-weekly.wechat.html"
     if wechat_html.exists():
         wechat_html.unlink()
         print(f"  🧹 已清理: docs/{wechat_html.name}")
 
-    # 也清理 docs/tmp/ 下可能残留的 .wechat.html
-    for f in DOCS_TMP.glob(f"{date_str}*.wechat.html"):
-        f.unlink()
-        print(f"  🧹 已清理: docs/tmp/{f.name}")
+    # docs/tmp/ 下的临时文件（republish_full_weekly.py 产生）
+    tmp_patterns = [
+        f"{date_str}*.wechat.html",
+        f"{date_str}*-weekly-wechat.md",
+    ]
+    for pattern in tmp_patterns:
+        for f in DOCS_TMP.glob(pattern):
+            f.unlink()
+            print(f"  🧹 已清理: docs/tmp/{f.name}")
 
 
 def sspai(date_str: str):

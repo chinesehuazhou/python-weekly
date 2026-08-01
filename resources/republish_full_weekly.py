@@ -722,6 +722,10 @@ def main():
     print(f"\n✅ 草稿创建成功！")
     print(f"   media_id: {draft_media_id}")
 
+    # 清理临时文件
+    from cleanup_temp import wechat as _cleanup_wechat_full
+    _cleanup_wechat_full(date_str)
+
     # 自动配置：原创声明、合集、广告、原文链接（通过 Playwright CDP）
     print(f"\n🔧 配置草稿（原创+合集+原文链接）...")
     config_ok = _auto_config_draft(draft_media_id, source_url, issue_no)
