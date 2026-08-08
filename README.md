@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **161** |
-| 📝 **Total Articles** | **1950** |
-| 🚀 **Total Projects** | **1877** |
+| 📅 **Total Issues** | **162** |
+| 📝 **Total Articles** | **1962** |
+| 🚀 **Total Projects** | **1889** |
 | 🎵 **Total Audio/Video** | **133** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 162: [PEP 841: Frozen Display Syntax](./docs/en/2026-08-08-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 161: [How Claude Code Works, From Tokens to Agents](./docs/en/2026-08-01-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 160: [PyCon US 2026 Recap](./docs/en/2026-07-25-weekly.md)
