@@ -411,6 +411,6 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=chinesehuazhou/python-weekly&type=Date)](https://star-history.com/#chinesehuazhou/python-weekly&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=chinesehuazhou/python-weekly&type=Date)](https://star-history.dera.page/#chinesehuazhou/python-weekly&Date)
 
 [License: Attribution-NonCommercial-ShareAlike (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
