@@ -420,6 +420,6 @@ AI 技术高效抓取海量信息，人工高标准精选优质内容，确保�
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=chinesehuazhou/python-weekly&type=Date)](https://star-history.com/#chinesehuazhou/python-weekly&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=chinesehuazhou/python-weekly&type=Date)](https://star-history.dera.page/#chinesehuazhou/python-weekly&Date)
 
 [版权：共享-非商用-保留署名（CC BY-NC-SA 4.0）](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh)
