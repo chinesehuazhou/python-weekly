@@ -484,6 +484,10 @@ def main():
         help="跳过图片上传（使用原始 URL）",
     )
     parser.add_argument(
+        "--cover", default="",
+        help="封面图路径（本地文件）。正文无图时必填，否则微信草稿创建失败（40007）",
+    )
+    parser.add_argument(
         "--theme", default="python-weekly-v2",
         help="inkpress 主题名称（默认: python-weekly-v2）",
     )
@@ -631,6 +635,15 @@ def main():
             print("  无图片需要上传")
     else:
         print("\n[3/5] 跳过图片上传 (--skip-image-upload)")
+
+    # 5c2. 正文无图时用 --cover 指定的封面图
+    if not cover_media_id and args.cover:
+        print(f"\n[3b/5] 正文无图，使用指定封面: {args.cover}")
+        from wechat_publish import upload_cover_file as _upload_cover
+        cover_media_id = _upload_cover(Path(args.cover), token)
+        if not cover_media_id:
+            print("❌ 封面图上传失败，草稿无法创建")
+            sys.exit(1)
 
     # 5d. Markdown → 微信 HTML（inkpress 主题引擎）
     print(f"\n[4/5] Markdown → 微信 HTML（主题: {args.theme}）→ 链接转脚注 → 拼接头尾...")

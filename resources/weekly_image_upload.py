@@ -10,10 +10,14 @@
 
 功能：
   1. 下载图片（GitHub blob URL 优先用 gh CLI，其他 URL 优先 curl，降级 httpx）
-  2. 如果图片 > 100KB，用 Pillow 压缩到 100KB 以内
-  3. 上传到七牛云，命名为 YYYY-MM-DD-slug.ext
-  4. 保存本地副本到图片归档目录
-  5. 输出 markdown 引用: ![](https://img.pythoncat.top/YYYY-MM-DD-slug.ext)
+  2. SVG 用 Edge 浏览器渲染为 PNG（支持 CSS 变量/滤镜，cairosvg 降级）；webp 转 PNG
+  3. 如果图片 > 100KB，用 Pillow 压缩到 100KB 以内
+  4. 上传到七牛云，命名为 YYYY-MM-DD-slug.ext
+  5. 保存本地副本到图片归档目录
+  6. 输出 markdown 引用: ![](https://img.pythoncat.top/YYYY-MM-DD-slug.ext)
+
+注意：SVG 浏览器渲染依赖 playwright + Edge（channel=msedge），建议用 .venv 运行
+（系统 Python 未安装 playwright 时自动降级 cairosvg，但 CSS 变量类 SVG 会渲染异常）。
 """
 
 import io
@@ -109,6 +113,62 @@ def get_ext(content: bytes, url: str) -> str:
     return "png"
 
 
+def svg_render_browser(data: bytes) -> bytes | None:
+    """用 Edge（msedge channel）渲染 SVG 为 PNG，返回 PNG bytes。
+
+    浏览器完整支持 CSS 变量、prefers-color-scheme、feDropShadow 等滤镜，
+    而 cairosvg 不支持 CSS 变量（解析失败回退黑色填充，产生黑色块），
+    因此 SVG 优先走浏览器渲染。不可用时返回 None，由调用方降级。
+    """
+    import base64
+    import re
+
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        print("  ⚠ 未安装 playwright，SVG 浏览器渲染不可用，降级 cairosvg")
+        return None
+
+    text = data.decode("utf-8", errors="ignore")
+
+    # 解析尺寸：优先 viewBox，其次 width/height 属性
+    w = h = None
+    m = re.search(
+        r'viewBox\s*=\s*["\']\s*([-\d.eE]+)\s+([-\d.eE]+)\s+([-\d.eE]+)\s+([-\d.eE]+)', text
+    )
+    if m:
+        min_x, min_y, vb_w, vb_h = (float(g) for g in m.groups())
+        w, h = int(vb_w - min_x), int(vb_h - min_y)
+    else:
+        mw = re.search(r'width\s*=\s*["\']\s*([\d.eE]+)', text)
+        mh = re.search(r'height\s*=\s*["\']\s*([\d.eE]+)', text)
+        if mw and mh:
+            w, h = int(float(mw.group(1))), int(float(mh.group(1)))
+    if not w or not h or not (50 <= w <= 4000 and 50 <= h <= 4000):
+        w, h = 1200, 800
+        print(f"  ⚠ SVG 尺寸无法解析，使用默认 {w}x{h}")
+    # viewBox 可能有负偏移，viewport 各留 10px 边距防止边缘被裁
+    view_w, view_h = min(w + 20, 1600), min(h + 20, 1600)
+
+    data_url = "data:image/svg+xml;base64," + base64.b64encode(data).decode()
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(channel="msedge", headless=True)
+            page = browser.new_page(
+                viewport={"width": view_w, "height": view_h},
+                device_scale_factor=2,
+                color_scheme="light",
+            )
+            page.goto(data_url)
+            page.wait_for_timeout(800)  # 等待字体与滤镜渲染
+            png = page.screenshot()
+            browser.close()
+        return png
+    except Exception as e:
+        print(f"  ⚠ 浏览器渲染失败: {e}，降级 cairosvg")
+        return None
+
+
 def convert_to_png(data: bytes, ext: str) -> bytes:
     """将 webp/svg 格式转为 PNG，其他格式原样返回"""
     if ext == "webp":
@@ -117,11 +177,17 @@ def convert_to_png(data: bytes, ext: str) -> bytes:
         img.save(buf, format="PNG")
         return buf.getvalue()
     if ext == "svg":
+        # 1. 首选浏览器渲染（支持 CSS 变量/滤镜/暗色适配，避免黑色块）
+        rendered = svg_render_browser(data)
+        if rendered:
+            print(f"  转换 svg → png (浏览器渲染): {len(rendered) / 1024:.1f}KB")
+            return rendered
+        # 2. 降级 cairosvg
         try:
             import cairosvg
             return cairosvg.svg2png(bytestring=data)
         except ImportError:
-            print("  警告: 未安装 cairosvg，SVG 无法转换，请 pip install cairosvg")
+            print("  警告: 未安装 cairosvg 且浏览器渲染不可用，SVG 无法转换，请 pip install cairosvg")
             return data  # 返回原数据，上传时会失败或显示异常
     return data
 
