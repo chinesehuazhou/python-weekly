@@ -67,10 +67,10 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **164** |
-| 📝 **Total Articles** | **1986** |
-| 🚀 **Total Projects** | **1913** |
-| 🎵 **Total Audio/Video** | **133** |
+| 📅 **Total Issues** | **165** |
+| 📝 **Total Articles** | **1998** |
+| 🚀 **Total Projects** | **1925** |
+| 🎵 **Total Audio/Video** | **136** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
 
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 165: [Mojo Is Now Open Source](./docs/en/2026-08-29-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 3 audio/videos
 - Issue 164: [deepseek-harness: Everything is a Plugin](./docs/en/2026-08-22-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 163: [Running Numba in the Browser](./docs/en/2026-08-15-weekly.md)
