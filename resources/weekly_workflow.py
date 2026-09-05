@@ -431,12 +431,17 @@ async def send_to_telegram(bot_token, chat_id, text, image_path=None):
     :param image_path: 可选的图片路径
     """
     print("Sending content to tg bot")
+    # 长超时（默认 read_timeout 仅 5s，网络慢时容易假超时：
+    # 请求实际已送达，只是响应没回来，导致后续误判失败而重复发送）
+    timeout_params = dict(
+        read_timeout=60, write_timeout=60, connect_timeout=60, pool_timeout=60
+    )
     bot = Bot(token=bot_token)
     if image_path:
         with open(image_path, 'rb') as f:
-            await bot.send_photo(chat_id=chat_id, photo=InputFile(f), caption=text, parse_mode='Markdown')
+            await bot.send_photo(chat_id=chat_id, photo=InputFile(f), caption=text, parse_mode='Markdown', **timeout_params)
     else:
-        await bot.send_message(chat_id=chat_id, text=text, parse_mode='Markdown', disable_web_page_preview=True)
+        await bot.send_message(chat_id=chat_id, text=text, parse_mode='Markdown', disable_web_page_preview=True, **timeout_params)
 
 def extract_weekly_no(file_path):
     """
@@ -828,7 +833,29 @@ def process_weekly(pub_date=None):
     tg_bot_token = os.environ['TG_BOT_TOKEN']
     tg_chat_id = os.environ['TG_CHAT_ID']
     image_path = "resources/img/python-weekly.png"
-    asyncio.run(send_to_telegram(tg_bot_token, tg_chat_id, message, image_path))
+    try:
+        asyncio.run(send_to_telegram(tg_bot_token, tg_chat_id, message, image_path))
+        print("  ✓ Telegram 消息已发送")
+    except Exception as e:
+        # 网络超时不代表发送失败：请求可能已送达 Telegram 服务器，仅响应超时。
+        # 此时绝不能自动重发（会导致频道出现重复消息），改由人工确认后再补发。
+        print(f"  ⚠️ Telegram 发送异常（{type(e).__name__}: {e}）")
+        print("  ⚠️ 消息可能已发送成功！请先到频道 @pythontrendingweekly 确认：")
+        print("     若已出现本期消息 → 忽略此警告，继续后续步骤；")
+        print("     若未出现 → 修复网络后运行下面命令补发（补发前再次确认频道无本期消息）：")
+        # 把完整消息保存到临时文件：网络恢复后可快速重发，保证内容与格式一致
+        tg_msg_file = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "docs", "tmp", f"{pub_date}-tg-message.txt",
+        )
+        try:
+            with open(tg_msg_file, "w", encoding="utf-8") as f:
+                f.write(message)
+            print(f"     已保存待发消息: {tg_msg_file}")
+            print(f"     补发命令: ./.venv/bin/python resources/tg_republish.py {pub_date}")
+        except Exception as write_err:
+            print(f"     ⚠️ 保存待发消息失败: {write_err}")
+        print("  继续执行后续步骤...")
 
     # 8. 自动公开 N-50 期全文（归档全文 → 替换正式目录简化版 + 同步 astro-blog）
     print(f"\n8. Disclosing full issue #{int(weekly_no) - 50} (N-50)...")
