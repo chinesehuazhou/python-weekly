@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **166** |
-| 📝 **Total Articles** | **2010** |
-| 🚀 **Total Projects** | **1937** |
+| 📅 **Total Issues** | **167** |
+| 📝 **Total Articles** | **2022** |
+| 🚀 **Total Projects** | **1949** |
 | 🎵 **Total Audio/Video** | **136** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 167: [A Python Interpreter in 1024 Bytes](./docs/en/2026-09-12-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 166: [How Kimi K3 Engineered Its Way to the Frontier](./docs/en/2026-09-05-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 165: [Mojo Is Now Open Source](./docs/en/2026-08-29-weekly.md)
