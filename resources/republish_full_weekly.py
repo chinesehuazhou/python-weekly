@@ -430,6 +430,8 @@ def _auto_config_draft(draft_media_id: str, source_url: str, issue_no: int) -> b
                 draft_media_id,
                 "--full",
                 "--source-url", source_url,
+                # 必须传期号：配置脚本靠它定位草稿卡，否则会配到草稿箱里最新那篇
+                "--issue", str(issue_no),
             ],
             capture_output=True,
             text=True,
