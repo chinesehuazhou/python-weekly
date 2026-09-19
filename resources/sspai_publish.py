@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Publish a weekly simplified issue to SSPAI as a draft via existing Edge CDP.
+"""Publish a weekly simplified issue to SSPAI via existing Edge CDP.
+
+默认**创建后直接发布**（发布通道 = 立即发布，与往期一致）；加 `--draft-only`
+则只存草稿、不点发布。
 
 This script intentionally reuses the browser instance that is already running on
 localhost:18800. It will not launch or close the browser.
@@ -491,73 +494,112 @@ def save_draft(page) -> bool:
     return False
 
 
+def publish_post(page) -> str | None:
+    """点顶部「发布」→ 在「选择发布通道」里选「立即发布」→ 确认。返回文章 URL。
+
+    少数派写作页顶部按钮依次是：草稿 / 新文章 / 删除 / 保存 / 预览 / 发布。
+    点「发布」后弹出「选择发布通道」，两条：
+
+    - **立即发布**：进社区，发布后立即在个人主页和广场公开 —— 往期周刊走的就是这条
+      （#167 的公开页面带 Matrix 标记，且与发布当晚的时间戳吻合）
+    - 投稿编辑部：需编辑部审阅，收录后进首页
+
+    注意两个「发布」同名按钮：弹窗打开前顶部按钮文本是「发布」，选中卡片后弹窗底部
+    确认按钮文本变成「立即发布」，故此处先用 exact 匹配点顶部，再用 has-text +
+    `.last` 点弹窗底部。
+    """
+    print("🚀 发布到少数派…")
+    page.get_by_role("button", name="发布", exact=True).first.click()
+    page.wait_for_timeout(3500)
+
+    if not page.locator("text=选择发布通道").count():
+        print("  ✗ 未出现「选择发布通道」弹窗，已中止发布（草稿仍保留）")
+        return None
+
+    page.locator("text=立即发布").first.click()
+    page.wait_for_timeout(1500)
+    page.screenshot(path=str(Path("/tmp") / "sspai-publish-confirm.png"))
+
+    confirm = page.locator("button:has-text('立即发布')").last
+    confirm.click()
+    print("  ✓ 已点确认按钮，等待发布结果…")
+    page.wait_for_timeout(12000)
+    page.screenshot(path=str(Path("/tmp") / "sspai-after-publish.png"))
+
+    url = page.url or ""
+    m = re.search(r"sspai\.com/post/(\d+)", url)
+    if m:
+        print(f"  ✅ 已发布: {url}")
+        return url
+    print(f"  ⚠ 发布后 URL 不是文章页: {url}（请人工确认是否发布成功）")
+    return None
+
+
 def set_tags(page, tags: list[str]) -> bool:
+    """通过 UI 设置标签。
+
+    原先直接读写 vue 组件内部状态（`write.submitData.tags`）的路径已失效：
+    组件层级改版后取不到 write 实例，会报
+    `Cannot set properties of undefined (setting 'tags')`。
+    改为操作 vue-multiselect：点开容器 → 输入关键词 → 等远程搜索 → ↓ 高亮首项 → Enter 确认。
+
+    注意：输入框为空时按 Backspace 会删掉已选中的标签，故追加标签时绝不能清空输入框。
+    """
     print(f"🏷 尝试设置标签: {', '.join(tags)}")
-    try:
-        result = page.evaluate(
-            """async (titles) => {
-                const multiselect = document.querySelector('.attr-form.tag .multiselect');
-                const vm = multiselect?.__vue__;
-                const tagSelect = vm?.$parent;
-                const write = tagSelect?.$parent?.$parent;
-                if (!vm || !tagSelect || !write) {
-                    return { ok: false, reason: 'tag vue components unavailable' };
-                }
 
-                async function resolveExisting(title) {
-                    const response = await tagSelect.$http({
-                        url: '/matrix/editor/article/tag/search/page/get',
-                        method: 'GET',
-                        params: { title, offset: 0, limit: 20 },
-                    });
-                    const items = Array.isArray(response?.data) ? response.data : [];
-                    return items.find(item => item.title === title) || null;
-                }
-
-                const existing = [];
-                const custom = [];
-                for (const title of titles) {
-                    const found = await resolveExisting(title);
-                    if (found) {
-                        existing.push(found);
-                    } else {
-                        custom.push({ id: title, title, custom: true });
-                    }
-                }
-
-                const combined = existing.concat(custom);
-                write.submitData.tags = existing;
-                write.submitData.custom_tags = custom;
-                tagSelect.tagsList = combined.slice();
-                tagSelect.value = combined.slice();
-                if (write.$refs['write-sidebar']?.init) {
-                    write.$refs['write-sidebar'].init(combined);
-                }
-                return {
-                    ok: true,
-                    existing: existing.map(item => item.title || item),
-                    custom: custom.map(item => item.title || item),
-                    submitTags: (write.submitData.tags || []).map(item => item.title || item),
-                    submitCustomTags: (write.submitData.custom_tags || []).map(item => item.title || item),
-                    visibleTags: Array.from(
-                        document.querySelectorAll('.attr-form.tag .multiselect__tag span:first-child')
-                    ).map(el => (el.innerText || '').trim()),
-                };
-            }""",
-            tags,
+    def current_tags() -> list[str]:
+        return page.evaluate(
+            """() => [...document.querySelectorAll('.attr-form.tag .multiselect__tag span:first-child')]
+                     .map(el => (el.innerText || '').trim())"""
         )
-        if not result.get("ok"):
-            print(f"  ⚠ 设置标签失败: {result.get('reason', 'unknown reason')}")
-            return False
-        print(
-            "  ✓ 标签已写入文章模型:"
-            f" tags={result.get('submitTags', [])}, custom={result.get('submitCustomTags', [])}"
-        )
-        print(f"  ✓ 右侧当前显示: {result.get('visibleTags', [])}")
-        return True
-    except Exception as exc:
-        print(f"  ⚠ 设置标签失败: {exc}")
+
+    wrap = page.locator(".attr-form.tag .multiselect").first
+    if not wrap.count():
+        print("  ⚠ 未找到标签控件")
         return False
+    wrap.scroll_into_view_if_needed()
+    page.wait_for_timeout(500)
+
+    existing = current_tags()
+
+    def add_one(tag: str) -> None:
+        wrap.click(timeout=5000)
+        page.wait_for_timeout(500)
+        page.keyboard.type(tag, delay=90)
+        page.wait_for_timeout(2200)  # 等远程标签搜索返回
+        page.keyboard.press("ArrowDown")  # 高亮首项
+        page.wait_for_timeout(300)
+        page.keyboard.press("Enter")  # 确认
+        page.wait_for_timeout(1200)
+
+    for tag in tags:
+        if tag in existing:
+            continue
+        try:
+            add_one(tag)
+        except Exception as exc:
+            print(f"  ⚠ 添加标签「{tag}」失败: {exc}")
+
+    # 校验并重试：远程搜索有时不返回候选，Enter 会落空，静默少一个标签
+    # （2026-09-19 #168 就漏了「编程」，只设进去 3 个）。这里最多补两个回合。
+    for attempt in range(2):
+        missing = [t for t in tags if t not in current_tags()]
+        if not missing:
+            break
+        print(f"  ⚠ 缺少标签 {missing}，第 {attempt + 1} 次补设…")
+        for tag in missing:
+            try:
+                add_one(tag)
+            except Exception as exc:
+                print(f"  ⚠ 补设「{tag}」失败: {exc}")
+
+    applied = current_tags()
+    missing = [t for t in tags if t not in applied]
+    if missing:
+        print(f"  ✗ 当前标签: {applied}（仍缺 {missing}，发布前请人工确认）")
+        return False
+    print(f"  ✓ 当前标签: {applied}")
+    return True
 
 
 def find_or_create_sspai_page(context):
@@ -597,7 +639,7 @@ def ensure_editor_ready(page, force_navigate: bool = True) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="将周刊简化版发布到少数派草稿，复用已登录的 Edge 浏览器。"
+        description="将周刊简化版发布到少数派（默认创建后立即发布，--draft-only 则只存草稿），复用已登录的 Edge 浏览器。"
     )
     parser.add_argument("simple_md", help="简化版 Markdown 文件路径，例如 docs/2026-06-27-weekly.md")
     parser.add_argument(
@@ -612,6 +654,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--cover-url",
         help="显式指定封面图片 URL，指定后不再自动从全文版中提取。",
+    )
+    parser.add_argument(
+        "--draft-only",
+        action="store_true",
+        help="只保存草稿，不执行发布（默认是创建后立即发布）。",
     )
     return parser.parse_args()
 
@@ -650,6 +697,7 @@ def main() -> int:
     print(f"📦 临时封面文件: {cover_path}")
 
     draft_url = ""
+    published_url: str | None = None
     screenshot_path = tmp_dir / f"{date_str}-sspai-draft.png"
     debug_path = tmp_dir / f"{date_str}-sspai-draft-url.txt"
 
@@ -675,6 +723,11 @@ def main() -> int:
             page.screenshot(path=str(screenshot_path), full_page=True)
             print(f"📍 当前页面: {draft_url}")
             print(f"📸 截图已保存: {screenshot_path}")
+
+            if args.draft_only:
+                print("⏭ --draft-only：跳过发布，草稿留在少数派后台待人工发布")
+            else:
+                published_url = publish_post(page)
     except PlaywrightTimeoutError as exc:
         raise PublishError(f"页面加载或交互超时: {exc}") from exc
     except PlaywrightError as exc:
@@ -694,11 +747,22 @@ def main() -> int:
         tmp_dir / f"{date_str}-sspai-metadata.json",
         json.dumps(metadata, ensure_ascii=False, indent=2),
     )
-    print(f"✅ 少数派草稿流程已执行，结果已写入: {debug_path}")
+    print(f"✅ 少数派流程已执行，结果已写入: {debug_path}")
 
     # 发布成功后清理临时文件
     from cleanup_temp import sspai as _cleanup_sspai
     _cleanup_sspai(date_str)
+
+    # 发布结果单独留档：cleanup 会删掉 -sspai-draft-url.txt，
+    # 而收尾对账表需要一条可查的发布链接，故用不被 cleanup 匹配的文件名。
+    if published_url:
+        record = tmp_dir / f"{date_str}-sspai-url.txt"
+        record.write_text(published_url, encoding="utf-8")
+        print(f"🔗 已发布: {published_url}")
+        print(f"   记录已写入 {record}")
+        print("   ⚠ 发布后请用浏览器打开该链接复核一次（脚本只确认跳转到了文章页）")
+    else:
+        print("📌 未发布（或未能确认发布结果）：草稿仍在少数派后台，可人工检查后发布")
 
     return 0
 

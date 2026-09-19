@@ -1,15 +1,23 @@
-"""通过 CDP 连接正在运行的 Edge 将周刊简化版发布到 Substack（自动保存为草稿）。
+"""通过 CDP 连接正在运行的 Edge 将周刊简化版发布到 Substack。
+
+默认**创建后直接发布**（Continue → Send to everyone now）；加 `--draft-only`
+则只存草稿、不点发布。
 
 不会关闭或重启浏览器，通过 localhost:18800 的 CDP 端口连接已有 Edge。
 
 使用 pandoc 将 Markdown 渲染为 HTML 后填入 TipTap 编辑器。
 
 用法:
-    # 创建新草稿
+    # 创建并发布
     .venv/bin/python resources/substack_publish.py docs/YYYY-MM-DD-weekly.md
+
+    # 只存草稿
+    .venv/bin/python resources/substack_publish.py docs/YYYY-MM-DD-weekly.md --draft-only
 
     # 更新已有草稿
     .venv/bin/python resources/substack_publish.py docs/YYYY-MM-DD-weekly.md --draft-url https://pythoncat.substack.com/publish/post/123456
+
+⚠️ 发布动作会立即公开并推送订阅者，不可撤回。
 """
 import sys
 import os
@@ -21,6 +29,7 @@ from playwright.sync_api import sync_playwright
 CDP_URL = "http://localhost:18800"
 SUBSTACK_DRAFTS = "https://pythoncat.substack.com/publish/posts/drafts"
 DEFAULT_SUBTITLE = "每周精选 Python 技术内容，精进技术，增长收入"
+SECTION_NAME = "Python潮流周刊"
 
 
 def strip_frontmatter(md_text: str) -> str:
@@ -115,6 +124,68 @@ def find_or_create_substack_page(context, draft_url: str | None = None):
     return page
 
 
+def publish_post(page) -> str | None:
+    """在编辑器里点右上「Continue」→ 弹窗底部「Send to everyone now」→ 发布。返回线上链接。
+
+    2026-09 改版后 Substack 编辑页右上角不再是「Publish」而是「Continue」，
+    点开是一个全屏 Publish 弹窗（Audience / Allow comments from… / This post
+    belongs in… / Add tags / Social preview / Delivery），底部两个按钮：
+    Cancel 与 **Send to everyone now**。
+
+    ⚠️ 这一步会**立即公开并推送给订阅者**，不可撤回。
+    """
+    print("\n9. 发布（Continue → Send to everyone now）...")
+    page.get_by_role("button", name="Continue", exact=True).first.click()
+    page.wait_for_timeout(5000)
+
+    confirm = page.locator("button:has-text('Send to everyone now')")
+    if not confirm.count():
+        print("  ✗ 未出现发布弹窗（找不到「Send to everyone now」），已中止发布；草稿仍保留")
+        page.screenshot(path="/tmp/substack_publish_missing.png")
+        return None
+
+    page.screenshot(path="/tmp/substack_publish_dialog.png")
+    # 发布前把弹窗里的关键设置打出来，便于事后核对
+    settings = page.evaluate('''() => {
+        const vis = e => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
+        const picked = [...document.querySelectorAll('input[type=radio]')]
+            .filter(r => vis(r) && r.checked)
+            .map(r => ((r.closest('label') || {}).innerText || '').replace(/\\s+/g,' ').trim());
+        const section = [...document.querySelectorAll('button, [role=combobox]')]
+            .filter(vis).map(e => (e.innerText||'').replace(/\\s+/g,' ').trim())
+            .find(t => t.includes('潮流周刊')) || '';
+        return { picked, section };
+    }''')
+    print(f"  · 受众/评论等已选项: {settings.get('picked')}")
+    print(f"  · Section: {settings.get('section')}")
+
+    confirm.first.click()
+    print("  ✓ 已点「Send to everyone now」，等待结果…")
+    page.wait_for_timeout(15000)
+    page.screenshot(path="/tmp/substack_after_publish.png")
+
+    body = page.evaluate("() => (document.body.innerText || '')")
+    if "Your post is live" in body:
+        print("  ✅ Substack 显示「Your post is live!」")
+    else:
+        print("  ⚠ 未看到「Your post is live!」，请人工确认发布状态")
+
+    # 发布后落到 share-center，真正的公开链接在页面里的 input 中
+    live = page.evaluate('''() => {
+        for (const inp of document.querySelectorAll('input, textarea')) {
+            const v = inp.value || '';
+            if (v.includes('substack.com/p/')) return v;
+        }
+        const a = document.querySelector('link[rel=canonical]');
+        return a ? a.href : '';
+    }''')
+    print(f"  · 当前 URL: {page.url}")
+    if live and "substack.com/p/" in live:
+        print(f"  · 公开链接: {live}")
+        return live
+    return page.url
+
+
 def main():
     if len(sys.argv) < 2:
         print("用法: python substack_publish.py <weekly_md_path> [--draft-url <url>]")
@@ -122,6 +193,7 @@ def main():
 
     md_path = sys.argv[1]
     existing_draft_url = None
+    draft_only = False
 
     # 解析 --draft-url 参数
     args = sys.argv[2:]
@@ -130,6 +202,9 @@ def main():
         if args[i] == "--draft-url" and i + 1 < len(args):
             existing_draft_url = args[i + 1]
             i += 2
+        elif args[i] == "--draft-only":
+            draft_only = True
+            i += 1
         else:
             print(f"⚠ 未知参数: {args[i]}")
             i += 1
@@ -161,6 +236,7 @@ def main():
 
     draft_url = None
     post_edit_url = None
+    published_url = None
 
     with sync_playwright() as p:
         print("🔗 通过 CDP 连接已有 Edge...")
@@ -195,12 +271,23 @@ def main():
                 page.wait_for_timeout(3000)
 
             # 点击 Create → Article
+            # 注意：Create 下拉里的 Article 是 <a class="item-Npdq6R">，
+            # 用 `text=Article` 会先命中侧边栏等隐藏同名节点导致超时，
+            # 故遍历可见元素取精确文本匹配。
             try:
                 page.locator('button:has-text("Create")').first.click(timeout=5000)
-                page.wait_for_timeout(1000)
-                page.locator('text=Article').first.click(timeout=5000)
+                page.wait_for_timeout(1500)
+                clicked = page.evaluate('''() => {
+                    const els = [...document.querySelectorAll('a, button, div')];
+                    const el = els.find(e => (e.innerText || '').trim() === 'Article'
+                                             && e.getBoundingClientRect().width > 0);
+                    if (el) { el.click(); return el.tagName + '.' + el.className; }
+                    return '';
+                }''')
+                if not clicked:
+                    raise RuntimeError("未找到可见的 Create → Article 菜单项")
                 page.wait_for_timeout(5000)
-                print("  ✓ 新草稿已创建")
+                print(f"  ✓ 新草稿已创建（menu: {clicked[:40]}）")
             except Exception as e:
                 print(f"⚠ 自动创建草稿失败: {e}")
                 print("请手动在浏览器中点击 Create → Article，然后按 Enter...")
@@ -279,50 +366,46 @@ def main():
                 print("  原始 Markdown 已复制到剪贴板，请手动粘贴")
                 input("  粘贴完成后按 Enter 继续...")
 
-            # 5. 通过 JS 打开 Post Settings tab
-            print("\n5. 打开 Post Settings 获取草稿链接...")
+            # 5. 选择 Section
+            # 改版后 Section 不再是 <select>，而是工具栏「Choose a section」按钮 +
+            # 下拉菜单（菜单项 class=item-Npdq6R）；用精确文本匹配，避免误选英文号。
+            print("\n5. 选择 Section...")
             page.wait_for_timeout(2000)  # 等待自动保存
 
-            try:
-                # 通过 role="tab" 找 Settings tab 并点击（比 Playwright locator 更可靠）
-                result = page.evaluate('''() => {
-                    const tabs = document.querySelectorAll('[role="tab"]');
-                    for (const tab of tabs) {
-                        if (tab.textContent.trim() === 'Settings') {
-                            tab.click();
-                            return 'clicked';
-                        }
-                    }
-                    return 'not found';
-                }''')
-                page.wait_for_timeout(2000)
-                print(f"  ✓ Post Settings 已打开 ({result})")
-            except Exception as e:
-                print(f"  ⚠ 打开 Post Settings 失败: {e}")
+            def click_section() -> bool:
+                return page.evaluate(
+                    """(name) => {
+                        const els = [...document.querySelectorAll('button, a, div')];
+                        const el = els.find(e => (e.innerText || '').trim() === name
+                                                 && e.getBoundingClientRect().width > 0);
+                        if (el) { el.click(); return true; }
+                        return false;
+                    }""",
+                    SECTION_NAME,
+                )
 
-            # 6. 选择 Section（通过 JS）
-            print("6. 选择 Section...")
             try:
-                section_result = page.evaluate('''() => {
-                    const selects = document.querySelectorAll('select');
-                    for (const sel of selects) {
-                        const options = sel.querySelectorAll('option');
-                        for (const opt of options) {
-                            if (opt.textContent.includes('Python潮流周刊') && !opt.textContent.includes('Trending')) {
-                                sel.value = opt.value;
-                                sel.dispatchEvent(new Event('change', { bubbles: true }));
-                                return 'section set: ' + opt.textContent.trim();
-                            }
-                        }
-                    }
-                    return 'section not found';
-                }''')
-                page.wait_for_timeout(500)
-                print(f"  ✓ {section_result}")
+                if not click_section():
+                    page.locator('button:has-text("Choose a section")').first.click(timeout=6000)
+                    page.wait_for_timeout(1800)
+                    click_section()
+                page.wait_for_timeout(1500)
+                page.keyboard.press("Escape")
+                page.wait_for_timeout(800)
+                print(f"  ✓ Section: {SECTION_NAME}")
             except Exception as e:
                 print(f"  ⚠ 选择 Section 失败: {e}")
 
-            page.wait_for_timeout(1000)
+            # 6. 打开 Post Settings
+            # 注意：工具栏的 Settings 是普通 button（页面里没有 role="tab"），
+            # 旧的 `[role="tab"]` 定位已失效。
+            print("6. 打开 Post Settings...")
+            try:
+                page.locator('button:has-text("Settings")').last.click(timeout=6000)
+                page.wait_for_timeout(2500)
+                print("  ✓ Post Settings 已打开")
+            except Exception as e:
+                print(f"  ⚠ 打开 Post Settings 失败: {e}")
 
             # 7. 提取草稿链接（从 input 中找包含 /p/ 的链接）
             print("7. 提取草稿链接...")
@@ -346,20 +429,21 @@ def main():
             except Exception as e:
                 print(f"  ⚠ 提取草稿链接失败: {e}")
 
-            # 8. 关闭评论（通过 JS）
+            # 8. 关闭评论
+            # 选项行内含「New」角标，故 textContent 不等于 'No one (disable comments)'，
+            # 需用前缀匹配并点该 label 下的 radio。
             print("8. 配置评论设置...")
             try:
                 comments_result = page.evaluate('''() => {
-                    const els = document.querySelectorAll('label, div, span');
-                    for (const el of els) {
-                        if (el.textContent.trim() === 'No one (disable comments)') {
-                            el.click();
+                    for (const label of document.querySelectorAll('label')) {
+                        if ((label.innerText || '').trim().startsWith('No one (disable comments)')) {
+                            (label.querySelector('input[type=radio]') || label).click();
                             return 'disabled';
                         }
                     }
                     return 'not found';
                 }''')
-                page.wait_for_timeout(500)
+                page.wait_for_timeout(1200)
                 print(f"  ✓ 评论: {comments_result}")
             except Exception:
                 print("  ⚠ 评论设置跳过（可能已配置）")
@@ -380,6 +464,12 @@ def main():
             }''')
             print(f"💾 保存状态: {saved_indicator}")
 
+            # 11. 发布（默认；--draft-only 则停在草稿）
+            if draft_only:
+                print("\n⏭ --draft-only：跳过发布，草稿留在 Substack 后台")
+            else:
+                published_url = publish_post(page)
+
         except Exception as e:
             print(f"❌ 出错: {e}")
             try:
@@ -390,12 +480,20 @@ def main():
 
     # 输出结果
     print()
-    if draft_url:
+    if published_url and "substack.com/p/" in published_url and "publish" not in published_url:
+        print(f"🎯 已发布: {published_url}")
+        url_file = f"docs/tmp/{date_str}-substack-url.txt"
+        with open(url_file, "w") as f:
+            f.write(published_url)
+        print(f"  已写入 {url_file}")
+        print("  ⚠ 发布后请打开该链接复核一次（脚本只依据页面上的「Your post is live!」判断）")
+    elif draft_url:
         print(f"🎯 草稿链接: {draft_url}")
         url_file = f"docs/tmp/{date_str}-substack-url.txt"
         with open(url_file, "w") as f:
             f.write(draft_url)
         print(f"  已写入 {url_file}")
+        print("  📌 未确认发布成功：若已发布，请用草稿链接/后台核对线上地址")
     else:
         print(f"⚠️ 未能获取草稿链接")
         if post_edit_url:
