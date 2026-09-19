@@ -67,9 +67,9 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **167** |
-| 📝 **Total Articles** | **2022** |
-| 🚀 **Total Projects** | **1949** |
+| 📅 **Total Issues** | **168** |
+| 📝 **Total Articles** | **2034** |
+| 🚀 **Total Projects** | **1961** |
 | 🎵 **Total Audio/Video** | **136** |
 | 🔥 **Total Hot Topics** | **57** |
 | 📚 **Total Books** | **98** |
@@ -78,6 +78,8 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 ## 🦄 Past Issues
 
+- Issue 168: [AI Agents Write Half the Code; Numba at 750×; A Two-Week PyPI Outage](./docs/en/2026-09-19-weekly.md)
+  - Shared 12 articles, 12 open-source projects
 - Issue 167: [A Python Interpreter in 1024 Bytes](./docs/en/2026-09-12-weekly.md)
   - Shared 12 articles, 12 open-source projects
 - Issue 166: [How Kimi K3 Engineered Its Way to the Frontier](./docs/en/2026-09-05-weekly.md)
