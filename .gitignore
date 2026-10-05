@@ -1,21 +1,14 @@
 .env
-.idea
-resources/.DS_Store
 .DS_Store
 docs/tmp
 docs/en/tmp
 docs/en/summary
 landing-page/node_modules
 landing-page/.next
+.idea
 .vscode
 .trae
 .kiro
-*.pyc
-__pycache__/
-tmp/
-weekly_helper/
 .qoder
-.claude
-resources/.wechat_token_cache.json
-*.wechat.html
-logs
+# 本地防腐说明（工作台/agent 读物，不入公开仓历史）
+AGENTS.md
