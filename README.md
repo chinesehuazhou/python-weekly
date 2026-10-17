@@ -67,17 +67,19 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **170** |
-| 📝 **Total Articles** | **2059** |
-| 🚀 **Total Projects** | **1986** |
-| 🎵 **Total Audio/Video** | **138** |
-| 🔥 **Total Hot Topics** | **59** |
+| 📅 **Total Issues** | **171** |
+| 📝 **Total Articles** | **2071** |
+| 🚀 **Total Projects** | **1998** |
+| 🎵 **Total Audio/Video** | **139** |
+| 🔥 **Total Hot Topics** | **61** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 171: [Python 3.15 Is Released; Lazy Imports and frozendict Are Now Builtins](./docs/en/2026-10-17-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 1 audio/video, 2 hot discussions
 - Issue 170: [Python 3.15 Lazy Imports Land; Incremental GC and ?? Operator Target 3.16](./docs/en/2026-10-10-weekly.md)
   - Shared 13 articles, 13 open-source projects, 2 audio/videos, 2 hot discussions
 - Issue 169: [Fermat in 11 Days; Python Weighs an export Keyword; 3,000 Tools on One Key](./docs/en/2026-09-26-weekly.md)
