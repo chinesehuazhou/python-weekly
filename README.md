@@ -366,7 +366,7 @@ As we publish more issues, we'll gradually make earlier content freely available
   - Shared 10 articles, 10 open-source projects, 3 audio/videos
 - Issue 31: [After iOS, New PEP Proposes Adding Android as an Officially Supported Platform](./docs/en/2023-12-16-weekly.md)
   - Shared 13 articles, 12 open-source projects, 3 audio/videos
-- [Season 1 Collection](./docs/2023-12-11-weekly.md)
+- [Season 1 Collection](./docs/2023-12-11-sweekly.md)
   - Highlights from issues 1-30, totaling 62K words
 - Issue 30: [An Open Letter from the African Python Community to PSF](./docs/en/2023-12-09-weekly.md)
   - Shared 12 articles, 12 open-source projects
