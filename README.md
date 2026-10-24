@@ -67,17 +67,19 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **171** |
-| 📝 **Total Articles** | **2071** |
-| 🚀 **Total Projects** | **1998** |
+| 📅 **Total Issues** | **172** |
+| 📝 **Total Articles** | **2083** |
+| 🚀 **Total Projects** | **2010** |
 | 🎵 **Total Audio/Video** | **139** |
-| 🔥 **Total Hot Topics** | **61** |
+| 🔥 **Total Hot Topics** | **63** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 172: [CPython 3.15's JIT Finally Pays Off; Eight Algorithm Benchmarks Run 2.47x Faster Than CPython 2.7](./docs/en/2026-10-24-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 171: [Python 3.15 Is Released; Lazy Imports and frozendict Are Now Builtins](./docs/en/2026-10-17-weekly.md)
   - Shared 12 articles, 12 open-source projects, 1 audio/video, 2 hot discussions
 - Issue 170: [Python 3.15 Lazy Imports Land; Incremental GC and ?? Operator Target 3.16](./docs/en/2026-10-10-weekly.md)
