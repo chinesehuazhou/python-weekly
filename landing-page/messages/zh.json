@@ -53,7 +53,7 @@
       "xiaobot": {
         "name": "小报童",
         "description": "建议中国大陆读者选择",
-        "price": "¥133.2/年",
+        "price": "¥88/年",
         "originalPrice": "¥148/年",
         "discount": "限时特惠",
         "specialFeature": "💰 高额分销计划：推荐好友订阅可获得30%分销收益！",
@@ -69,7 +69,7 @@
       "afdian": {
         "name": "爱发电",
         "description": "建议港澳台和海外华人读者选择",
-        "price": "¥128/年",
+        "price": "¥88/年",
         "originalPrice": "¥148/年",
         "discount": "限时特惠",
         "features": {
@@ -116,7 +116,7 @@
       },
       {
         "question": "学生可以享受折扣吗？",
-        "answer": "学生半价优惠已在 100 期后结束，现在可以添加微信好友申请八折优惠（118元年费）。我们也会不定期推出限时优惠活动，关注公众号获取最新优惠信息。"
+        "answer": "学生半价优惠已在 100 期后结束，现在可以添加微信好友申请八折优惠（约70元年费）。我们也会不定期推出限时优惠活动，关注公众号获取最新优惠信息。"
       },
       {
         "question": "为什么周刊里有些链接打不开？",
@@ -132,7 +132,7 @@
       },
       {
         "question": "如何参与小报童专栏分销？不订阅也能分销吗？",
-        "answer": "是的！即使不订阅专栏也可以参与分销赚取收益。操作步骤：\n① 进入<a href=\"https://xiaobot.net/p/python_weekly\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline\">Python潮流周刊</a>专栏页面\n② 点击右下角的\"分享\"按钮\n③ 选择\"生成海报\"或\"复制链接\"\n④ 将海报/链接分享给朋友或在社交媒体推广\n⑤ 每成功推荐一位订阅者，你可获得30%的分销收益（最高约44元）"
+        "answer": "是的！即使不订阅专栏也可以参与分销赚取收益。操作步骤：\n① 进入<a href=\"https://xiaobot.net/p/python_weekly\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline\">Python潮流周刊</a>专栏页面\n② 点击右下角的\"分享\"按钮\n③ 选择\"生成海报\"或\"复制链接\"\n④ 将海报/链接分享给朋友或在社交媒体推广\n⑤ 每成功推荐一位订阅者，你可获得30%的分销收益（最高约26元）"
       }
     ]
   }
