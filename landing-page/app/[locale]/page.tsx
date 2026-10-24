@@ -8,6 +8,8 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import {setRequestLocale} from 'next-intl/server';
 import {locales} from '../../i18n';
+import {getLatestIssue} from '../../lib/latest-issue';
+import {getLandingCopy} from '../../lib/landing-copy';
 
 // 为静态导出生成所有语言参数
 export function generateStaticParams() {
@@ -23,20 +25,19 @@ export default async function HomePage({ params }: Props) {
   
   // Enable static rendering
   setRequestLocale(locale);
+  const issue = getLatestIssue(locale);
+  const copy = getLandingCopy(locale);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Header />
+    <div className="site">
+      <Header navLabels={copy.nav} />
       <main>
-        <HeroSection />
-        <FeaturesSection />
-        <LatestIssueSection />
-
+        <HeroSection issue={issue} copy={copy.hero} issueLabels={copy.issue} />
+        <FeaturesSection copy={copy.principles} />
+        <LatestIssueSection issue={issue} copy={copy.issueIndex} />
         <SubscriptionSection />
-
-        <SocialProofSection />
+        <SocialProofSection copy={copy.testimonials} />
         <FAQSection />
-
       </main>
       <Footer />
     </div>

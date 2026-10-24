@@ -114,6 +114,7 @@
         "question": "Quand supporterez-vous des plateformes d'abonnement comme Substack ?",
         "answer": "Actuellement, des plateformes comme Substack ne supportent que Stripe ou Paypal pour le traitement des paiements, ce qui présente des défis pour les créateurs individuels chinois en raison d'exigences de vérification d'identité peu amicales et de diverses restrictions de paiement. Je recherche activement des solutions à ces problèmes de traitement des paiements et mettrai rapidement à jour et étendrai vers de nouvelles plateformes une fois que des alternatives viables deviendront disponibles. Merci pour votre patience et votre soutien continu."
       }
-    ]
+    ],
+    "intro": "Les questions les plus fréquentes. Pour toute autre question, ouvrez une issue sur GitHub."
   }
 }

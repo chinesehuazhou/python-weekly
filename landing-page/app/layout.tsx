@@ -1,6 +1,7 @@
 import './globals.css';
 
 export const metadata = {
+  metadataBase: new URL('https://weekly.pythoncat.top'),
   title: 'Python Trending Weekly | Python Weekly Newsletter',
   description: 'A high-quality technical newsletter by PythonCat, carefully curating 400+ information sources in Chinese and English, providing Python developers with the most valuable articles, tutorials, open source projects, software tools and more.',
   keywords: 'Python, weekly, technology, developer, programming, tutorial, open source, Python newsletter, programming, developer, tutorial, open source',
@@ -48,7 +49,7 @@ export default function RootLayout({
   children
 }: RootLayoutProps) {
   return (
-    <html className="scroll-smooth" lang="en">
+    <html className="scroll-smooth">
       <body className="font-sans antialiased">
         {children}
       </body>

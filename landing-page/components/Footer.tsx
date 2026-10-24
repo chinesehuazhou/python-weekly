@@ -99,7 +99,7 @@ export default function Footer() {
                     <button
                       key={index}
                       onClick={() => setShowWechatModal(true)}
-                      className={`text-gray-400 ${social.color} transition-colors duration-200`}
+                      className="site-footer__social"
                       aria-label={social.name}
                     >
                       <Icon className="w-6 h-6" />
@@ -113,7 +113,7 @@ export default function Footer() {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-all duration-200 hover:scale-110 hover:drop-shadow-lg"
+                    className="site-footer__social"
                     aria-label={social.name}
                   >
                     {isPythonLink ? (

@@ -13,7 +13,7 @@ const nextConfig = {
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['react-icons', 'framer-motion'],
+    optimizePackageImports: ['react-icons'],
   },
   // 移除turbopack配置，因为我们已经在package.json中移除了--turbo参数
   // 如果需要启用turbopack，可以使用以下配置

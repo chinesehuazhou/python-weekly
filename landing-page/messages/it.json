@@ -114,7 +114,7 @@
         "question": "Quando supporterete piattaforme di abbonamento come Substack?",
         "answer": "Attualmente, piattaforme come Substack supportano solo Stripe o Paypal per l'elaborazione dei pagamenti, il che presenta sfide per i creatori individuali cinesi a causa di requisiti di verifica dell'identità poco amichevoli e varie restrizioni di pagamento. Sto attivamente ricercando soluzioni a questi problemi di elaborazione dei pagamenti e aggiornerò prontamente ed espanderò a nuove piattaforme una volta che alternative praticabili saranno disponibili. Grazie per la vostra pazienza e supporto continuo."
       }
-    ]
+    ],
+    "intro": "Le domande più frequenti. Se la tua non è qui, apri una issue su GitHub."
   }
- 
 }

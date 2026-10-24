@@ -16,10 +16,8 @@
 - **框架**: Next.js 15 (App Router)
 - **语言**: TypeScript (ES2022)
 - **样式**: Tailwind CSS, PostCSS
-- **动画**: Framer Motion
 - **国际化**: next-intl
 - **图标**: React Icons
-- **内容解析**: react-markdown, remark-gfm
 - **打包分析**: webpack-bundle-analyzer
 - **代码规范**: ESLint, Prettier
 
@@ -120,4 +118,4 @@ landing-page/
 - `xl`: 1280px+
 - `2xl`: 1536px+
 
-**Python 潮流周刊** - 由 Python猫 出品的高质量技术周刊，发布地址：https://weekly.pythoncat.org
+**Python 潮流周刊** - 由 Python猫 出品的高质量技术周刊，发布地址：https://weekly.pythoncat.top

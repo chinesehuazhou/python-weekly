@@ -29,7 +29,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
   
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) {
+  if (!(locales as readonly string[]).includes(locale)) {
     notFound();
   }
 
@@ -59,7 +59,7 @@ export default async function LocaleLayout({
       />
       
       <NextIntlClientProvider locale={locale} messages={messages} timeZone="Asia/Shanghai">
-        {children}
+        <div lang={locale === 'zh-TW' ? 'zh-Hant' : locale}>{children}</div>
       </NextIntlClientProvider>
     </>
   );

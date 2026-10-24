@@ -23,7 +23,15 @@ const languageOptions = [
   { code: 'pt', name: 'Português', flag: '🇵🇹' },
 ];
 
-export default function Header() {
+type HeaderProps = {
+  navLabels: {
+    why: string;
+    pricing: string;
+    faq: string;
+  };
+};
+
+export default function Header({navLabels}: HeaderProps) {
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
@@ -31,6 +39,10 @@ export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const languageDropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.documentElement.lang = locale === 'zh-TW' ? 'zh-Hant' : locale;
+  }, [locale]);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -106,12 +118,12 @@ export default function Header() {
   const currentLanguage = languageOptions.find(lang => lang.code === locale) ?? languageOptions[0]!;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <header className="site-header">
+      <div className="shell site-header__inner">
+        <div className="site-header__bar">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center space-x-2">
-            <div className="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center">
+          <Link href={`/${locale}`} className="site-header__brand">
+            <div className="site-header__logo">
               <Image
                 src="/logo_python_weekly.svg"
                 alt="Python Weekly Logo"
@@ -122,41 +134,47 @@ export default function Header() {
                 unoptimized
               />
             </div>
-            <span className="font-bold text-xl text-gray-900 dark:text-white hidden md:inline">
+            <span className="site-header__name">
               {t('siteName')}
             </span>
           </Link>
 
+          <nav className="site-header__nav" aria-label="Primary navigation">
+            <a href="#principles-title">{navLabels.why}</a>
+            <a href="#subscription">{navLabels.pricing}</a>
+            <a href="#faq">{navLabels.faq}</a>
+          </nav>
+
           {/* Controls */}
-          <div className="flex items-center space-x-3">
+          <div className="site-header__controls">
             {/* Language Dropdown */}
-            <div className="relative" ref={languageDropdownRef}>
+            <div className="site-header__dropdown" ref={languageDropdownRef}>
               <button
                 onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-                className="flex items-center p-2 text-gray-700 dark:text-gray-300 hover:text-python-blue dark:hover:text-python-blue transition-colors duration-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="site-header__control"
                 aria-label="Select language"
               >
                 <FaGlobeAmericas className="w-5 h-5 text-blue-500" />
-                <span className="ml-1 text-sm font-medium hidden sm:inline">{currentLanguage?.name ?? '简体中文'}</span>
-                <HiChevronDown className={`w-3 h-3 ml-1 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
+                <span className="site-header__locale">{currentLanguage?.name ?? '简体中文'}</span>
+                <HiChevronDown className={`site-header__chevron ${isLanguageDropdownOpen ? 'is-open' : ''}`} />
               </button>
               
               {isLanguageDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50">
+                <div className="site-header__menu">
                   {languageOptions.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => switchLanguage(lang.code)}
-                      className={`w-full flex items-center px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200 ${
+                      className={`site-header__menu-item ${
                         locale === lang.code 
-                          ? 'text-python-blue bg-blue-50 dark:bg-blue-900/20' 
-                          : 'text-gray-700 dark:text-gray-300'
+                          ? 'is-current'
+                          : ''
                       }`}
                     >
-                      <span className="mr-2">{lang.flag}</span>
+                      <span className="site-header__flag">{lang.flag}</span>
                       <span>{lang.name}</span>
                       {locale === lang.code && (
-                        <span className="ml-auto text-python-blue">✓</span>
+                        <span className="site-header__check">✓</span>
                       )}
                     </button>
                   ))}
@@ -167,7 +185,7 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-python-blue dark:hover:text-python-blue transition-colors duration-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="site-header__control"
               aria-label="Toggle theme"
             >
               {isDarkMode ? <HiSun className="w-5 h-5 text-yellow-500" /> : <HiMoon className="w-5 h-5 text-blue-400" />}

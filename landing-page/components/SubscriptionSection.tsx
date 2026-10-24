@@ -1,7 +1,6 @@
 'use client';
 
 import { useTranslations, useLocale } from '../hooks/useTranslations';
-import { motion } from 'framer-motion';
 import { FaCrown, FaHeart, FaStar, FaCheck } from 'react-icons/fa';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
@@ -133,65 +132,48 @@ export default function SubscriptionSection() {
   ];
 
   return (
-    <section id="subscription" ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50/80 via-slate-100/60 to-blue-50/70 dark:from-gray-900 dark:to-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+    <section id="subscription" ref={sectionRef} className="subscription">
+      <div className="shell">
+        <div className="section-heading section-heading--row subscription__heading">
+          <div>
+            <p className="section-kicker">SUBSCRIBE</p>
+            <h2>
             {t('subscription.title')}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-python-blue to-deep-green mx-auto rounded-full"></div>
-        </motion.div>
+          </div>
+          <p>
+            选一个适合你的付款方式。两档内容一致，区别只在登录与支付渠道。
+          </p>
+        </div>
 
-        <div className="max-w-6xl mx-auto">
-          {/* Premium Subscription */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className={`grid gap-6 sm:gap-8 ${premiumOptions.length === 1 ? 'justify-center' : 'lg:grid-cols-2'} px-4 sm:px-0`}>
+        <div className={`subscription__grid${premiumOptions.length === 1 ? ' subscription__grid--single' : ''}`}>
                   {premiumOptions.map((option, index) => {
                     const Icon = option.icon;
                     const platformId = option.url.includes('xiaobot') ? 'xiaobot' : option.url.includes('afdian') ? 'afdian' : 'patreon';
                     const isHighlighted = highlightTarget === platformId;
                     return (
-                      <motion.a
+                      <a
                         key={index}
                         id={platformId}
                         href={option.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`block p-6 sm:p-12 rounded-3xl transition-all duration-300 transform hover:scale-105 relative min-h-[400px] flex flex-col scroll-mt-28 ${
-                          premiumOptions.length === 1 ? 'max-w-md mx-auto w-full' : ''
-                        } ${
+                        className={`subscription__card ${
                           option.featured
-                            ? 'bg-white text-gray-900 shadow-xl ring-2 ring-yellow-400'
-                            : 'bg-white text-gray-900 shadow-lg hover:shadow-xl'
+                            ? 'is-featured'
+                            : ''
                         } ${
-                          isHighlighted ? 'ring-4 ring-yellow-400 shadow-2xl animate-pulse' : ''
+                          isHighlighted ? 'is-highlighted' : ''
                         }`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        animate={isHighlighted ? { scale: [1, 1.03, 1] } : {}}
-                        transition={isHighlighted ? { repeat: Infinity, duration: 1.5 } : {}}
                       >
                         {option.featured && (
-                          <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                            <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                              {t('subscription.recommended')}
-                            </div>
+                          <div className="subscription__badge">
+                            {t('subscription.recommended')}
                           </div>
                         )}
                         
-                        <div className="flex items-center mb-6">
-                          <div className={`w-12 h-12 bg-white rounded-lg flex items-center justify-center mr-4 shadow-sm`}>
+                        <div className="subscription__platform">
+                          <div className="subscription__logo">
                             {option.logoUrl ? (
                               <Image 
                                 src={option.logoUrl} 
@@ -212,53 +194,45 @@ export default function SubscriptionSection() {
                             <Icon className={`w-8 h-8 text-gray-600 ${option.logoUrl ? 'hidden' : 'block'}`} />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-semibold text-lg sm:text-xl">{option.name}</h4>
-                            <p className={`text-xs sm:text-sm ${
-                              option.featured ? 'text-gray-600' : 'text-gray-600'
-                            }`}>
+                            <h3>{option.name}</h3>
+                            <p>
                               {option.description}
                             </p>
                           </div>
                         </div>
 
-                        <div className="mb-6">
-                          <div className="flex items-baseline">
-                            <span className={`text-3xl font-bold ${
-                              option.featured ? 'text-gray-900' : 'text-gray-900'
-                            }`}>
+                        <div className="subscription__price">
+                          <div>
+                            <span className="subscription__amount">
                               {option.price}
                             </span>
                             {option.originalPrice && (
-                              <span className={`ml-3 text-xl line-through ${
-                                option.featured ? 'text-gray-500' : 'text-gray-500'
-                              }`}>
+                              <span className="subscription__original">
                                 {option.originalPrice}
                               </span>
                             )}
                           </div>
                           {option.discount && (
-                            <div className="mt-2">
-                              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            <div>
+                              <span className="subscription__discount">
                                 🎉 {option.discount}
                               </span>
                             </div>
                           )}
                           {option.specialFeature && (
-                            <div className="mt-3 p-3 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg">
-                              <div className="text-sm font-medium text-orange-800">
+                            <div className="subscription__special">
+                              <div>
                                 {option.specialFeature}
                               </div>
                             </div>
                           )}
                         </div>
 
-                        <ul className="space-y-3 flex-1 mb-6">
+                        <ul className="subscription__features">
                           {option.features.map((feature, featureIndex) => (
-                            <li key={featureIndex} className="flex items-start text-sm sm:text-base">
-                              <FaCheck className={`w-4 h-4 sm:w-5 sm:h-5 mr-3 mt-0.5 flex-shrink-0 ${
-                                option.featured ? 'text-green-600' : 'text-green-400'
-                              }`} />
-                              <span className={`${option.featured ? 'text-gray-700' : 'text-gray-700'} leading-relaxed`}>
+                            <li key={featureIndex}>
+                              <FaCheck aria-hidden="true" />
+                              <span>
                                 {feature}
                               </span>
                             </li>
@@ -266,29 +240,19 @@ export default function SubscriptionSection() {
                         </ul>
                         
                         {/* Call-to-Action Button */}
-                        <div className="mt-auto">
-                          <div className={`w-full py-3 px-6 rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 ${
-                            option.featured 
-                              ? 'bg-gradient-to-r from-python-blue to-deep-green text-white shadow-lg hover:shadow-xl' 
-                              : 'bg-gradient-to-r from-gray-800 to-gray-900 text-white hover:from-gray-700 hover:to-gray-800 shadow-md hover:shadow-lg'
-                          }`}>
-                            <span className="flex items-center justify-center">
+                        <div className="subscription__cta-wrap">
+                          <div className="subscription__cta">
+                            <span>
                               {option.featured && <FaCrown className="w-4 h-4 mr-2" />}
                               {t('subscription.cta.button')}
-                              <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                              </svg>
+                              <span aria-hidden="true">→</span>
                             </span>
                           </div>
                         </div>
-                      </motion.a>
+                      </a>
                     );
                   })}
-            </div>
-          </motion.div>
         </div>
-
-
       </div>
     </section>
   );

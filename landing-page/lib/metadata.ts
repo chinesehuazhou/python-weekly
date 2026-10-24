@@ -38,6 +38,7 @@ export async function generateMetadata(locale: string): Promise<Metadata> {
   const currentUrl = locale === 'zh' ? baseUrl : `${baseUrl}/${locale}`;
   
   return {
+    metadataBase: new URL(baseUrl),
     title: messages.siteName,
     description: messages.footerDescription,
     keywords: locale === 'en' 
