@@ -1,81 +1,61 @@
-import type { LatestIssue } from '../lib/latest-issue';
-import LatestIssueCard from './LatestIssueCard';
+import type {SiteStats} from '../lib/stats';
 
 type HeroCopy = {
-  eyebrow: string;
   title: string[];
-  lede: string;
+  tagline: string;
+  description: string;
   subscribe: string;
-  preview: string;
-  proof: string[][];
+  sample: string;
+  stats: {
+    issues: string;
+    articles: string;
+    projects: string;
+    media: string;
+  };
 };
 
-type IssueLabels = {
-  latest: string;
-  articles: string;
-  projects: string;
-  readFull: string;
-};
-
-type HeroSectionProps = {
-  issue: LatestIssue;
-  copy: HeroCopy;
-  issueLabels: IssueLabels;
-};
-
-export default function HeroSection({
-  issue,
-  copy,
-  issueLabels,
-}: HeroSectionProps) {
-  const proof = copy.proof.map(([label, value], index) => ({
-    label,
-    value: index === 0 && !value ? String(issue.number) : value,
-  }));
+// 首屏只讲「这是什么」和「有多大」，不再塞一张本期卡片：
+// 2026-10-25 用户定稿——卡片放这里既和下面的样例区重复，又因为最新一期是付费内容而点不进去。
+export default function HeroSection({copy, stats}: {copy: HeroCopy; stats: SiteStats}) {
+  const numbers = [
+    {label: copy.stats.issues, value: stats.issues},
+    {label: copy.stats.articles, value: stats.articles},
+    {label: copy.stats.projects, value: stats.projects},
+    {label: copy.stats.media, value: stats.media},
+  ];
 
   return (
     <section className="hero">
       <div className="hero__glow" aria-hidden="true" />
-      <div className="shell hero__grid">
+      <div className="shell">
         <div className="hero__copy">
-          <p className="hero__eyebrow">
-            <span className="hero__pulse" aria-hidden="true" />
-            {copy.eyebrow}
-          </p>
-
           <h1 className="hero__title">
             {copy.title[0]}
             <br />
             {copy.title[1]}
           </h1>
 
-          <p className="hero__lede">{copy.lede}</p>
+          <p className="hero__tagline">{copy.tagline}</p>
+          <p className="hero__lede">{copy.description}</p>
 
           <div className="hero__actions">
             <a className="button button--primary" href="#subscription">
               {copy.subscribe}
               <span aria-hidden="true">→</span>
             </a>
-            <a className="text-link" href={`#issue-${issue.number}`}>
-              {copy.preview}
+            <a className="text-link" href="#sample">
+              {copy.sample}
             </a>
           </div>
-
-          <dl className="hero__proof">
-            {proof.map((item) => (
-              <div key={item.label}>
-                <dt>{item.label}</dt>
-                <dd>{item.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        <div id={`issue-${issue.number}`} className="hero__issue">
-          <LatestIssueCard
-            issue={issue}
-            labels={issueLabels}
-          />
+        <div className="hero__stats">
+          {numbers.map((item) => (
+            <div key={item.label} className="hero__stat">
+              <span className="hero__stat-label">{item.label}</span>
+              <span className="hero__stat-value">{item.value.toLocaleString('en-US')}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

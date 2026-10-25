@@ -10,9 +10,8 @@ interface FAQ {
   answer: string;
 }
 
-export default function FAQSection() {
+export default function FAQSection({kicker}: {kicker: string}) {
   const t = useTranslations('FAQ');
-  const intro = t('intro');
   
   // 从国际化文件中获取FAQ数据
   const faqItems = t.raw('items') as Array<{question: string; answer: string}> || [];
@@ -22,9 +21,9 @@ export default function FAQSection() {
     answer: item.answer
   }));
   
-  // 首屏后的 FAQ 只展开最关键的定价问题，避免十条长答案把页面拖成文档。
+  // 2026-10-25 用户定稿：默认全部展开（此前只展开定价那一条，其余要逐条点）。
   const [openItems, setOpenItems] = useState<number[]>(() =>
-    faqs.length > 2 ? [faqs[2]!.id] : faqs.map((faq) => faq.id),
+    faqs.map((faq) => faq.id),
   );
 
   const toggleItem = (id: number) => {
@@ -40,11 +39,10 @@ export default function FAQSection() {
       <div className="shell faq__grid">
         {/* 标题 */}
         <div className="faq__intro">
-          <p className="section-kicker">BEFORE YOU SUBSCRIBE</p>
+          <p className="section-kicker">{kicker}</p>
           <h2>
             {t('title')}
           </h2>
-          <p>{intro}</p>
         </div>
 
         {/* FAQ 列表 */}

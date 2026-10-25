@@ -140,7 +140,7 @@ export default function Header({navLabels}: HeaderProps) {
           </Link>
 
           <nav className="site-header__nav" aria-label="Primary navigation">
-            <a href="#principles-title">{navLabels.why}</a>
+            <a href="#why">{navLabels.why}</a>
             <a href="#subscription">{navLabels.pricing}</a>
             <a href="#faq">{navLabels.faq}</a>
           </nav>

@@ -7,7 +7,6 @@
 - **现代化设计**: 使用 Tailwind CSS 构建的响应式设计
 - **国际化支持**: 支持中文和英文双语切换
 - **深色模式**: 完整的深色/浅色主题支持
-- **动画效果**: 使用 Framer Motion 实现流畅的动画
 - **性能优化**: 基于 Next.js 15 的静态站点生成
 - **SEO 友好**: 完整的 meta 标签和支持多语言的 Open Graph 图片
 
@@ -69,27 +68,26 @@ landing-page/
 │   └── sitemap.xml/       # 网站地图
 ├── components/            # React 组件
 │   ├── Header.tsx         # 导航栏
-│   ├── HeroSection.tsx    # 英雄区域
-│   ├── FeaturesSection.tsx # 特性展示
+│   ├── HeroSection.tsx    # 首屏：价值主张 + 累计体量
+│   ├── WhySection.tsx     # 六条理由
+│   ├── SampleIssueSection.tsx # 第 100 期全文样例
+│   ├── SocialProofSection.tsx # 读者留言截图（可点开大图）
 │   ├── SubscriptionSection.tsx # 订阅转化
-│   ├── LatestIssueSection.tsx # 最新期刊展示
 │   ├── FAQSection.tsx     # 常见问题
-│   ├── SocialProofSection.tsx # 社交证明
 │   └── Footer.tsx         # 页脚
-├── messages/              # 国际化文本
-│   ├── zh.json           # 简体中文
-│   ├── zh-TW.json        # 繁体中文
-│   └── en.json           # 英文
+├── messages/              # 各语言的通用文案（站名、页脚、价格、FAQ）
 ├── public/               # 静态资源
-│   ├── docs/             # 示例文档
-│   │   ├── example_zh.md # 中文示例周刊
-│   │   └── example_en.md # 英文示例周刊
+│   ├── stats.json        # 累计期数/文章/项目/音视频，随发刊更新
+│   ├── testimonials/     # 读者留言截图（自持，不热链图床）
 │   ├── logo_pythonlink.svg # Logo 文件
-│   ├── python_cat.jpg    # 作者头像
 │   └── wechat_pythoncat.jpg # 微信二维码
 ├── i18n/                 # 国际化配置
 │   └── request.ts        # next-intl 请求配置
-├── lib/                  # 工具库 (例如 `metadata.ts`)
+├── lib/                  # 数据与文案
+│   ├── landing-copy.ts   # 首页文案唯一来源（中/英）
+│   ├── sample-issue.ts   # 解析第 100 期全文
+│   ├── inline-markdown.tsx # 正文行内标记渲染（链接/代码/加粗）
+│   └── stats.ts          # 读 public/stats.json
 ├── i18n.ts              # 国际化主配置
 ├── middleware.ts        # 中间件
 ├── next.config.js       # Next.js 配置 (包含静态导出 `output: 'export'`)
@@ -106,7 +104,18 @@ landing-page/
 - 繁体中文: `/zh-TW`
 - 英文: `/en`
 
-语言文件位于 `messages/` 目录下，可以通过修改这些文件来更新文本内容。示例周刊内容位于 `public/docs/` 目录，根据用户语言自动加载对应的示例文件。
+首页的营销文案在 `lib/landing-copy.ts`（目前只有中英两套，其余语言回落英文）；
+站名、页脚、价格、FAQ 等通用文案在 `messages/`。
+
+## 📄 样例期为什么固定在第 100 期
+
+样例区（`lib/sample-issue.ts`）固定渲染 `docs/2025-05-03-weekly.md` 的全文：
+
+- 最新一期是付费内容，首页给不出可点的全文；
+- 若跟着最新一期走，每发一期都要重建一次 landing，维护成本不对等；
+- 第 100 期发布已满一年，按 FAQ 里的承诺全文免费公开。
+
+换期只改 `lib/sample-issue.ts` 顶部的两个常量，期数不符会在构建时抛错。
 
 ## 📱 响应式设计
 

@@ -5,7 +5,13 @@ import { FaCrown, FaHeart, FaStar, FaCheck } from 'react-icons/fa';
 import Image from 'next/image';
 import { useEffect, useState, useRef } from 'react';
 
-export default function SubscriptionSection() {
+type SubscriptionCopy = {
+  kicker: string;
+  introMulti: string;
+  introSingle: string;
+};
+
+export default function SubscriptionSection({copy}: {copy: SubscriptionCopy}) {
   const [highlightTarget, setHighlightTarget] = useState<string | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const t = useTranslations();
@@ -136,13 +142,13 @@ export default function SubscriptionSection() {
       <div className="shell">
         <div className="section-heading section-heading--row subscription__heading">
           <div>
-            <p className="section-kicker">SUBSCRIBE</p>
+            <p className="section-kicker">{copy.kicker}</p>
             <h2>
             {t('subscription.title')}
           </h2>
           </div>
           <p>
-            选一个适合你的付款方式。两档内容一致，区别只在登录与支付渠道。
+            {premiumOptions.length > 1 ? copy.introMulti : copy.introSingle}
           </p>
         </div>
 

@@ -51,20 +51,20 @@
     "title": "Subscribe to Python Trending Weekly",
     "platforms": {
       "patreon": {
-      "monthly": {
-        "name": "Patreon Monthly",
-        "description": "Support Python Weekly with monthly subscription",
-        "price": "$4.99/month",
-        "originalPrice": "$6.99/month",
-        "features": {
-          "0": "Complete weekly content (approximately 50 issues, 80,000 words)",
-          "1": "Exquisite e-books every 30 issues (EPUB/PDF/Markdown)",
-          "2": "Ad-free experience",
-          "3": "Exclusive resources",
-          "4": "Community access"
+        "monthly": {
+          "name": "Patreon Monthly",
+          "description": "Support Python Weekly with monthly subscription",
+          "price": "$4.99/month",
+          "originalPrice": "$6.99/month",
+          "features": {
+            "0": "Complete weekly content (approximately 50 issues, 80,000 words)",
+            "1": "Exquisite e-books every 30 issues (EPUB/PDF/Markdown)",
+            "2": "Ad-free experience",
+            "3": "Exclusive resources",
+            "4": "Community access"
+          }
         }
       }
-    }
     },
     "recommended": "Recommended",
     "cta": {
@@ -77,7 +77,6 @@
   },
   "FAQ": {
     "title": "Frequently Asked Questions",
-    "intro": "The questions that come up most often. If yours is not here, open an issue on GitHub.",
     "items": [
       {
         "question": "Can you guarantee stable publication? When is it updated?",
@@ -117,5 +116,4 @@
       }
     ]
   }
-
 }
