@@ -36,13 +36,13 @@ export default function FAQSection({kicker}: {kicker: string}) {
 
   return (
     <section id="faq" className="faq">
-      <div className="shell faq__grid">
-        {/* 标题 */}
-        <div className="faq__intro">
+      <div className="shell">
+        {/* 标题通栏，列表接在下面。
+            2026-10-25 用户反馈：原来「标题钉在左栏、列表在右栏」的两栏布局，
+            在导语被删掉后左栏只剩两个小行，宽屏下就是一片空白。 */}
+        <div className="section-heading">
           <p className="section-kicker">{kicker}</p>
-          <h2>
-            {t('title')}
-          </h2>
+          <h2>{t('title')}</h2>
         </div>
 
         {/* FAQ 列表 */}

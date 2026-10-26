@@ -557,10 +557,6 @@ img { max-width: 100%; }
 
 /* FAQ */
 .faq { padding: 112px 0; border-bottom: 1px solid var(--line); }
-.faq__grid { display: grid; grid-template-columns: minmax(240px, .65fr) minmax(0, 1.35fr); gap: 72px; align-items: start; }
-.faq__intro { position: sticky; top: 32px; }
-.faq__intro h2 { margin: 14px 0 18px; font-family: var(--serif); font-size: clamp(38px, 4vw, 58px); line-height: 1; letter-spacing: -.045em; font-weight: 500; }
-.faq__intro > p:last-child { margin: 0; font-size: 15px; line-height: 1.7; color: var(--ink-soft); }
 .faq__list { border-top: 1px solid var(--ink); }
 .faq__item { border-bottom: 1px solid var(--line); }
 .faq__question {
@@ -601,8 +597,6 @@ img { max-width: 100%; }
   .principles__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .testimonials__grid { grid-template-columns: 1fr; }
   .subscription__grid { grid-template-columns: 1fr; }
-  .faq__grid { grid-template-columns: 1fr; gap: 36px; }
-  .faq__intro { position: static; }
 }
 
 @media (max-width: 640px) {
@@ -639,7 +633,6 @@ img { max-width: 100%; }
   .issue__item > a { font-size: 17px; }
   .subscription__card { padding: 24px; }
   .subscription__amount { font-size: 40px; }
-  .faq__intro h2 { font-size: 42px; }
   .faq__question { font-size: 15px; }
 }
 
