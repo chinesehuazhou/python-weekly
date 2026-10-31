@@ -67,17 +67,19 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **172** |
-| 📝 **Total Articles** | **2083** |
-| 🚀 **Total Projects** | **2010** |
+| 📅 **Total Issues** | **173** |
+| 📝 **Total Articles** | **2095** |
+| 🚀 **Total Projects** | **2022** |
 | 🎵 **Total Audio/Video** | **139** |
-| 🔥 **Total Hot Topics** | **63** |
+| 🔥 **Total Hot Topics** | **65** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 173: [Guido-Sponsored PEP 823 Proposes ?. and ?[] for Python 3.16](./docs/en/2026-10-31-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 172: [CPython 3.15's JIT Finally Pays Off; Eight Algorithm Benchmarks Run 2.47x Faster Than CPython 2.7](./docs/en/2026-10-24-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 171: [Python 3.15 Is Released; Lazy Imports and frozendict Are Now Builtins](./docs/en/2026-10-17-weekly.md)
