@@ -67,17 +67,19 @@ As we publish more issues, we'll gradually make earlier content freely available
 
 | 📈 Statistics | 📊 Count |
 |:---:|:---:|
-| 📅 **Total Issues** | **173** |
-| 📝 **Total Articles** | **2095** |
-| 🚀 **Total Projects** | **2022** |
+| 📅 **Total Issues** | **174** |
+| 📝 **Total Articles** | **2107** |
+| 🚀 **Total Projects** | **2034** |
 | 🎵 **Total Audio/Video** | **139** |
-| 🔥 **Total Hot Topics** | **65** |
+| 🔥 **Total Hot Topics** | **67** |
 | 📚 **Total Books** | **98** |
 
 </div>
 
 ## 🦄 Past Issues
 
+- Issue 174: [CPython Experimental JIT to Be Removed; PEP 836 Withdrawn](./docs/en/2026-11-07-weekly.md)
+  - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 173: [Guido-Sponsored PEP 823 Proposes ?. and ?[] for Python 3.16](./docs/en/2026-10-31-weekly.md)
   - Shared 12 articles, 12 open-source projects, 2 hot discussions
 - Issue 172: [CPython 3.15's JIT Finally Pays Off; Eight Algorithm Benchmarks Run 2.47x Faster Than CPython 2.7](./docs/en/2026-10-24-weekly.md)
